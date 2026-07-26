@@ -1,0 +1,49 @@
+name: name_casertano
+
+services:
+  api:
+    build:
+      context: api
+      dockerfile: Dockerfile
+
+    environment:
+      - SMTP_HOST
+      - SMTP_PORT
+      - SMTP_SECURE
+      - SMTP_USER
+      - SMTP_PASS
+      - TO_EMAIL
+      - TURNSTILE_SECRET_KEY
+
+    ports:
+      - "3008:3001"
+
+    restart: unless-stopped
+
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_TURNSTILE_SITE_KEY
+
+    depends_on:
+      - api
+
+    environment:
+      - NODE_ENV=production
+
+    ports:
+      - "8081:80"
+
+    restart: unless-stopped
+
+    deploy:
+      resources:
+        limits:
+          memory: 256M

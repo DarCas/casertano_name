@@ -1,0 +1,252 @@
+/*
+ * Dario Casertano <dario@casertano.name>
+ * Copyright (c) 2026 Casertano Dario – All rights reserved.
+ * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: #0A0A0B;
+    --foreground: #EDEDEF;
+    --text-secondary: #888890;
+    --accent: #6C63FF;
+    --accent-secondary: #00D4AA;
+    --surface: #141416;
+    --surface-hover: #1E1E22;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0A0A0B;
+        --foreground: #EDEDEF;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: "Plus Jakarta Sans", sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--background);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.03;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.02) 2px,
+        rgba(255, 255, 255, 0.02) 4px
+    );
+}
+
+.bg-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.18;
+    will-change: transform;
+}
+
+.bg-orb.orb1 {
+    width: 500px;
+    height: 500px;
+    background: var(--accent);
+    top: -10%;
+    left: -5%;
+    animation: orbF1 20s ease-in-out infinite;
+}
+
+.bg-orb.orb2 {
+    width: 400px;
+    height: 400px;
+    background: var(--accent-secondary);
+    bottom: -5%;
+    right: -5%;
+    animation: orbF2 25s ease-in-out infinite;
+}
+
+.bg-orb.orb3 {
+    width: 300px;
+    height: 300px;
+    background: #FF6B6B;
+    top: 40%;
+    left: 60%;
+    animation: orbF3 18s ease-in-out infinite;
+    opacity: 0.1;
+}
+
+@keyframes orbF1 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(80px, 60px) scale(1.15);
+    }
+    66% {
+        transform: translate(-40px, 100px) scale(0.9);
+    }
+}
+
+@keyframes orbF2 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(-60px, -80px) scale(1.1);
+    }
+    66% {
+        transform: translate(50px, -40px) scale(0.95);
+    }
+}
+
+@keyframes orbF3 {
+    0%, 100% {
+        transform: translate(0, 0) scale(0.9);
+    }
+    50% {
+        transform: translate(-80px, 50px) scale(1.1);
+    }
+}
+
+#progetti, #skills, #contatti {
+    padding-bottom: 40px;
+}
+
+#skills .lbl {
+    display: block;
+    margin-top: 120px;
+    padding-top: 40px;
+    border-top: 2px solid rgba(255, 255, 255, 0.12);
+}
+
+
+@keyframes tagGlow {
+  0%, 100% {
+    border-color: rgba(108, 99, 255, 0.15);
+    box-shadow: 0 0 0 transparent;
+  }
+  50% {
+    border-color: rgba(0, 212, 170, 0.35);
+    box-shadow: 0 0 8px rgba(0, 212, 170, 0.12);
+  }
+}
+
+@keyframes tagHeroGlow {
+  0%, 100% {
+    border-color: rgba(0, 212, 170, 0.15);
+    box-shadow: 0 0 0 transparent;
+  }
+  50% {
+    border-color: rgba(108, 99, 255, 0.4);
+    box-shadow: 0 0 10px rgba(108, 99, 255, 0.2);
+  }
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.97) }
+  to { opacity: 1; transform: translateY(0) scale(1) }
+}
+
+.animate-modalBackdrop {
+  animation: modalFadeIn 200ms ease-out;
+}
+
+.animate-modalContent {
+  animation: modalSlideUp 300ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bg-orb,
+    .scanlines {
+        animation: none !important;
+        display: none;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .animate-tagGlow,
+    .animate-tagHeroGlow,
+    .animate-modalBackdrop,
+    .animate-modalContent {
+        animation: none !important;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0A0A0B;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6C63FF;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7B73FF;
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #6C63FF #0A0A0B;
+}

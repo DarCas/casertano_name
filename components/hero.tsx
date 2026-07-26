@@ -1,0 +1,89 @@
+/*
+ * Dario Casertano <dario@casertano.name>
+ * Copyright (c) 2026 Casertano Dario – All rights reserved.
+ * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
+ */
+
+"use client"
+
+import {useState, useEffect} from "react"
+import {categories} from "@/components/skills"
+
+function hashDelay(s: string): number {
+  let h = 0
+  for (let i = 0; i < s.length; i++) h = ((h << 5) - h + s.charCodeAt(i)) | 0
+  return (Math.abs(h) % 200) / 100
+}
+
+const skills = [
+  "Node.js", "TypeScript", "Vue.js", "PHP",
+  "Laravel", "PostgreSQL", "Solidity", "Express.js",
+  "Agentic AI", "LangChain", "Docker", "PWA",
+]
+
+export function Hero() {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => setVisible(true), 100)
+  }, [])
+
+  return (
+    <section id="hero" className="hero min-h-screen flex justify-center items-center flex-col text-center px-8 pt-[120px] pb-[60px] relative scroll-mt-[72px]">
+      <span
+        className={`font-mono text-xs text-accent tracking-[0.08em] mb-4 transition-opacity duration-700 ${visible ? "opacity-100" : "opacity-0"}`}
+      >
+        // senior_full_stack_engineer
+      </span>
+      <h1
+        className={`select-none font-mono text-[clamp(1.5rem,4.5vw,3.2rem)] font-semibold leading-[1.15] mb-5 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+      >
+        Dario <span className="text-accent-secondary">Casertano</span>
+      </h1>
+      <p
+        className={`max-w-[620px] text-[clamp(0.95rem,1.4vw,1.15rem)] text-text-secondary leading-[1.7] mb-9 transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+      >
+        Sistemi distribuiti, agenti AI, automazione industriale. Full stack su backend, frontend e real-time &mdash; dalla progettazione al deploy.
+      </p>
+      <div
+        className={`select-none flex flex-wrap justify-center gap-3 mb-9 transition-all duration-700 delay-250 ${visible ? "opacity-100" : "opacity-0"}`}
+      >
+        <span className="inline-flex font-mono text-[0.65rem] leading-none overflow-hidden rounded-[3px]">
+          <span className="bg-white/[0.1] text-text-secondary/[0.7] px-2 py-[5px]">experience</span>
+          <span className="bg-amber-400 text-bg px-2 py-[5px]">15+ years</span>
+        </span>
+        <span className="inline-flex font-mono text-[0.65rem] leading-none overflow-hidden rounded-[3px]">
+          <span className="bg-white/[0.1] text-text-secondary/[0.7] px-2 py-[5px]">stack</span>
+          <span className="bg-accent text-bg px-2 py-[5px]">full stack · ai · automation</span>
+        </span>
+        <span className="inline-flex font-mono text-[0.65rem] leading-none overflow-hidden rounded-[3px]">
+          <span className="bg-white/[0.1] text-text-secondary/[0.7] px-2 py-[5px]">skills</span>
+          <span className="bg-emerald-400 text-bg px-2 py-[5px]">{categories.reduce((a, c) => a + c.items.length, 0)}+</span>
+        </span>
+        <span className="inline-flex font-mono text-[0.65rem] leading-none overflow-hidden rounded-[3px]">
+          <span className="bg-white/[0.1] text-text-secondary/[0.7] px-2 py-[5px]">coffee</span>
+          <span className="bg-rose-400 text-bg px-2 py-[5px]">required</span>
+        </span>
+      </div>
+      <div
+        className={`flex flex-wrap justify-center gap-[10px] max-w-[680px] transition-all duration-700 delay-300 ${visible ? "opacity-100" : "opacity-0"}`}
+      >
+        {skills.map((s) => (
+          <span
+            key={s}
+            className="font-mono text-[0.65rem] tracking-[0.03em] px-[14px] py-[6px] rounded-full bg-bg-surface border border-white/[0.06] text-text-secondary animate-tagHeroGlow"
+            style={{animationDelay: `${hashDelay(s)}s`}}
+          >
+            {s}
+          </span>
+        ))}
+      </div>
+      <a
+        href="#progetti"
+        className="inline-flex items-center gap-2 font-mono text-xs font-semibold text-bg bg-accent px-7 py-3 rounded-lg mt-10 transition-colors duration-250 hover:bg-accent-secondary no-underline"
+      >
+        Vedi i progetti ↓
+      </a>
+    </section>
+  )
+}
