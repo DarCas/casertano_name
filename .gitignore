@@ -4,7 +4,6 @@ node_modules
 dist
 @docs
 out
-docker-build.md
 
 # local env files
 .env*
