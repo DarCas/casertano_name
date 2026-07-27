@@ -13,7 +13,7 @@ Static portfolio for Dario Casertano — Senior Full Stack Engineer. Built with 
 
 ```
 ├── app/            # App Router pages (homepage, /privacy, /projects)
-├── components/     # React components (Nav, Hero, Projects, Skills, Contact, Footer …)
+├── components/     # React components (Nav, Hero, Projects, Skills, Tag, Contact …)
 ├── content/        # Project data (projects.json)
 ├── api/            # Express backend for the contact form (sends via Nodemailer)
 ├── lib/            # Types and utilities
@@ -54,11 +54,10 @@ Nginx serves `/out/` and proxies `/api/` to the api container.
 **api** (runs as a separate Node.js process on deploy)
 
 ```bash
-npm install --prefix api
-node --import tsx api/src/index.ts
+npm install --prefix api && npm run build --prefix api && npm start --prefix api
 ```
 
-Requires SMTP environment variables: `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`, `TO_EMAIL`.
+Requires SMTP environment variables: `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`, `TO_EMAIL`, plus `TURNSTILE_SECRET_KEY`.
 
 ## Design Tokens
 
@@ -71,7 +70,7 @@ Requires SMTP environment variables: `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `S
 | `accent` | `#6C63FF` |
 | `accent-secondary` | `#00D4AA` |
 
-Fonts: Plus Jakarta Sans (body) and JetBrains Mono (mono/display), loaded via `@import` in `app/globals.css`.
+Fonts: Plus Jakarta Sans (body) and JetBrains Mono (mono/display), loaded via `next/font/google` in `app/layout.tsx` with CSS variables.
 
 ## Constraints
 
@@ -85,7 +84,6 @@ Fonts: Plus Jakarta Sans (body) and JetBrains Mono (mono/display), loaded via `@
 ## Known
 
 - Contact form is client-side only (fetches `POST /api/contact`)
-- `components.json` (shadcn/ui config) exists but no shadcn components are installed
 - No tests or testing framework configured
 
 ## License

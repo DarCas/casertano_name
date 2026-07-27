@@ -4,11 +4,7 @@
  * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
  */
 
-function hashDelay(s: string): number {
-    let h = 0
-    for (let i = 0; i < s.length; i++) h = ( ( h << 5 ) - h + s.charCodeAt(i) ) | 0
-    return ( Math.abs(h) % 200 ) / 100
-}
+import {Tag} from "@/components/tag"
 
 export const categories: { label: string; items: string[] }[] = [
     {
@@ -60,13 +56,7 @@ export function Skills() {
                         </span>
                         <div className="flex flex-wrap justify-center gap-2">
                             {cat.items.map((item) => (
-                                <span
-                                    key={item}
-                                    className="font-mono text-[0.65rem] px-[14px] py-[6px] rounded-full bg-bg-surface border border-white/[0.06] text-text-secondary transition-all duration-200 animate-tagHeroGlow"
-                                    style={{animationDelay: `${hashDelay(item)}s`}}
-                                >
-                                    {item}
-                                </span>
+                            <Tag key={item} size="md" className="transition-all duration-200">{item}</Tag>
                             ))}
                         </div>
                     </div>

@@ -1,7 +1,6 @@
 [
   {
     "slug": "falco-ws-environment",
-    "icon": "\ud83c\udfed",
     "title": "Falco WS Environment",
     "short": "Piattaforma modulare IoT per monitoraggio industriale: PWA officina, dashboard telemetria CNC, backend REST con MQTT.",
     "tags": [
@@ -36,7 +35,6 @@
   },
   {
     "slug": "mail-thinker-ai",
-    "icon": "\ud83e\udde0",
     "title": "Mail Thinker AI",
     "short": "Agente AI autonomo per email: analizza caselle Gmail/IMAP, estrae allegati multi-formato, risponde con reasoning stateful.",
     "tags": [
@@ -74,7 +72,6 @@
   },
   {
     "slug": "disaster-relief-department",
-    "icon": "\ud83c\udd98",
     "title": "Disaster Relief Department",
     "short": "Piattaforma di machine monitoring per allerte meteo-idrologiche e sismiche su tutto il territorio italiano.",
     "tags": [
@@ -107,7 +104,6 @@
   },
   {
     "slug": "piattaforma-gestione-territoriale",
-    "icon": "\ud83d\uddfa\ufe0f",
     "title": "Piattaforma Gestione Territoriale",
     "short": "Sistema per gestione sedi operative, turni, risorse umane, manutenzione e reportistica. Due PWA + bot Telegram + CMS.",
     "tags": [

@@ -6,7 +6,6 @@ export interface ProjectMedia {
 
 export interface Project {
   slug: string
-  icon: string
   title: string
   short: string
   tags: string[]

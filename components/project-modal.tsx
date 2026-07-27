@@ -2,6 +2,7 @@
 
 import {useEffect, useCallback} from "react"
 import type {Project} from "@/lib/projects"
+import {Tag} from "@/components/tag"
 
 export function ProjectModal({project, onClose}: {project: Project; onClose: () => void}) {
   const handleKey = useCallback((e: KeyboardEvent) => {
@@ -31,7 +32,7 @@ export function ProjectModal({project, onClose}: {project: Project; onClose: () 
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
         </button>
 
-        {project.media && project.media.length > 0 && (
+        {project.media && project.media.length > 0 ? (
           <div className="w-full aspect-video bg-bg flex items-center justify-center overflow-hidden rounded-t-xl">
             {project.media[0].type === "image" ? (
               <img src={project.media[0].src} alt={project.media[0].alt ?? project.title} className="w-full h-full object-cover" />
@@ -39,16 +40,19 @@ export function ProjectModal({project, onClose}: {project: Project; onClose: () 
               <video src={project.media[0].src} controls className="w-full h-full object-cover" />
             )}
           </div>
+        ) : (
+          <div className="w-full aspect-video bg-bg overflow-hidden rounded-t-xl">
+            <img src={`https://placehold.co/720x405/1E1E22/6C63FF?text=${encodeURIComponent(project.title)}`} alt={project.title} className="w-full h-full object-cover" />
+          </div>
         )}
 
         <div className="p-6 sm:p-8">
-          <div className="flex items-start gap-3 mb-4">
-            <span className="text-2xl">{project.icon}</span>
+          <div className="mb-4">
             <div>
               <h3 className="font-mono text-[1.1rem]">{project.title}</h3>
               <div className="flex flex-wrap gap-[6px] mt-2">
                 {project.tags.map((t) => (
-                  <span key={t} className="font-mono text-[0.6rem] px-[10px] py-[3px] rounded-full bg-accent/[0.12] text-white">{t}</span>
+                  <Tag key={t}>{t}</Tag>
                 ))}
               </div>
             </div>
@@ -72,7 +76,7 @@ export function ProjectModal({project, onClose}: {project: Project; onClose: () 
           <span className="font-mono text-[0.65rem] text-accent uppercase tracking-[0.1em] block mb-3">Skills dimostrate</span>
           <div className="flex flex-wrap gap-[6px]">
             {project.skills.map((s) => (
-              <span key={s} className="font-mono text-[0.6rem] px-[10px] py-[3px] rounded-full border border-white/[0.06] text-text-secondary transition-colors duration-200 hover:border-accent hover:text-accent">{s}</span>
+              <Tag key={s}>{s}</Tag>
             ))}
           </div>
         </div>

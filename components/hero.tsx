@@ -8,12 +8,7 @@
 
 import {useState, useEffect} from "react"
 import {categories} from "@/components/skills"
-
-function hashDelay(s: string): number {
-  let h = 0
-  for (let i = 0; i < s.length; i++) h = ((h << 5) - h + s.charCodeAt(i)) | 0
-  return (Math.abs(h) % 200) / 100
-}
+import {Tag} from "@/components/tag"
 
 const skills = [
   "Node.js", "TypeScript", "Vue.js", "PHP",
@@ -69,13 +64,7 @@ export function Hero() {
         className={`flex flex-wrap justify-center gap-[10px] max-w-[680px] transition-all duration-700 delay-300 ${visible ? "opacity-100" : "opacity-0"}`}
       >
         {skills.map((s) => (
-          <span
-            key={s}
-            className="font-mono text-[0.65rem] tracking-[0.03em] px-[14px] py-[6px] rounded-full bg-bg-surface border border-white/[0.06] text-text-secondary animate-tagHeroGlow"
-            style={{animationDelay: `${hashDelay(s)}s`}}
-          >
-            {s}
-          </span>
+          <Tag key={s} size="md" className="tracking-[0.03em]">{s}</Tag>
         ))}
       </div>
       <a
