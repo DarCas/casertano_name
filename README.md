@@ -30,6 +30,7 @@ Copy `.env.example` to `.env` (Docker will read it). The API loads the same file
 
 | Variable | Required | Description |
 |---|---|---|
+| `NEXT_PUBLIC_API` | No | Base URL for the API (default: `/api` — same origin) |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | No | Cloudflare Turnstile site key (senza, captcha disabilitato) |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | No | Contact email; when absent, hides contact form and email link |
 | `NEXT_PUBLIC_NAME` | No | Name shown in footer |

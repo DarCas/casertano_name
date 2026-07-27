@@ -14,6 +14,7 @@ npm run lint      # Next.js built-in lint (broken — no ESLint config)
 `npm run start` is dead — `next start` needs a Node server, incompatible with static export. No tests.
 `NEXT_PUBLIC_CONTACT_EMAIL` doubles as API recipient env — when absent, contact form and email link are hidden.
 `NEXT_PUBLIC_TURNSTILE_SITE_KEY` is optional — when absent, Turnstile captcha is disabled (dev mode).
+`NEXT_PUBLIC_API` sets the frontend API base URL (default: same-origin `/api`).
 API reads from the same `.env` via `--env-file` (dev) or from Docker Compose. Use `cp .env.example .env` to set up locally; Next.js also auto-loads `.env.local` for overrides.
 
 ## Deploy
@@ -24,7 +25,7 @@ API reads from the same `.env` via `--env-file` (dev) or from Docker Compose. Us
   - API → `localhost:3008` (port 3001 inside container)
 - **api** (deploy only): `npm install --prefix api && npm run build --prefix api && npm start --prefix api`. Requires SMTP env vars in root `.env`.
 
-Repo-local OpenCode commands live in `.opencode/commands/` (`docker-build.md`, `commit.md`).
+- **NEVER commit** without explicit user permission. Only stage and prepare commits when asked.
 
 ## Architecture
 

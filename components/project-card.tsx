@@ -1,3 +1,9 @@
+/*
+ * Dario Casertano <dario@casertano.name>
+ * Copyright (c) 2026 Casertano Dario – All rights reserved.
+ * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
+ */
+
 "use client"
 
 import type {Project} from "@/lib/projects"
@@ -38,7 +44,6 @@ export function ProjectCard({project, onSelect}: {project: Project; onSelect: ()
       <div className="p-7 flex flex-1 flex-col">
         <h3 className="font-mono text-[0.95rem] mb-2 flex items-center gap-2">
           {project.title}
-          <span className="text-accent-secondary text-[0.6rem]">↗</span>
         </h3>
         <p className="text-text-secondary text-[0.88rem] leading-[1.6] mb-3">{project.short}</p>
         <div className="flex flex-wrap gap-[6px] mt-auto">

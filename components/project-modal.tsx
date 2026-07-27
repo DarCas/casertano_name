@@ -1,3 +1,9 @@
+/*
+ * Dario Casertano <dario@casertano.name>
+ * Copyright (c) 2026 Casertano Dario – All rights reserved.
+ * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
+ */
+
 "use client"
 
 import {useEffect, useCallback} from "react"
@@ -68,7 +74,7 @@ export function ProjectModal({project, onClose}: {project: Project; onClose: () 
                 <ul className="space-y-2.5">
                   {project.features.map((f, i) => (
                     <li key={i} className="flex items-start gap-3 text-[0.85rem] leading-[1.6] text-text-secondary">
-                      <span className="font-mono text-accent text-[0.8rem] leading-[1.6] shrink-0 select-none">{'>'}</span>
+                      <span className="font-mono text-accent text-[0.8rem] leading-[1.6] shrink-0 select-none">&raquo;</span>
                       {f}
                     </li>
                   ))}
