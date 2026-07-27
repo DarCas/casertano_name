@@ -17,7 +17,6 @@ Requires `.env.local` at root with `NEXT_PUBLIC_TURNSTILE_SITE_KEY` for dev.
 ## Deploy
 
 - **Docker**: `docker compose up -d` — Nginx serves `/out/`, proxies `/api/` to api.
-- **VPS (Apache)**: copy `/out/` → doc root, run api via PM2, use `apache-vhost.conf`.
 - **api** (deploy only): `npm install --prefix api && npm run build --prefix api && npm start --prefix api`. Requires SMTP env vars + `TURNSTILE_SECRET_KEY`.
 
 ## Architecture

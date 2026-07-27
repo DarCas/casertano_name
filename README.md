@@ -45,12 +45,6 @@ docker compose up -d
 
 Nginx serves `/out/` and proxies `/api/` to the api container.
 
-**VPS (Apache)**
-
-1. Copy `/out/` → `/var/www/casertano/dist`
-2. Run api separately (e.g. via PM2)
-3. Use `apache-vhost.conf` for SSL, SPA fallback, and `ProxyPass /api/`
-
 **api** (runs as a separate Node.js process on deploy)
 
 ```bash
