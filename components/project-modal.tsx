@@ -32,7 +32,7 @@ export function ProjectModal({project, onClose}: {project: Project; onClose: () 
         {/* Window chrome bar */}
         <div className="shrink-0 flex items-center justify-between px-5 py-3 border-b border-white/[0.04] rounded-t-xl bg-bg/85 backdrop-blur-md">
           <div className="flex items-center gap-2 min-w-0">
-            <span className="font-mono text-accent text-[0.8rem] leading-none shrink-0 select-none">$</span>
+            <span className="font-mono text-accent text-[0.8rem] leading-none shrink-0">$</span>
             <span className="font-mono text-[0.8rem] text-text-secondary truncate">{project.title}</span>
           </div>
           <button
@@ -74,7 +74,7 @@ export function ProjectModal({project, onClose}: {project: Project; onClose: () 
                 <ul className="space-y-2.5">
                   {project.features.map((f, i) => (
                     <li key={i} className="flex items-start gap-3 text-[0.85rem] leading-[1.6] text-text-secondary">
-                      <span className="font-mono text-accent text-[0.8rem] leading-[1.6] shrink-0 select-none">&raquo;</span>
+                      <span className="font-mono text-accent text-[0.8rem] leading-[1.6] shrink-0">&raquo;</span>
                       {f}
                     </li>
                   ))}

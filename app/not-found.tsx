@@ -1,3 +1,9 @@
+/*
+ * Dario Casertano <dario@casertano.name>
+ * Copyright (c) 2026 Casertano Dario – All rights reserved.
+ * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
+ */
+
 "use client"
 
 import Link from "next/link"
@@ -13,7 +19,7 @@ export default function NotFound() {
             <div className="scanlines" />
 
             <div className="relative z-10 text-center">
-                <h1 className="glitch-404 select-none" aria-label="404">404</h1>
+                <h1 className="glitch-404" aria-label="404">404</h1>
 
                 <p className="font-mono text-text-secondary text-[0.75rem] tracking-[0.2em] uppercase mt-6 mb-10">
                     // destinazione irraggiungibile

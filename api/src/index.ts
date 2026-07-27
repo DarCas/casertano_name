@@ -4,16 +4,16 @@
  * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
  */
 
-import { readFileSync } from "node:fs"
-import { dirname, join } from "node:path"
-import { fileURLToPath } from "node:url"
 import express from "express"
 import rateLimit from "express-rate-limit"
 import cors from "cors"
+import { readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { env } from "node:process"
+import { fileURLToPath } from "node:url";
 import { createTransport } from "nodemailer"
 import { literal, object, string } from "zod"
-import { env } from "node:process"
-import { contactEmailHtml } from "./templates/contact-email.js"
+import { contactEmailHtml } from "./templates/contact-email";
 
 async function verifyTurnstile(token: string): Promise<boolean> {
     if (!env.TURNSTILE_SECRET_KEY) {
@@ -38,7 +38,8 @@ const app = express()
 app.use(cors({
     allowedHeaders: ["Content-Type"],
     methods: ["POST"],
-    origin: ( env.CORS_ORIGIN ?? "http://localhost:3000" ).split(","),
+    origin: ( env.CORS_ORIGIN ?? "http://localhost:3000" )
+        .split(","),
 }))
 app.use(express.json())
 

@@ -5,9 +5,9 @@
     "short": "Piattaforma modulare IoT per monitoraggio industriale: PWA officina, dashboard telemetria CNC, backend REST con MQTT.",
     "tags": [
       "Vue 2/3",
-      "MQTT",
       "Node.js",
-      "Docker"
+      "Docker",
+      "Firebase"
     ],
     "description": "Sistema full-stack composto da tre software interconnessi per la gestione e il monitoraggio industriale.",
     "features": [

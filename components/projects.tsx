@@ -7,10 +7,14 @@ import {fetchProjects} from "@/lib/projects"
 
 export function Projects() {
   const [projects, setProjects] = useState<import("@/lib/projects").Project[]>([])
+  const [loading, setLoading] = useState(true)
   const [selected, setSelected] = useState<number | null>(null)
 
   useEffect(() => {
-    fetchProjects().then(setProjects)
+    fetchProjects().then((data) => {
+      setProjects(data)
+      setLoading(false)
+    })
   }, [])
 
   return (
@@ -24,7 +28,24 @@ export function Projects() {
       <p className="text-text-secondary mb-10">
         Soluzioni full-stack realizzate per monitoring industriale, AI, telegram bot e gestione territoriale.
       </p>
-      {projects.length === 0 ? (
+      {loading ? (
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-5">
+          {Array.from({length: 1}).map((_, i) => (
+            <div key={i} className="bg-bg-surface border border-white/[0.06] rounded-xl overflow-hidden">
+              <div className="w-full aspect-[2/1] skeleton" />
+              <div className="p-7 flex flex-col gap-3">
+                <div className="h-5 w-3/4 skeleton" />
+                <div className="h-4 w-full skeleton" />
+                <div className="h-4 w-5/6 skeleton" />
+                <div className="flex gap-2 mt-2">
+                  <div className="h-5 w-16 skeleton" />
+                  <div className="h-5 w-20 skeleton" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : projects.length === 0 ? (
         <p className="text-text-secondary">Nessun progetto disponibile.</p>
       ) : (
         <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-5">

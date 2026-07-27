@@ -250,3 +250,20 @@ html {
     scrollbar-width: thin;
     scrollbar-color: #6C63FF #0A0A0B;
 }
+
+@keyframes shimmer {
+    0% { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+}
+
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        #141416 25%,
+        #1E1E22 50%,
+        #141416 75%
+    );
+    background-size: 800px 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+}
