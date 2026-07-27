@@ -20,9 +20,8 @@ API reads from the same `.env` via `--env-file` (dev) or from Docker Compose. Us
 ## Deploy
 
 - **Docker image**: `ghcr.io/darcas/casertano_name:<TAG>`. Build: `docker build -t ghcr.io/darcas/casertano_name:<TAG> .`. Push + cache prune flow in `.opencode/commands/docker-build.md`.
-- **Docker Compose**: `docker compose up -d` — Nginx serves `/out/`, proxies `/api/` to api.
-  - Web → `localhost:8081` (port 80 inside container)
-  - API → `localhost:3008` (port 3001 inside container)
+- **Docker Compose**: `docker compose up -d` — Express serves `/out/` + `/api/` on port 3008.
+  - Express → `localhost:3008` (port 3008 inside container)
 - **api** (deploy only): `npm install --prefix api && npm run build --prefix api && npm start --prefix api`. Requires SMTP env vars in root `.env`.
 
 - **NEVER commit** without explicit user permission. Only stage and prepare commits when asked.
@@ -33,7 +32,7 @@ API reads from the same `.env` via `--env-file` (dev) or from Docker Compose. Us
 - **`components/`** — UI components. `<Tag>` centralizes tag styling with `animate-tagHeroGlow` and staggered delays. Import via `<Tag>` (size `"sm"` default, `"md"` for hero/skills).
 - **`content/projects.json`** removed — data now served via `GET /api/projects` (serves `api/src/projects.json`). `lib/projects.ts` exports `fetchProjects()`.
 - **`lib/`** — `projects.ts` (types + `fetchProjects()`) + `utils.ts` (`hashDelay` only).
-- **`api/`** — separate Express app (`"type": "module"`, own `package.json` + `tsconfig.json`). `POST /api/contact` validates via Zod, rate-limited (5 req/15min), sends via Nodemailer. CORS configurato via `CORS_ORIGIN`. Builds with `tsc` to `dist/`, runs via `node dist/index.js`. Excluded from root `tsconfig.json` `exclude`.
+- **`api/`** — single Express app (`"type": "module"`, own `package.json` + `tsconfig.json`). Serves static `/out/` at root, plus API routes: `GET /api/projects`, `POST /api/contact` (Zod validation, rate-limited 5 req/15min, Nodemailer). CORS configurato via `CORS_ORIGIN`. Builds with `tsc` to `dist/`, runs via `node dist/index.js`. Excluded from root `tsconfig.json` `exclude`.
 - **`api/src/templates/contact-email.ts`** — HTML email template, HTML-escaped with `\n` → `<br>` conversion.
 - **`app/globals.css`** — all styles. CSS custom properties for design tokens + custom scrollbar styling (thin, dark, accent thumb).
 - **`public/`** — `favicon.svg`, `apple-touch-icon.svg`, `robots.txt`, `sitemap.xml`.
@@ -53,4 +52,4 @@ Fonts: Plus Jakarta Sans (body) + JetBrains Mono — loaded via `next/font/googl
 - Contact form: native `<dialog>` for success/error feedback. Form resets on dialog close after success.
 - License: CC BY-NC-SA 4.0. See `COPYRIGHT.md`.
 - Node v22 (`.nvmrc`).
-- The web Dockerfile (`Dockerfile` root) passes Next.js env vars via `ARG`/`ENV` pattern — build-time injection for `NEXT_PUBLIC_*` vars. See `docker-compose.yml` for the full list of exposed args (`NEXT_PUBLIC_NAME`, `NEXT_PUBLIC_VAT`, etc.).
+- API Dockerfile multi-stage: builds Next.js `/out/` + Express API in one image. Build-time `ARG`/`ENV` injection for `NEXT_PUBLIC_*` vars. See `docker-compose.yml` for the full list of exposed args (`NEXT_PUBLIC_NAME`, `NEXT_PUBLIC_VAT`, etc.).

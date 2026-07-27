@@ -3,26 +3,8 @@ name: name_casertano
 services:
   api:
     build:
-      context: api
-      dockerfile: Dockerfile
-
-    env_file:
-      - .env
-
-    ports:
-      - "3008:3001"
-
-    restart: unless-stopped
-
-    deploy:
-      resources:
-        limits:
-          memory: 128M
-
-  web:
-    build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: api/Dockerfile
       args:
         - NEXT_PUBLIC_TURNSTILE_SITE_KEY
         - NEXT_PUBLIC_CONTACT_EMAIL
@@ -32,18 +14,15 @@ services:
         - NEXT_PUBLIC_SOCIAL_GITHUB
         - NEXT_PUBLIC_SOCIAL_TELEGRAM
 
-    depends_on:
-      - api
-
-    environment:
-      - NODE_ENV=production
+    env_file:
+      - .env
 
     ports:
-      - "8081:80"
+      - "3008:3008"
 
     restart: unless-stopped
 
     deploy:
       resources:
         limits:
-          memory: 256M
+          memory: 128M
