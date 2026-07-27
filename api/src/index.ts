@@ -4,6 +4,9 @@
  * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
  */
 
+import { readFileSync } from "node:fs"
+import { dirname, join } from "node:path"
+import { fileURLToPath } from "node:url"
 import express from "express"
 import rateLimit from "express-rate-limit"
 import cors from "cors"
@@ -67,6 +70,21 @@ const smtp = createTransport({
     secure: env.SMTP_SECURE === "true",
 })
 
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
+const projects = JSON.parse(
+    readFileSync(join(__dirname, "projects.json"), "utf-8"),
+) as Array<{
+    slug: string
+    title: string
+    short: string
+    tags: string[]
+    description: string
+    features: string[]
+    skills: string[]
+    media?: Array<{ type: "image" | "video"; src: string; alt?: string }>
+}>
+
 const toEmail = env.NEXT_PUBLIC_CONTACT_EMAIL
 
 const contactLimiter = rateLimit({
@@ -75,6 +93,10 @@ const contactLimiter = rateLimit({
     message: {error: "Troppe richieste. Riprova tra qualche minuto."},
     standardHeaders: true,
     windowMs: 15 * 60 * 1000,
+})
+
+app.get("/api/projects", (_req, res) => {
+    res.json(projects)
 })
 
 app.post("/api/contact", contactLimiter, async (req, res) => {

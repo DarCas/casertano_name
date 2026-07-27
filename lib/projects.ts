@@ -1,19 +1,22 @@
 export interface ProjectMedia {
-  type: "image" | "video"
-  src: string
-  alt?: string
+    type: "image" | "video"
+    src: string
+    alt?: string
 }
 
 export interface Project {
-  slug: string
-  title: string
-  short: string
-  tags: string[]
-  description: string
-  features: string[]
-  skills: string[]
-  media?: ProjectMedia[]
+    slug: string
+    title: string
+    short: string
+    tags: string[]
+    description: string
+    features: string[]
+    skills: string[]
+    media?: ProjectMedia[]
 }
 
-import projectsData from "@/content/projects.json"
-export { projectsData as default }
+export async function fetchProjects(): Promise<Project[]> {
+    const res = await fetch("/api/projects")
+    if (!res.ok) return []
+    return res.json()
+}

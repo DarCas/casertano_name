@@ -30,8 +30,8 @@ Repo-local OpenCode commands live in `.opencode/commands/` (`docker-build.md`, `
 
 - **`app/`** — 3 routes: `page.tsx` (homepage), `privacy/page.tsx`, `not-found.tsx` (glitch 404). All static.
 - **`components/`** — UI components. `<Tag>` centralizes tag styling with `animate-tagHeroGlow` and staggered delays. Import via `<Tag>` (size `"sm"` default, `"md"` for hero/skills).
-- **`content/projects.json`** — project data. Typed via `Project` in `lib/projects.ts` with `features: string[]`.
-- **`lib/`** — `projects.ts` (types) + `utils.ts` (`hashDelay` only).
+- **`content/projects.json`** removed — data now served via `GET /api/projects` (serves `api/src/projects.json`). `lib/projects.ts` exports `fetchProjects()`.
+- **`lib/`** — `projects.ts` (types + `fetchProjects()`) + `utils.ts` (`hashDelay` only).
 - **`api/`** — separate Express app (`"type": "module"`, own `package.json` + `tsconfig.json`). `POST /api/contact` validates via Zod, rate-limited (5 req/15min), sends via Nodemailer. CORS configurato via `CORS_ORIGIN`. Builds with `tsc` to `dist/`, runs via `node dist/index.js`. Excluded from root `tsconfig.json` `exclude`.
 - **`api/src/templates/contact-email.ts`** — HTML email template, HTML-escaped with `\n` → `<br>` conversion.
 - **`app/globals.css`** — all styles. CSS custom properties for design tokens + custom scrollbar styling (thin, dark, accent thumb).
