@@ -68,6 +68,8 @@ docker compose up -d
 
 Nginx serves `/out/` and proxies `/api/` to the api container.
 
+The frontend is accessible at `localhost:8081`, the API at `localhost:3008`.
+
 **Standalone API**
 
 ```bash
