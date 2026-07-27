@@ -1,5 +1,7 @@
 import Link from "next/link"
 
+const hasContact = Boolean(process.env.NEXT_PUBLIC_CONTACT_EMAIL)
+
 export function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-bg/85 border-b border-white/[0.04] px-4 sm:px-6 py-3 sm:py-[18px] flex justify-center items-center">
@@ -10,7 +12,7 @@ export function Nav() {
         <NavLink href="#hero">Home</NavLink>
         <NavLink href="#progetti">Progetti</NavLink>
         <NavLink href="#skills">Tech Stack</NavLink>
-        <NavLink href="#contatti">Parliamone</NavLink>
+        {hasContact && <NavLink href="#contatti">Parliamone</NavLink>}
       </div>
     </nav>
   )

@@ -12,6 +12,8 @@ function Divider() {
 }
 
 export default function Home() {
+  const hasContact = Boolean(process.env.NEXT_PUBLIC_CONTACT_EMAIL)
+
   return (
     <>
       <Nav />
@@ -19,8 +21,7 @@ export default function Home() {
       <Projects />
       <Divider />
       <Skills />
-      <Divider />
-      <Contact />
+      {hasContact && <><Divider /><Contact /></>}
       <Footer />
     </>
   )

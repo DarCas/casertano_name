@@ -39,6 +39,9 @@ function Dialog({ open, onClose, children }: { open: boolean; onClose: () => voi
 }
 
 export function Contact() {
+    const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL
+    if (!email) return null
+
     const sectionRef = useRef<HTMLElement>(null)
     const formRef = useRef<HTMLFormElement>(null)
     const turnstileRef = useRef<HTMLDivElement>(null)

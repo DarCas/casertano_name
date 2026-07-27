@@ -12,12 +12,15 @@ npm run lint      # Next.js built-in lint
 ```
 
 `npm run start` is dead — `next start` needs a Node server, incompatible with static export. No tests.
-Requires `.env.local` at root with `NEXT_PUBLIC_TURNSTILE_SITE_KEY` for dev.
+Requires `.env.local` at root (copy from `.env.example`) with `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and `NEXT_PUBLIC_CONTACT_EMAIL`.
+The API also reads from the same `.env` via `--env-file` (dev) or from Docker Compose.
+Optional: `NEXT_PUBLIC_NAME`, `NEXT_PUBLIC_VAT`, `NEXT_PUBLIC_SOCIAL_*` for footer personalization.
+If `NEXT_PUBLIC_CONTACT_EMAIL` is missing, the contact form and email link are hidden.
 
 ## Deploy
 
 - **Docker**: `docker compose up -d` — Nginx serves `/out/`, proxies `/api/` to api.
-- **api** (deploy only): `npm install --prefix api && npm run build --prefix api && npm start --prefix api`. Requires SMTP env vars + `TURNSTILE_SECRET_KEY`.
+- **api** (deploy only): `npm install --prefix api && npm run build --prefix api && npm start --prefix api`. Requires SMTP env vars + `TURNSTILE_SECRET_KEY` in root `.env`.
 
 ## Architecture
 

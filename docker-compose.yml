@@ -6,14 +6,8 @@ services:
       context: api
       dockerfile: Dockerfile
 
-    environment:
-      - SMTP_HOST
-      - SMTP_PORT
-      - SMTP_SECURE
-      - SMTP_USER
-      - SMTP_PASS
-      - TO_EMAIL
-      - TURNSTILE_SECRET_KEY
+    env_file:
+      - .env
 
     ports:
       - "3008:3001"
@@ -31,6 +25,12 @@ services:
       dockerfile: Dockerfile
       args:
         - NEXT_PUBLIC_TURNSTILE_SITE_KEY
+        - NEXT_PUBLIC_CONTACT_EMAIL
+        - NEXT_PUBLIC_NAME
+        - NEXT_PUBLIC_VAT
+        - NEXT_PUBLIC_SOCIAL_LINKEDIN
+        - NEXT_PUBLIC_SOCIAL_GITHUB
+        - NEXT_PUBLIC_SOCIAL_TELEGRAM
 
     depends_on:
       - api

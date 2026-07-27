@@ -62,7 +62,7 @@ const smtp = createTransport({
     secure: env.SMTP_SECURE === "true",
 })
 
-const toEmail = env.TO_EMAIL || "dario@casertano.name"
+const toEmail = env.TO_EMAIL
 
 app.post("/api/contact", async (req, res) => {
     const parsed = ContactSchema.safeParse(req.body)
