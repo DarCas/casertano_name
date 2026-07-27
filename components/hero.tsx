@@ -44,19 +44,19 @@ export function Hero() {
         className={`select-none flex flex-wrap justify-center gap-3 mb-9 transition-all duration-700 delay-250 ${visible ? "opacity-100" : "opacity-0"}`}
       >
         <span className="inline-flex font-mono text-[0.65rem] leading-none overflow-hidden rounded-[3px]">
-          <span className="bg-white/[0.1] text-text-secondary/[0.7] px-2 py-[5px]">experience</span>
+          <span className="bg-white/[0.1] text-white/80 px-2 py-[5px]">experience</span>
           <span className="bg-amber-400 text-bg px-2 py-[5px]">15+ years</span>
         </span>
         <span className="inline-flex font-mono text-[0.65rem] leading-none overflow-hidden rounded-[3px]">
-          <span className="bg-white/[0.1] text-text-secondary/[0.7] px-2 py-[5px]">stack</span>
+          <span className="bg-white/[0.1] text-white/80 px-2 py-[5px]">stack</span>
           <span className="bg-accent text-bg px-2 py-[5px]">full stack · ai · automation</span>
         </span>
         <span className="inline-flex font-mono text-[0.65rem] leading-none overflow-hidden rounded-[3px]">
-          <span className="bg-white/[0.1] text-text-secondary/[0.7] px-2 py-[5px]">skills</span>
+          <span className="bg-white/[0.1] text-white/80 px-2 py-[5px]">skills</span>
           <span className="bg-emerald-400 text-bg px-2 py-[5px]">{categories.reduce((a, c) => a + c.items.length, 0)}+</span>
         </span>
         <span className="inline-flex font-mono text-[0.65rem] leading-none overflow-hidden rounded-[3px]">
-          <span className="bg-white/[0.1] text-text-secondary/[0.7] px-2 py-[5px]">coffee</span>
+          <span className="bg-white/[0.1] text-white/80 px-2 py-[5px]">coffee</span>
           <span className="bg-rose-400 text-bg px-2 py-[5px]">required</span>
         </span>
       </div>

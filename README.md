@@ -26,18 +26,19 @@ For local dev without Docker, `cp .env.example .env.local` works too — Next.js
 ## Environment variables
 
 Copy `.env.example` to `.env` (Docker will read it). The API loads the same file via `--env-file`.
+`NEXT_PUBLIC_CONTACT_EMAIL` doubles as `TO_EMAIL` for the API — single source.
 
 | Variable | Required | Description |
 |---|---|---|
-| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Yes | Cloudflare Turnstile site key |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | Yes | Contact email; when absent, hides contact form and email link |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | No | Cloudflare Turnstile site key (senza, captcha disabilitato) |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | No | Contact email; when absent, hides contact form and email link |
 | `NEXT_PUBLIC_NAME` | No | Name shown in footer |
 | `NEXT_PUBLIC_VAT` | No | VAT / fiscal info shown in footer |
 | `NEXT_PUBLIC_SOCIAL_LINKEDIN` | No | LinkedIn URL; shows icon when set |
 | `NEXT_PUBLIC_SOCIAL_GITHUB` | No | GitHub URL; shows icon when set |
 | `NEXT_PUBLIC_SOCIAL_TELEGRAM` | No | Telegram URL; shows icon when set |
-| `TURNSTILE_SECRET_KEY` | Yes / API | Turnstile server-side verification |
-| `TO_EMAIL` | Yes / API | Where contact messages are sent |
+| `TURNSTILE_SECRET_KEY` | No / API | Turnstile server-side verification (senza, verifica saltata) |
+| `CORS_ORIGIN` | No / API | Origini consentite (default: `http://localhost:3000`) |
 | `SMTP_HOST` | No / API | SMTP server (default: localhost) |
 | `SMTP_PORT` | No / API | SMTP port (default: 587) |
 | `SMTP_SECURE` | No / API | TLS (default: false) |
@@ -75,11 +76,11 @@ npm install --prefix api && npm run build --prefix api && npm start --prefix api
 
 ## Constraints
 
-- Static export — `revalidate` and `next start` are unused
+- Static export — `next start` is unused
 - Images: `unoptimized: true`
 - `prefers-reduced-motion` disables all animations
 - `EmailLink` sets `mailto:` via `useEffect` after hydration (anti-scrape)
-- Contact form is client-side only (no SSR)
+- Contact form is client-side only (no SSR), rate-limited (5 req/15min)
 - No tests configured
 
 ## License

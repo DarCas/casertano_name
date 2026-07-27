@@ -42,12 +42,14 @@ export function Contact() {
     const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL
     if (!email) return null
 
+    const hasTurnstile = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY)
+
     const sectionRef = useRef<HTMLElement>(null)
     const formRef = useRef<HTMLFormElement>(null)
     const turnstileRef = useRef<HTMLDivElement>(null)
     const [dialog, setDialog] = useState<"success" | "error" | null>(null)
     const [error, setError] = useState("")
-    const [token, setToken] = useState("")
+    const [token, setToken] = useState(hasTurnstile ? "" : "skip")
     const [visible, setVisible] = useState(false)
 
     useEffect(() => {
@@ -68,7 +70,7 @@ export function Contact() {
     }, [])
 
     useEffect(() => {
-        if (!visible) return
+        if (!visible || !hasTurnstile) return
 
         const script = document.createElement("script")
         script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"

@@ -21,63 +21,71 @@ export function ProjectModal({project, onClose}: {project: Project; onClose: () 
   return (
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-modalBackdrop"
-      onClick={(e) => {if (e.target === e.currentTarget) onClose()}}
     >
-      <div className="bg-bg-surface border border-white/[0.08] rounded-xl max-w-[720px] w-full max-h-[90vh] overflow-y-auto relative animate-modalContent">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full border border-white/[0.08] text-text-secondary hover:text-text hover:border-text-secondary transition-colors duration-200 bg-bg-surface z-10"
-          aria-label="Chiudi"
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
-        </button>
+      <div className="bg-bg-surface border border-white/[0.08] rounded-xl max-w-[720px] w-full max-h-[90vh] overflow-hidden flex flex-col animate-modalContent">
+        {/* Window chrome bar */}
+        <div className="shrink-0 flex items-center justify-between px-5 py-3 border-b border-white/[0.04] rounded-t-xl bg-bg/85 backdrop-blur-md">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="font-mono text-accent text-[0.8rem] leading-none shrink-0 select-none">$</span>
+            <span className="font-mono text-[0.8rem] text-text-secondary truncate">{project.title}</span>
+          </div>
+          <button
+            onClick={onClose}
+            className="w-8 h-8 flex items-center justify-center rounded-md text-text-secondary hover:text-text hover:bg-white/[0.08] transition-colors duration-200"
+            aria-label="Chiudi"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+          </button>
+        </div>
 
-        {project.media && project.media.length > 0 ? (
-          <div className="w-full aspect-video bg-bg flex items-center justify-center overflow-hidden rounded-t-xl">
-            {project.media[0].type === "image" ? (
+        {/* Accent line */}
+        <div className="shrink-0 h-px bg-gradient-to-r from-accent to-accent-secondary" />
+
+        {/* Media */}
+        <div className="shrink-0 w-full aspect-video bg-bg">
+          {project.media && project.media.length > 0 ? (
+            project.media[0].type === "image" ? (
               <img src={project.media[0].src} alt={project.media[0].alt ?? project.title} className="w-full h-full object-cover" />
             ) : (
               <video src={project.media[0].src} controls className="w-full h-full object-cover" />
-            )}
-          </div>
-        ) : (
-          <div className="w-full aspect-video bg-bg overflow-hidden rounded-t-xl">
+            )
+          ) : (
             <img src={`https://placehold.co/720x405/1E1E22/6C63FF?text=${encodeURIComponent(project.title)}`} alt={project.title} className="w-full h-full object-cover" />
-          </div>
-        )}
+          )}
+        </div>
 
-        <div className="p-6 sm:p-8">
-          <div className="mb-4">
+        {/* Accent line */}
+        <div className="shrink-0 h-px bg-gradient-to-r from-accent to-accent-secondary" />
+
+        {/* Scrollable content */}
+        <div className="overflow-y-auto p-6 sm:p-8">
+          <div className="space-y-8">
+            <p className="text-text-secondary text-[0.9rem] leading-[1.7]">{project.description}</p>
+
             <div>
-              <h3 className="font-mono text-[1.1rem]">{project.title}</h3>
-              <div className="flex flex-wrap gap-[6px] mt-2">
-                {project.tags.map((t) => (
-                  <Tag key={t}>{t}</Tag>
-                ))}
+              <span className="font-mono text-[0.65rem] text-text-secondary uppercase tracking-[0.1em] block mb-3">// features</span>
+              <div className="bg-bg border border-white/[0.04] rounded-lg p-4 sm:p-5">
+                <ul className="space-y-2.5">
+                  {project.features.map((f, i) => (
+                    <li key={i} className="flex items-start gap-3 text-[0.85rem] leading-[1.6] text-text-secondary">
+                      <span className="font-mono text-accent text-[0.8rem] leading-[1.6] shrink-0 select-none">{'>'}</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
-          </div>
 
-          <p className="text-text-secondary text-[0.9rem] leading-[1.7] mb-6">{project.description}</p>
-
-          <div className="h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent mb-6" />
-
-          <ul className="space-y-3 mb-8">
-            {project.features.map((f, i) => (
-              <li key={i} className="flex items-start gap-3 text-[0.85rem] leading-[1.6] text-text-secondary">
-                <span className="mt-[5px] w-[6px] h-[6px] rounded-full bg-accent shrink-0" />
-                {f}
-              </li>
-            ))}
-          </ul>
-
-          <div className="h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent mb-6" />
-
-          <span className="font-mono text-[0.65rem] text-accent uppercase tracking-[0.1em] block mb-3">Skills dimostrate</span>
-          <div className="flex flex-wrap gap-[6px]">
-            {project.skills.map((s) => (
-              <Tag key={s}>{s}</Tag>
-            ))}
+            <div>
+              <span className="font-mono text-[0.65rem] text-text-secondary uppercase tracking-[0.1em] block mb-3">// skills</span>
+              <div className="bg-bg border border-white/[0.04] rounded-lg p-4 sm:p-5">
+                <div className="flex flex-wrap gap-[6px]">
+                  {project.skills.map((s) => (
+                    <Tag key={s}>{s}</Tag>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

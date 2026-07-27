@@ -5,6 +5,7 @@
  */
 
 import express from "express"
+import rateLimit from "express-rate-limit"
 import cors from "cors"
 import { createTransport } from "nodemailer"
 import { literal, object, string } from "zod"
@@ -13,7 +14,7 @@ import { contactEmailHtml } from "./templates/contact-email.js"
 
 async function verifyTurnstile(token: string): Promise<boolean> {
     if (!env.TURNSTILE_SECRET_KEY) {
-        return false
+        return true
     }
 
     const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
@@ -31,7 +32,11 @@ async function verifyTurnstile(token: string): Promise<boolean> {
 
 const app = express()
 
-app.use(cors())
+app.use(cors({
+    allowedHeaders: ["Content-Type"],
+    methods: ["POST"],
+    origin: ( env.CORS_ORIGIN ?? "http://localhost:3000" ).split(","),
+}))
 app.use(express.json())
 
 const ContactSchema = object({
@@ -62,9 +67,23 @@ const smtp = createTransport({
     secure: env.SMTP_SECURE === "true",
 })
 
-const toEmail = env.TO_EMAIL
+const toEmail = env.NEXT_PUBLIC_CONTACT_EMAIL
 
-app.post("/api/contact", async (req, res) => {
+const contactLimiter = rateLimit({
+    legacyHeaders: false,
+    max: 5,
+    message: {error: "Troppe richieste. Riprova tra qualche minuto."},
+    standardHeaders: true,
+    windowMs: 15 * 60 * 1000,
+})
+
+app.post("/api/contact", contactLimiter, async (req, res) => {
+    if (!toEmail) {
+        res.status(500)
+            .json({error: "Contatti non configurati"})
+        return
+    }
+
     const parsed = ContactSchema.safeParse(req.body)
 
     if (!parsed.success) {

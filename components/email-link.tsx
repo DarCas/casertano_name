@@ -7,7 +7,7 @@ const parts = email.split("@")
 const user = parts[0] ?? ""
 const domain = parts[1] ?? ""
 
-export function EmailLink({ children, className }: { children?: React.ReactNode; className?: string }) {
+export function EmailLink({ children, className, ...props }: { children?: React.ReactNode; className?: string } & React.AnchorHTMLAttributes<HTMLAnchorElement>) {
   const [href, setHref] = useState("")
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export function EmailLink({ children, className }: { children?: React.ReactNode;
   if (!email) return null
 
   return (
-    <a href={href} className={className}>
+    <a href={href} className={className} {...props}>
       {children ?? (user + "@" + domain)}
     </a>
   )
