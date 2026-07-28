@@ -7,7 +7,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { categories } from "@/components/skills"
+import { categories } from "@/lib/skills"
 import { Tag } from "@/components/tag"
 
 const skills = [

@@ -21,7 +21,8 @@ npm run dev                    # frontend :3000
 For local dev without Docker, `cp .env.example .env.local` works too — Next.js auto-loads `.env.local`.
 
 - Frontend: Next.js 15 App Router, `output: "export"` → `/out/`
-- API: Express in `api/`, dev via `npm run dev --prefix api` (port 3008)
+- API: Express in `api/`, dev via `npm run dev --prefix api` (port 3001, hot-reload via tsx)
+- Project media: place images/video in `@storage/images/projects/<slug>.<ext>`. API serves them at `/images/projects/<file>?<mtime>` with automatic cache-busting.
 
 ## Environment variables
 
@@ -40,7 +41,7 @@ Copy `.env.example` to `.env` (Docker will read it). The API loads the same file
 | `NEXT_PUBLIC_SOCIAL_TELEGRAM` | No | Telegram URL; shows icon when set |
 | `TURNSTILE_SECRET_KEY` | No / API | Turnstile server-side verification (senza, verifica saltata) |
 | `CORS_ORIGIN` | No / API | Origini consentite (default: `https://casertano.name,http://localhost:3000`) |
-| `PORT` | No / API | Porta Express (default: 3008) |
+| `PORT` | No / API | Porta Express (default: 3001) |
 | `SMTP_HOST` | No / API | SMTP server (default: localhost) |
 | `SMTP_PORT` | No / API | SMTP port (default: 587) |
 | `SMTP_SECURE` | No / API | TLS (default: false) |
@@ -68,9 +69,10 @@ Fonts: Plus Jakarta Sans (body) + JetBrains Mono (mono), loaded via `next/font/g
 docker compose up -d
 ```
 
-Express serves `/out/` (static site) and `/api/*` (API routes) on port 3008.
+Express serves `/out/` (static site) and `/api/*` (API routes) on port 3001.
+Project media from `@storage/images/projects/` is bind-mounted into the container and served at `/images/projects/`.
 
-The site is accessible at `localhost:3008`.
+The site is accessible at `localhost:3001`.
 
 **Standalone API**
 

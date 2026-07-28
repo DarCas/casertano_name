@@ -65,8 +65,8 @@ export default function PrivacyPage() {
                 <p className="text-text-secondary text-[0.9rem] leading-[1.8] mb-6">
                     I dati inseriti volontariamente dall&apos;utente nel modulo di contatto (nome,
                     email e messaggio) vengono utilizzati
-                    esclusivamente per rispondere alla richiesta. L&apos;invio avviene tramite un
-                    backend serverless che inoltra il
+                    esclusivamente per rispondere alla richiesta.                     L&apos;invio avviene tramite un
+                    server che inoltra il
                     messaggio via email al titolare; i dati non vengono memorizzati in modo
                     persistente sul server oltre il tempo
                     necessario all&apos;invio. Una volta ricevuti via email, vengono conservati per

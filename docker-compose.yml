@@ -4,25 +4,39 @@ services:
   api:
     build:
       context: .
-      dockerfile: api/Dockerfile
+      dockerfile: Dockerfile
       args:
-        - NEXT_PUBLIC_TURNSTILE_SITE_KEY
+        - NEXT_PUBLIC_API
         - NEXT_PUBLIC_CONTACT_EMAIL
         - NEXT_PUBLIC_NAME
         - NEXT_PUBLIC_VAT
-        - NEXT_PUBLIC_SOCIAL_LINKEDIN
         - NEXT_PUBLIC_SOCIAL_GITHUB
+        - NEXT_PUBLIC_SOCIAL_LINKEDIN
         - NEXT_PUBLIC_SOCIAL_TELEGRAM
+        - NEXT_PUBLIC_TURNSTILE_SITE_KEY
+
+    container_name: name_casertano
+    restart: unless-stopped
+    command:
+      - node
+      - dist/index.js
 
     env_file:
       - .env
 
-    ports:
-      - "3008:3008"
+    volumes:
+      - ./@storage/images/projects:/app/@storage/images/projects
 
-    restart: unless-stopped
+    ports:
+      - "3001:3001"
 
     deploy:
       resources:
         limits:
           memory: 128M
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10M"
+        max-file: "3"
