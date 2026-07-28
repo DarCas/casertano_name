@@ -6,7 +6,7 @@
 
 "use client"
 
-import {useEffect, useCallback} from "react"
+import {useEffect, useCallback, useState} from "react"
 import type {Project} from "@/lib/projects"
 import {Tag} from "@/components/tag"
 
@@ -14,6 +14,12 @@ export function ProjectModal({project, onClose}: {project: Project; onClose: () 
   const handleKey = useCallback((e: KeyboardEvent) => {
     if (e.key === "Escape") onClose()
   }, [onClose])
+
+  const [mediaLoaded, setMediaLoaded] = useState(false)
+
+  useEffect(() => {
+    setMediaLoaded(false)
+  }, [project.slug])
 
   useEffect(() => {
     document.addEventListener("keydown", handleKey)
@@ -48,13 +54,21 @@ export function ProjectModal({project, onClose}: {project: Project; onClose: () 
         <div className="shrink-0 h-px bg-gradient-to-r from-accent to-accent-secondary" />
 
         {/* Media */}
-        <div className="shrink-0 w-full aspect-video bg-bg">
+        <div className="shrink-0 w-full aspect-video bg-bg relative">
           {project.media && project.media.length > 0 ? (
-            project.media[0].type === "image" ? (
-              <img src={project.media[0].src} alt={project.media[0].alt ?? project.title} className="w-full h-full object-cover" />
-            ) : (
-              <video src={project.media[0].src} controls className="w-full h-full object-cover" />
-            )
+            <>
+              {!mediaLoaded && <div className="absolute inset-0 skeleton !rounded-none" />}
+              {project.media[0].type === "image" ? (
+                <img
+                  src={project.media[0].src}
+                  alt={project.media[0].alt ?? project.title}
+                  onLoad={() => setMediaLoaded(true)}
+                  className={`w-full h-full object-cover transition-opacity duration-500 ${mediaLoaded ? "opacity-100" : "opacity-0"}`}
+                />
+              ) : (
+                <video src={project.media[0].src} controls className="w-full h-full object-cover" />
+              )}
+            </>
           ) : (
             <img src={`https://placehold.co/720x405/1E1E22/6C63FF?text=${encodeURIComponent(project.title)}`} alt={project.title} className="w-full h-full object-cover" />
           )}

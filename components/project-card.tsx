@@ -6,8 +6,29 @@
 
 "use client"
 
-import type {Project} from "@/lib/projects"
+import { useState } from "react"
+import type {Project, ProjectMedia as ProjectMediaType} from "@/lib/projects"
 import {Tag} from "@/components/tag"
+
+function ProjectMedia({ img, title }: { img: ProjectMediaType; title: string }) {
+  const [loaded, setLoaded] = useState(false)
+
+  return (
+    <div className="w-full aspect-[2/1] bg-bg overflow-hidden relative">
+      {!loaded && <div className="absolute inset-0 skeleton !rounded-none" />}
+      {img.type === "image" ? (
+        <img
+          src={img.src}
+          alt={img.alt ?? title}
+          onLoad={() => setLoaded(true)}
+          className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${loaded ? "opacity-100" : "opacity-0"}`}
+        />
+      ) : (
+        <video src={img.src} className="w-full h-full object-cover" />
+      )}
+    </div>
+  )
+}
 
 export function ProjectCard({project, onSelect}: {project: Project; onSelect: () => void}) {
   const img = project.media?.[0]
@@ -28,13 +49,7 @@ export function ProjectCard({project, onSelect}: {project: Project; onSelect: ()
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accent to-accent-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
 
       {img ? (
-        <div className="w-full aspect-[2/1] bg-bg overflow-hidden">
-          {img.type === "image" ? (
-            <img src={img.src} alt={img.alt ?? project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-          ) : (
-            <video src={img.src} className="w-full h-full object-cover" />
-          )}
-        </div>
+        <ProjectMedia img={img} title={project.title} />
       ) : (
         <div className="w-full aspect-[2/1] bg-bg overflow-hidden">
           <img src={`https://placehold.co/600x300/1E1E22/6C63FF?text=${encodeURIComponent(project.title)}`} alt={project.title} className="w-full h-full object-cover" />

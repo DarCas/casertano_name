@@ -35,7 +35,7 @@ async function verifyTurnstile(token: string): Promise<boolean> {
 }
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const storageDir = resolve(__dirname, "..", "..", "@storage")
+const storageDir = resolve(__dirname, "..", "@storage")
 const imagesDir = join(storageDir, "images", "projects")
 
 const IMAGE_EXTS = new Set([".webp", ".png", ".jpg", ".jpeg"])
@@ -82,6 +82,13 @@ const corsOptions = {
 
 const app = express()
 
+app.set("trust proxy", 1)
+
+// app.use((_req, res, next) => {
+//     res.set("Clear-Site-Data", '"cache","storage"')
+//     next()
+// })
+
 app.use(cors(corsOptions))
 app.use(express.json())
 
@@ -120,7 +127,7 @@ app.get("/api/projects", (req, res) => {
     const base = `${req.protocol}://${req.get("host")}`
     res.json(projects.map(p => ( {
         ...p,
-        media: (p.media?.length ? p.media : listProjectMedia(p.slug)).map(m => ( {
+        media: ( p.media?.length ? p.media : listProjectMedia(p.slug) ).map(m => ( {
             ...m,
             src: `${base}${m.src}`,
         } )),

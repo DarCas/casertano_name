@@ -22,7 +22,7 @@ For local dev without Docker, `cp .env.example .env.local` works too — Next.js
 
 - Frontend: Next.js 15 App Router, `output: "export"` → `/out/`
 - API: Express in `api/`, dev via `npm run dev --prefix api` (port 3001, hot-reload via tsx)
-- Project media: place images/video in `@storage/images/projects/<slug>.<ext>`. API serves them at `/images/projects/<file>?<mtime>` with automatic cache-busting.
+- Project media: place images/video in `api/@storage/images/projects/<slug>.<ext>`. API serves them at `/images/projects/<file>?<mtime>` with automatic cache-busting.
 
 ## Environment variables
 
@@ -63,14 +63,19 @@ Fonts: Plus Jakarta Sans (body) + JetBrains Mono (mono), loaded via `next/font/g
 
 ## Deploy
 
-**Docker** (recommended)
+**Docker** (pre-built image)
 
 ```bash
 docker compose up -d
 ```
 
+To build your own image, create `.env.build` with `NEXT_PUBLIC_*` vars first:
+```bash
+docker build -t ghcr.io/darcas/casertano_name:latest .
+```
+
 Express serves `/out/` (static site) and `/api/*` (API routes) on port 3001.
-Project media from `@storage/images/projects/` is bind-mounted into the container and served at `/images/projects/`.
+Project media from `api/@storage/images/projects/` is bind-mounted into the container and served at `/images/projects/`.
 
 The site is accessible at `localhost:3001`.
 

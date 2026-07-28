@@ -4,7 +4,8 @@ node_modules
 dist
 @docs
 out
-@storage
+api/@storage
+@vps
 
 # local env files
 .env*

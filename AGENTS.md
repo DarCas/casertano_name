@@ -37,10 +37,10 @@ API reads from the same `.env` via `--env-file` (dev) or from Docker Compose. Ne
 - **`app/`** — 3 routes: `page.tsx` (homepage), `privacy/page.tsx`, `not-found.tsx` (glitch 404). All static.
 - **`components/`** — UI components. `<Tag>` centralizes tag styling with `animate-tagHeroGlow` and staggered delays (`hashDelay`). Sizes: `"sm"` default, `"md"` for hero/skills.
 - **`lib/`** — `projects.ts` (types + `fetchProjects()`), `skills.ts` (9 `SkillCategory` groups → skills section), `utils.ts` (`hashDelay` only).
-- **`api/`** — Express ESM app, separate `package.json` + `tsconfig.json`. Serves `/out/` (static) + `/api/` routes. `GET /api/projects` from `api/src/projects.ts` with `media` populated dynamically from `@storage/images/projects/` (filesystem scan, cache-bust via mtime). `POST /api/contact` (Zod, rate-limited 5/15min, Nodemailer, Turnstile). Builds with `tsc` to `dist/`, runs via `node dist/index.js`. Excluded from root `tsconfig.json`. CORS via `CORS_ORIGIN` env.
+- **`api/`** — Express ESM app, separate `package.json` + `tsconfig.json`. Serves `/out/` (static) + `/api/` routes. `GET /api/projects` from `api/src/projects.ts` with `media` populated dynamically from `api/@storage/images/projects/` (filesystem scan, cache-bust via mtime). `POST /api/contact` (Zod, rate-limited 5/15min, Nodemailer, Turnstile). Builds with `tsc` to `dist/`, runs via `node dist/index.js`. Excluded from root `tsconfig.json`. CORS via `CORS_ORIGIN` env.
 - **`api/src/templates/contact-email.ts`** — HTML email template, `\n` → `<br>`.
 - **`scripts/generate-sitemap.mjs`** — postbuild script, generates `out/sitemap.xml` (data build).
-- **`@storage/images/projects/`** — gitignored directory for project media (images/video). Bind-mounted in Docker. Served by API at `/images/projects` with cache-busting mtime.
+- **`api/@storage/images/projects/`** — gitignored directory for project media (images/video). Bind-mounted in Docker. Served by API at `/images/projects` with cache-busting mtime.
 - **`app/globals.css`** — all styles. CSS custom properties for design tokens + custom scrollbar (thin, dark, accent thumb).
 - **`public/`** — `favicon.svg`, `apple-touch-icon.svg`, `robots.txt`. Generated sitemap goes to `out/`.
 
@@ -61,4 +61,4 @@ Fonts: Plus Jakarta Sans (body) + JetBrains Mono — loaded via `next/font/googl
 - API: Express `app.listen(3001)` — port 3001 in Docker Compose and standalone. SPA fallback serves `index.html` for non-API paths.
 - `@docs/` directory contains project reference docs and profile PDF (gitignored).
 - License: CC BY-NC-SA 4.0 (`COPYRIGHT.md`). Node v22 (`.nvmrc`).
-- Dockerfile multi-stage: builds frontend `/out/` + Express API in one image. Build `ARG`/`ENV` for `NEXT_PUBLIC_*` vars.
+- Dockerfile multi-stage: builds frontend `/out/` + Express API in one image. Build copies `.env.build` → `.env` for `NEXT_PUBLIC_*` vars (non-secret), runtime secrets via Docker Compose `env_file`.
