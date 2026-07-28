@@ -82,26 +82,6 @@ Extract the following fields from the user's text:
 ## `media`
 - Always starts as an empty array `[]`.
 - Only populate if the user explicitly provides media info.
-
----
-
-# DALL-E Prompt Generation
-
-If the user asks for an image prompt, generate a ready-to-use DALL-E 3 prompt that:
-
-- Describes a **dark-themed, futuristic tech illustration** matching the project's domain (the portfolio uses a dark theme: `#0A0A0B` background, `#6C63FF` accent, `#00D4AA` secondary accent)
-- Fits **DALL-E 3 style** (vivid, cinematic, no text)
-- Is a **single paragraph**, ~100–200 characters
-- References the project's purpose, key technologies, and mood
-- Contains no prompt-injection tricks or markdown
-
-Present it as:
-
-```
-## DALL-E Prompt
-<prompt text here>
-```
-
 ---
 
 # Pre-commit Hook
@@ -142,3 +122,11 @@ After writing the file, confirm with a message like:
 ```
 Added <title> to api/src/projects.ts
 ```
+
+Then **ask the user**:
+
+```
+Do you want me to generate a DALL-E prompt for this project too? (y/n)
+```
+
+If `y`, read `.opencode/commands/generate-image.md` and use its rules to generate the prompt.

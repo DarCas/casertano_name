@@ -10,10 +10,10 @@ import { useState, useEffect } from "react"
 import { categories } from "@/lib/skills"
 import { Tag } from "@/components/tag"
 
-const skills = [
-    "Node.js", "TypeScript", "Vue.js", "PHP",
-    "Laravel", "PostgreSQL", "Solidity", "Express.js",
-    "Agentic AI", "LangChain", "Docker", "PWA",
+const heroSkills = [
+    "Agentic AI", "LangChain", "OpenAI", "RAG",
+    "TypeScript", "Node.js", "Vue 3", "Docker",
+    "Solidity", "Ethers.js", "WebRTC", "MQTT",
 ]
 
 export function Hero() {
@@ -67,7 +67,7 @@ export function Hero() {
             <div
                 className={`flex flex-wrap justify-center gap-[10px] max-w-[680px] transition-all duration-700 delay-300 ${visible ? "opacity-100" : "opacity-0"}`}
             >
-                {skills.map((s) => (
+                {heroSkills.map((s) => (
                     <Tag key={s} size="md" className="tracking-[0.03em]">{s}</Tag>
                 ))}
             </div>

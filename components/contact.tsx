@@ -1,3 +1,9 @@
+/*
+ * Dario Casertano <dario@casertano.name>
+ * Copyright (c) 2026 Casertano Dario – All rights reserved.
+ * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
+ */
+
 "use client"
 
 import React, { useState, useRef, useEffect } from "react"
@@ -194,7 +200,7 @@ export function Contact() {
                     className="w-full px-[18px] py-[14px] rounded-lg border border-white/[0.08] bg-bg-surface text-text font-sans text-[0.9rem] mb-[14px] outline-none transition-colors duration-250 min-h-[140px] resize-y focus:border-accent focus:shadow-[0_0_0_3px_rgba(108,99,255,0.12)]"
                 />
 
-                <label className="flex items-center gap-3 mb-[18px] cursor-pointer group">
+                <label className="flex items-center gap-3 mb-[18px] cursor-pointer group px-3">
                     <input
                         type="checkbox"
                         name="consent"

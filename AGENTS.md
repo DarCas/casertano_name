@@ -36,7 +36,7 @@ API reads from the same `.env` via `--env-file` (dev) or from Docker Compose. Ne
 
 - **`app/`** — 3 routes: `page.tsx` (homepage), `privacy/page.tsx`, `not-found.tsx` (glitch 404). All static.
 - **`components/`** — UI components. `<Tag>` centralizes tag styling with `animate-tagHeroGlow` and staggered delays (`hashDelay`). Sizes: `"sm"` default, `"md"` for hero/skills.
-- **`lib/`** — `projects.ts` (types + `fetchProjects()`) + `utils.ts` (`hashDelay` only).
+- **`lib/`** — `projects.ts` (types + `fetchProjects()`), `skills.ts` (9 `SkillCategory` groups → skills section), `utils.ts` (`hashDelay` only).
 - **`api/`** — Express ESM app, separate `package.json` + `tsconfig.json`. Serves `/out/` (static) + `/api/` routes. `GET /api/projects` from `api/src/projects.ts` with `media` populated dynamically from `@storage/images/projects/` (filesystem scan, cache-bust via mtime). `POST /api/contact` (Zod, rate-limited 5/15min, Nodemailer, Turnstile). Builds with `tsc` to `dist/`, runs via `node dist/index.js`. Excluded from root `tsconfig.json`. CORS via `CORS_ORIGIN` env.
 - **`api/src/templates/contact-email.ts`** — HTML email template, `\n` → `<br>`.
 - **`scripts/generate-sitemap.mjs`** — postbuild script, generates `out/sitemap.xml` (data build).
@@ -52,6 +52,7 @@ Fonts: Plus Jakarta Sans (body) + JetBrains Mono — loaded via `next/font/googl
 ## Non-obvious constraints
 
 - All pages are fully static (`output: "export"`); `next start` is dead code. Dev API and static site are separate processes.
+- Hero tags (`heroSkills` in `hero.tsx`) are manually curated for hype/appeal — changing `lib/skills.ts` does **not** update the hero. Update both independently.
 - Images: `unoptimized: true` (no Next.js Image Optimization).
 - `prefers-reduced-motion` disables all animations (orbs, scanlines, reveals, glows, modals, glitch).
 - `EmailLink` sets `mailto:` via `useEffect` after hydration — empty during SSR (anti-scrape).

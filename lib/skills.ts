@@ -1,9 +1,3 @@
-/*
- * Dario Casertano <dario@casertano.name>
- * Copyright (c) 2026 Casertano Dario – All rights reserved.
- * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
- */
-
 export interface SkillCategory {
     label: string
     items: string[]
@@ -12,7 +6,7 @@ export interface SkillCategory {
 export const categories: SkillCategory[] = [
     {
         label: "Linguaggi e Runtime",
-        items: ["TypeScript", "Node.js", "Vue.js", "PHP", "Laravel", "Express.js"],
+        items: ["TypeScript", "Node.js", "Next.js", "React", "Vue 2", "Vue 3", "PHP", "Laravel", "Express.js", "Zend Framework 3"],
     },
     {
         label: "Database",
@@ -20,18 +14,30 @@ export const categories: SkillCategory[] = [
     },
     {
         label: "DevOps e Infrastruttura",
-        items: ["Docker", "Docker Compose", "Linux", "Apache", "Mosquitto", "Sentry"],
+        items: ["Docker", "Docker Compose", "Linux", "Apache", "Mosquitto", "Sentry", "PM2", "coturn"],
     },
     {
         label: "AI e Agenti",
         items: ["OpenAI", "LangChain", "Agentic AI", "RAG", "Tool Calling", "ReAct Pattern"],
     },
     {
-        label: "Blockchain e Messaging",
-        items: ["Solidity", "MQTT", "grammY", "Telegram Bot", "WebSocket", "PWA"],
+        label: "Blockchain",
+        items: ["Solidity", "Ethers.js", "MetaMask", "IPFS", "Filebase"],
     },
     {
-        label: "Frontend e Tooling",
-        items: ["Vite", "Vuetify", "Pinia", "OAuth2", "JWT", "REST API"],
+        label: "Real-time e Messaging",
+        items: ["MQTT", "WebRTC", "WebSocket", "grammY", "Telegram Bot", "Gmail API", "IMAP", "PWA"],
+    },
+    {
+        label: "Frontend e Librerie",
+        items: ["Vite", "Vuetify", "Pinia", "Vuex", "Chart.js", "Syncfusion Gantt", "Dexie.js", "Workbox", "Service Worker", "Tailwind CSS"],
+    },
+    {
+        label: "Backend e API",
+        items: ["REST API", "JWT", "OAuth2", "Joi", "Docxtemplater", "Strapi 5", "Zod", "Nodemailer"],
+    },
+    {
+        label: "Geospatial e GIS",
+        items: ["GDAL", "ETL Geospaziale"],
     },
 ]
