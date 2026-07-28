@@ -84,11 +84,6 @@ const app = express()
 
 app.set("trust proxy", 1)
 
-// app.use((_req, res, next) => {
-//     res.set("Clear-Site-Data", '"cache","storage"')
-//     next()
-// })
-
 app.use(cors(corsOptions))
 app.use(express.json())
 
@@ -123,14 +118,11 @@ const contactLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
 })
 
-app.get("/api/projects", (req, res) => {
-    const base = `${req.protocol}://${req.get("host")}`
+app.get("/api/projects", (_, res) => {
     res.json(projects.map(p => ( {
         ...p,
-        media: ( p.media?.length ? p.media : listProjectMedia(p.slug) ).map(m => ( {
-            ...m,
-            src: `${base}${m.src}`,
-        } )),
+        media: ( p.media?.length ? p.media : listProjectMedia(p.slug) )
+            .map(m => m),
     } )))
 })
 
