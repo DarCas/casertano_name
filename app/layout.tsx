@@ -27,7 +27,10 @@ const jetbrainsMono = JetBrains_Mono({
 const description = "Sistemi distribuiti, agenti AI e automazione industriale. Full stack su backend, frontend e real-time — dalla progettazione al deploy."
 
 export const metadata: Metadata = {
-    authors: [{name: "Dario Casertano"}],
+    authors: [{
+        name: "Dario Casertano",
+        url: "https://casertano.name/",
+    }],
     description,
     icons: {
         icon: "/favicon.svg",
@@ -46,8 +49,10 @@ export const metadata: Metadata = {
         "IoT",
         "Industrial Automation",
     ],
+    metadataBase: new URL('/', process.env.NEXT_PUBLIC_API!),
     openGraph: {
         description,
+        images: "/opengraph.jpeg",
         locale: "it_IT",
         siteName: "Dario Casertano",
         title: "Dario Casertano — Senior Full Stack Engineer",
@@ -61,8 +66,9 @@ export const metadata: Metadata = {
     title: "Dario Casertano — Senior Full Stack Engineer",
     twitter: {
         card: "summary_large_image",
-        title: "Dario Casertano — Senior Full Stack Engineer",
         description,
+        images: "/opengraph.jpeg",
+        title: "Dario Casertano — Senior Full Stack Engineer",
     },
 }
 
