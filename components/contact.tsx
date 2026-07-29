@@ -26,7 +26,11 @@ interface TurnstileOptions {
     theme?: "light" | "dark" | "auto"
 }
 
-function Dialog({ open, onClose, children }: { open: boolean; onClose: () => void; children: React.ReactNode }) {
+function Dialog({open, onClose, children}: {
+    open: boolean;
+    onClose: () => void;
+    children: React.ReactNode
+}) {
     const dialogRef = useRef<HTMLDialogElement>(null)
 
     useEffect(() => {
@@ -69,7 +73,7 @@ export function Contact() {
                     observer.disconnect()
                 }
             },
-            { threshold: 0.1 },
+            {threshold: 0.1},
         )
         observer.observe(el)
         return () => observer.disconnect()
@@ -134,7 +138,7 @@ export function Contact() {
         try {
             const res = await fetch("/api/contact", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
                     name,
                     email,
@@ -167,7 +171,7 @@ export function Contact() {
         <section id="contatti" ref={sectionRef}
                  className="py-[var(--gp)] px-8 text-center max-w-[1100px] mx-auto scroll-mt-[72px]">
             <span
-                className="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-accent mb-5 block">// contatti</span>
+                className="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-accent-light mb-5 block">// contatti</span>
             <h2 className="font-mono text-[clamp(1.3rem,2.5vw,1.8rem)] mb-2">Parliamone</h2>
             <p className="text-text-secondary mb-10">Hai un progetto in mente o vuoi collaborare?
                 Scrivimi.</p>
@@ -179,6 +183,7 @@ export function Contact() {
                     name="name"
                     placeholder="Nome"
                     required
+                    autoComplete="name"
                     aria-label="Nome"
                     className="w-full px-[18px] py-[14px] rounded-lg border border-white/[0.08] bg-bg-surface text-text font-sans text-[0.9rem] mb-[14px] outline-none transition-colors duration-250 focus:border-accent focus:shadow-[0_0_0_3px_rgba(108,99,255,0.12)]"
                 />
@@ -188,6 +193,7 @@ export function Contact() {
                     name="email"
                     placeholder="E-Mail"
                     required
+                    autoComplete="email"
                     aria-label="E-Mail"
                     className="w-full px-[18px] py-[14px] rounded-lg border border-white/[0.08] bg-bg-surface text-text font-sans text-[0.9rem] mb-[14px] outline-none transition-colors duration-250 focus:border-accent focus:shadow-[0_0_0_3px_rgba(108,99,255,0.12)]"
                 />
@@ -196,6 +202,7 @@ export function Contact() {
                     name="message"
                     placeholder="Messaggio"
                     required
+                    autoComplete="off"
                     aria-label="Messaggio"
                     className="w-full px-[18px] py-[14px] rounded-lg border border-white/[0.08] bg-bg-surface text-text font-sans text-[0.9rem] mb-[14px] outline-none transition-colors duration-250 min-h-[140px] resize-y focus:border-accent focus:shadow-[0_0_0_3px_rgba(108,99,255,0.12)]"
                 />
@@ -224,7 +231,8 @@ export function Contact() {
                         </svg>
                     </span>
                     <span className="text-text-secondary text-[0.8rem] leading-[1.5]">Ho letto e accetto l&apos;
-                        <Link href="/privacy" className="text-accent underline">informativa privacy</Link>.</span>
+                        <Link href="/privacy"
+                              className="text-accent-light underline">informativa privacy</Link>.</span>
                 </label>
 
                 <button
@@ -241,17 +249,20 @@ export function Contact() {
                 <div className="flex flex-col items-center gap-4">
                     {dialog === "success" ? (
                         <>
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" strokeWidth="2"
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+                                 stroke="#00D4AA" strokeWidth="2"
                                  strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                                 <polyline points="22 4 12 14.01 9 11.01"/>
                             </svg>
-                            <p className="font-mono text-[0.95rem] text-text leading-relaxed">Grazie!<br/>Ti risponderò
+                            <p className="font-mono text-[0.95rem] text-text leading-relaxed">Grazie!<br/>Ti
+                                risponderò
                                 al più presto.</p>
                         </>
                     ) : (
                         <>
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ef4444"
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+                                 stroke="#ef4444"
                                  strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <circle cx="12" cy="12" r="10"/>
                                 <line x1="15" y1="9" x2="9" y2="15"/>

@@ -24,6 +24,7 @@ const config = {
                 text: "#EDEDEF",
                 "text-secondary": "#888890",
                 accent: "#6C63FF",
+                "accent-light": "#8B85FF",
                 "accent-secondary": "#00D4AA",
             },
             fontFamily: {

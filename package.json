@@ -16,9 +16,11 @@
   "name": "name.casertano",
   "private": true,
   "scripts": {
+    "predev": "node scripts/extract-version.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/extract-version.mjs",
     "build": "next build",
-    "postbuild": "node scripts/generate-sitemap.mjs",
+    "postbuild": "node scripts/generate-sitemap.mjs && node scripts/inline-css.mjs",
     "start": "next start",
     "lint": "next lint"
   },

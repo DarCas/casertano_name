@@ -55,12 +55,13 @@ function listProjectMedia(slug: string): Array<{
 
             const fullPath = join(imagesDir, file)
             const mtime = statSync(fullPath).mtimeMs.toFixed(0)
-            const src = `/images/projects/${file}?${mtime}`
+
+            const url = new URL(`/images/projects/${file}?${mtime}`, env.NEXT_PUBLIC_API)
 
             if (IMAGE_EXTS.has(ext)) {
-                media.push({src, type: "image"})
+                media.push({src: url.toString(), type: "image"})
             } else if (VIDEO_EXTS.has(ext)) {
-                media.push({src, type: "video"})
+                media.push({src: url.toString(), type: "video"})
             }
         }
 
@@ -176,6 +177,26 @@ app.post("/api/contact", contactLimiter, async (req, res) => {
     }
 })
 
+// Content-Security-Policy
+app.use((req, res, next) => {
+    if (req.path.startsWith("/api/")) return next()
+
+    res.setHeader("Content-Security-Policy", [
+        "default-src 'self'",
+        "script-src 'self' 'unsafe-inline'",
+        "style-src 'self' 'unsafe-inline'",
+        "img-src 'self' data:",
+        "connect-src 'self'",
+        "font-src 'self'",
+        "frame-src 'none'",
+        "object-src 'none'",
+        "base-uri 'self'",
+        "form-action 'self'",
+    ].join("; "))
+
+    next()
+})
+
 // Serve static files from /out (Next.js static export)
 app.use(express.static(outDir, {
     etag: true,
@@ -184,13 +205,17 @@ app.use(express.static(outDir, {
     maxAge: "1y",
 }))
 
-// SPA fallback: serve index.html for non-API routes
+// 404 fallback for non-API routes
 app.use((req, res, next) => {
     if (req.path.startsWith("/api/")) {
         return next()
     }
 
-    res.sendFile(join(outDir, "index.html"))
+    res.status(404)
+        .sendFile(join(outDir, "404.html"), (err) => {
+            if (err) res.status(404)
+                .sendFile(join(outDir, "index.html"))
+        })
 })
 
 app.listen(3001, () => {

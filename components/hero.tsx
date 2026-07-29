@@ -18,9 +18,16 @@ const heroSkills = [
 
 export function Hero() {
     const [visible, setVisible] = useState(false)
+    const [buttonVisible, setButtonVisible] = useState(false)
 
     useEffect(() => {
-        setTimeout(() => setVisible(true), 100)
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            setVisible(true)
+            setButtonVisible(true)
+        } else {
+            setTimeout(() => setVisible(true), 100)
+            setTimeout(() => setButtonVisible(true), 800)
+        }
     }, [])
 
     return (
@@ -29,22 +36,18 @@ export function Hero() {
             className="hero min-h-screen flex justify-center items-center flex-col text-center px-8 pt-[120px] pb-[60px] relative scroll-mt-[72px]"
         >
             <span
-              className={`font-mono text-xs text-accent tracking-[0.08em] mb-4 transition-opacity duration-700 ${visible ? "opacity-100" : "opacity-0"}`}
+              className={`font-mono text-xs text-accent-light tracking-[0.08em] mb-4 transition-opacity duration-700 ${visible ? "opacity-100" : "opacity-0"}`}
             >
                 // senior_full_stack_engineer
             </span>
-            <h1
-                className={`font-mono text-[clamp(1.5rem,4.5vw,3.2rem)] font-semibold leading-[1.15] mb-5 transition-all duration-700 delay-100 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-            >
+            <h1 className="font-mono text-[clamp(1.5rem,4.5vw,3.2rem)] font-semibold leading-[1.15] mb-5">
                 Dario <span className="text-accent-secondary">Casertano</span>
             </h1>
-            <p
-                className={`max-w-[620px] text-[clamp(0.95rem,1.4vw,1.15rem)] text-text-secondary leading-[1.7] mb-9 transition-all duration-700 delay-200 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-            >
+            <p className="max-w-[620px] text-[clamp(0.95rem,1.4vw,1.15rem)] text-text-secondary leading-[1.7] mb-9">
                 Sistemi distribuiti, agenti AI, automazione industriale. Full stack su backend,
                 frontend e real-time &mdash; dalla progettazione al deploy.
             </p>
-            <div className={`flex flex-wrap justify-center gap-3 mb-9 transition-all duration-700 delay-250 ${visible ? "opacity-100" : "opacity-0"}`}>
+            <div className={`flex flex-wrap justify-center gap-3 mb-9 transition-all duration-700 delay-150 ${visible ? "opacity-100" : "opacity-0"}`}>
                 <span className="inline-flex font-mono text-[0.65rem] leading-none overflow-hidden rounded-[3px]">
                     <span className="bg-bg-surface text-white/80 px-2 py-[5px]">experience</span>
                     <span className="bg-amber-400 text-bg px-2 py-[5px]">15+ years</span>
@@ -73,7 +76,7 @@ export function Hero() {
             </div>
             <a
                 href="#progetti"
-                className="inline-flex items-center gap-2 font-mono text-xs font-semibold text-bg bg-accent px-7 py-3 rounded-lg mt-10 transition-colors duration-250 hover:bg-accent-secondary no-underline"
+                className={`inline-flex items-center gap-2 font-mono text-xs font-semibold text-bg bg-accent px-7 py-3 rounded-lg mt-10 transition-all duration-700 hover:bg-accent-secondary no-underline ${buttonVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
             >
                 Vedi i progetti ↓
             </a>

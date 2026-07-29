@@ -5,10 +5,12 @@
  */
 
 import type { Metadata } from "next"
+import dynamic from "next/dynamic"
 import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
-import { NetworkBg } from "@/components/network"
 import React from "react";
+
+const NetworkBg = dynamic(() => import("@/components/network").then(m => m.NetworkBg))
 
 const plusJakartaSans = Plus_Jakarta_Sans({
     subsets: ["latin"],
@@ -95,12 +97,13 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
     return (
         <html lang="it" className={`${plusJakartaSans.variable} ${jetbrainsMono.variable}`}>
         <head>
+            <meta name="theme-color" content="#0A0A0B"/>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
             />
         </head>
-        <body className={'select-none'}>
+        <body>
         <NetworkBg/>
         <div className="scanlines"/>
         <div className="bg-orb orb1"/>

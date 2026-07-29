@@ -13,7 +13,7 @@ export function Skills() {
             id="skills"
             className="py-[var(--gp)] px-8 text-center scroll-mt-[72px]"
         >
-            <span className="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-accent mb-5 block">
+            <span className="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-accent-light mb-5 block">
                 // competenze
             </span>
             <h2 className="font-mono text-[clamp(1.3rem,2.5vw,1.8rem)] mb-2">

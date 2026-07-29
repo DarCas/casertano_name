@@ -40,7 +40,7 @@ Copy `.env.example` to `.env` (Docker will read it). The API loads the same file
 | `NEXT_PUBLIC_SOCIAL_GITHUB` | No | GitHub URL; shows icon when set |
 | `NEXT_PUBLIC_SOCIAL_TELEGRAM` | No | Telegram URL; shows icon when set |
 | `TURNSTILE_SECRET_KEY` | No / API | Turnstile server-side verification (senza, verifica saltata) |
-| `CORS_ORIGIN` | No / API | Origini consentite (default: `https://casertano.name,http://localhost:3000`) |
+| `CORS_ORIGIN` | No / API | Origini consentite (default: `http://localhost:3000`) |
 | `PORT` | No / API | Porta Express (default: 3001) |
 | `SMTP_HOST` | No / API | SMTP server (default: localhost) |
 | `SMTP_PORT` | No / API | SMTP port (default: 587) |
@@ -71,7 +71,8 @@ docker compose up -d
 
 To build your own image, create `.env.build` with `NEXT_PUBLIC_*` vars first:
 ```bash
-docker build -t ghcr.io/darcas/casertano_name:latest .
+docker build -t ghcr.io/username/package_name:latest .
+docker push ghcr.io/username/package_name:latest
 ```
 
 Express serves `/out/` (static site) and `/api/*` (API routes) on port 3001.
