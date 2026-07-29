@@ -171,10 +171,9 @@ export function Contact() {
     return (
         <section id="contatti" ref={sectionRef}
                  className="py-[var(--gp)] px-8 text-center max-w-[1100px] mx-auto scroll-mt-[72px]">
-            <SectionLabel className="mb-5">// contatti</SectionLabel>
-            <h2 className="font-mono text-[clamp(1.3rem,2.5vw,1.8rem)] mb-2">Parliamone</h2>
-            <p className="text-text-secondary mb-10">Hai un progetto in mente o vuoi collaborare?
-                Scrivimi.</p>
+            <SectionLabel className="mb-5">// parliamone</SectionLabel>
+            <h2 className="font-mono text-[clamp(1.3rem,2.5vw,1.8rem)] mb-2">Scrivimi</h2>
+            <p className="text-text-secondary mb-10">Idee, progetti, collaborazioni. Il primo passo tocca a te.</p>
 
             <form ref={formRef} className="max-w-[500px] mx-auto text-left"
                   onSubmit={handleSubmit}>
@@ -231,7 +230,7 @@ export function Contact() {
                         </svg>
                     </span>
                     <span className="text-text-secondary text-[0.8rem] leading-[1.5]">Ho letto e accetto l&apos;
-                        <Link href="/privacy"
+                        <Link href="/privacy-policy/"
                               className="text-accent-light underline">informativa privacy</Link>.</span>
                 </label>
 

@@ -14,12 +14,12 @@ export function Skills() {
             id="skills"
             className="py-[var(--gp)] px-8 text-center scroll-mt-[72px]"
         >
-            <SectionLabel className="mb-5">// competenze</SectionLabel>
+            <SectionLabel className="mb-5">// tech stack</SectionLabel>
             <h2 className="font-mono text-[clamp(1.3rem,2.5vw,1.8rem)] mb-2">
-                Tech Stack
+                Cosa uso
             </h2>
             <p className="text-text-secondary mb-10">
-                Tecnologie e strumenti padroneggiati nei progetti.
+                Linguaggi, runtime, database, AI. Ogni tecnologia ha un perché.
             </p>
             <div className="flex flex-col gap-8 max-w-[700px] mx-auto">
                 {categories.map((cat) => (

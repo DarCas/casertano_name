@@ -12,7 +12,7 @@ const TODAY = new Date().toISOString().slice(0, 10)
 
 const pages = [
     {loc: "/", changefreq: "monthly", priority: "1.0"},
-    {loc: "/privacy", changefreq: "yearly", priority: "0.5"},
+    {loc: "/privacy-policy/", changefreq: "yearly", priority: "0.5"},
 ]
 
 const urls = pages.map(

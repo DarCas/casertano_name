@@ -30,11 +30,10 @@ export function Projects() {
                  className="py-[var(--gp)] px-8 max-w-[1100px] mx-auto scroll-mt-[72px]">
       <SectionLabel className="mb-5">// progetti</SectionLabel>
             <h2 className="font-mono text-[clamp(1.3rem,2.5vw,1.8rem)] mb-2">
-                Progetti selezionati
+                Cosa ho costruito
             </h2>
             <p className="text-text-secondary mb-10">
-                Soluzioni full-stack realizzate per monitoring industriale, AI, telegram bot e
-                gestione territoriale.
+                Una selezione di ciò che ho realizzato. Dall'idea al deploy: AI, blockchain, IoT, real-time. Il filo comune? Stack eterogenei, zero template.
             </p>
             {loading ? (
                 <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-5">

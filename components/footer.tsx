@@ -57,7 +57,7 @@ export function Footer() {
                         Source</a> — CC BY-NC-ND 4.0</p>
                     {vat &&
                         <p className="font-mono text-[0.6rem] text-text-secondary tracking-[0.05em]">{vat}</p>}
-                    <Link href="/privacy"
+                    <Link href="/privacy-policy/"
                           className="font-mono text-[0.6rem] text-text-secondary no-underline tracking-[0.05em] transition-colors duration-200 hover:text-accent">Privacy
                         Policy</Link>
                     <SectionLabel size="sm" className="mt-3">// build version</SectionLabel>

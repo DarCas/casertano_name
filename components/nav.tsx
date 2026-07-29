@@ -6,16 +6,63 @@
 
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import Link from "next/link"
 
 const hasContact = Boolean(process.env.NEXT_PUBLIC_CONTACT_EMAIL)
 
+const SECTION_IDS = ["hero", "progetti", "skills", "contatti"] as const
+
 export function Nav() {
     const [domain, setDomain] = useState("")
+    const [activeSection, setActiveSection] = useState<string>("hero")
+    const ratiosRef = useRef<Map<string, number>>(new Map())
 
     useEffect(() => {
         setDomain(window.location.hostname)
+    }, [])
+
+    useEffect(() => {
+        const ratios = ratiosRef.current
+        const ids = hasContact ? SECTION_IDS : SECTION_IDS.filter(id => id !== "contatti")
+        const elements = ids
+            .map(id => document.getElementById(id))
+            .filter(Boolean) as HTMLElement[]
+
+        if (elements.length === 0) return
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                for (const entry of entries) {
+                    ratios.set(entry.target.id, entry.intersectionRatio)
+                }
+
+                let maxRatio = 0
+                let maxId = "hero"
+                for (const [id, ratio] of ratios) {
+                    if (ratio > maxRatio) {
+                        maxRatio = ratio
+                        maxId = id
+                    }
+                }
+
+                setActiveSection(maxRatio > 0 ? maxId : "hero")
+            },
+            { rootMargin: "-72px 0px -40% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] },
+        )
+
+        for (const el of elements) {
+            observer.observe(el)
+        }
+
+        return () => observer.disconnect()
+    }, [])
+
+    const handleHomeClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault()
+        window.scrollTo({ top: 0, behavior: "smooth" })
+        history.pushState({}, "", "/")
+        setActiveSection("hero")
     }, [])
 
     return (
@@ -26,29 +73,28 @@ export function Nav() {
         {domain}
       </span>
             <div className="flex gap-1 sm:gap-2 justify-center items-center flex-wrap">
-                <NavLink href="/" onClick={(e) => {
-                    e.preventDefault();
-                    window.scrollTo({top: 0, behavior: "smooth"});
-                    history.pushState({}, "", "/")
-                }}>Home</NavLink>
-                <NavLink href="#progetti">Progetti</NavLink>
-                <NavLink href="#skills">Tech Stack</NavLink>
-                {hasContact && <NavLink href="#contatti">Parliamone</NavLink>}
+                <NavLink href="/" isActive={activeSection === "hero"} onClick={handleHomeClick}>Home</NavLink>
+                <NavLink href="#progetti" isActive={activeSection === "progetti"}>Progetti</NavLink>
+                <NavLink href="#skills" isActive={activeSection === "skills"}>Tech Stack</NavLink>
+                {hasContact && <NavLink href="#contatti" isActive={activeSection === "contatti"}>Parliamone</NavLink>}
             </div>
         </nav>
     )
 }
 
-function NavLink({href, onClick, children}: {
+function NavLink({href, onClick, isActive, children}: {
     href: string;
     onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+    isActive?: boolean;
     children: React.ReactNode
 }) {
     return (
         <Link
             href={href}
             onClick={onClick}
-            className="font-mono text-[0.6rem] sm:text-xs tracking-widest uppercase px-2 sm:px-[18px] py-[6px] sm:py-[6px] rounded-full text-text-secondary transition-colors duration-250 hover:text-accent-secondary hover:bg-accent-secondary/[0.08]"
+            className={`font-mono text-[0.6rem] sm:text-xs tracking-widest uppercase px-2 sm:px-[18px] py-[6px] sm:py-[6px] rounded-full transition-colors duration-250 hover:text-accent-secondary hover:bg-accent-secondary/[0.08] ${
+                isActive ? "text-accent-secondary bg-accent-secondary/[0.08]" : "text-text-secondary"
+            }`}
         >
             {children}
         </Link>

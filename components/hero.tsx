@@ -12,7 +12,7 @@ import { Tag } from "@/components/tag"
 
 const heroSkills = [
     "Agentic AI", "LangChain", "OpenAI", "RAG",
-    "TypeScript", "Node.js", "Vue 3", "Docker",
+    "TypeScript", "Node.js", "Vue", "Docker",
     "Solidity", "Ethers.js", "WebRTC", "MQTT",
 ]
 

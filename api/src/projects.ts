@@ -20,7 +20,7 @@ export const projects: Project[] = [
         slug: "falco-ws-environment",
         title: "Falco WS Environment",
         short: "Ecosistema digitale per Falco S.r.l.: PWA officina con Gantt Syncfusion, monitoraggio IoT torni CNC via MQTT, backend centralizzato su Docker.",
-        tags: ["Vue 3", "Node.js", "Docker", "MQTT", "PWA"],
+        tags: ["Vue", "Node.js", "Docker", "MQTT", "PWA"],
         description: "Ecosistema digitale per Falco S.r.l., composto da tre software modulari che coprono l'intero ciclo produttivo: PWA officina con Gantt interattivo e chat realtime, sistema IoT per monitoraggio real-time torni CNC via MQTT con dashboard telemetria, e backend centralizzato Node.js/TypeORM su MariaDB con broker MQTT integrato. Distribuito su infrastruttura ibrida tra Firebase Hosting e server on-premise Docker.",
         features: [
             "Gestione completa dell'officina via PWA: 28+ viste per progetti, commesse, preventivi e clienti, con Gantt interattivo Syncfusion, chat realtime e mappe Google con persistenza offline IndexedDB",
@@ -29,7 +29,7 @@ export const projects: Project[] = [
             "Infrastruttura ibrida: 5 container Docker on-premise con Apache reverse proxy e Let's Encrypt, PWA su Firebase Hosting, monitoring errori con Sentry/GlitchTip",
         ],
         skills: [
-            "Vue 3", "Vue 2", "Vuetify", "TypeScript", "PWA",
+            "Vue", "Vuetify", "TypeScript", "PWA",
             "Node.js", "Express", "TypeORM", "MariaDB", "JWT",
             "MQTT", "Mosquitto", "Docker", "Firebase", "Chart.js",
             "Syncfusion", "Sentry",
@@ -40,7 +40,7 @@ export const projects: Project[] = [
         slug: "mail-thinker-ai",
         title: "Mail Thinker AI",
         short: "Agente AI autonomo per email: Gmail/IMAP, analisi thread, estrazione multi-formato, loop decisionali cost-aware.",
-        tags: ["LangChain", "OpenAI", "Vue 3", "Docker"],
+        tags: ["LangChain", "OpenAI", "Vue", "Docker"],
         description: "Sistema full-stack che combina un agente AI autonomo (Node.js + OpenAI GPT con pattern ReAct) con una dashboard Vue 3 PWA. L'agente è transport-agnostic: connette Gmail via OAuth2 e provider IMAP, esplora folder, analizza thread conversazionali, estrae allegati multi-formato e risponde a obiettivi complessi in loop decisionali stateful con tool selection cost-aware.",
         features: [
             "Agente AI con orchestrazione tool (deepagents/LangChain) e function calling OpenAI — reasoning configurabile, retry con exponential backoff, tool selection cost-aware",
@@ -53,7 +53,7 @@ export const projects: Project[] = [
         skills: [
             "Agentic AI", "LangChain", "OpenAI API", "ReAct Pattern", "Node.js",
             "TypeScript", "Express.js", "JWT", "TypeORM", "MariaDB",
-            "Gmail API", "IMAP", "Vue 3", "Vuetify 4", "Docker",
+            "Gmail API", "IMAP", "Vue", "Vuetify 4", "Docker",
         ],
         media: [],
     },
@@ -82,7 +82,7 @@ export const projects: Project[] = [
         slug: "piattaforma-gestione-territoriale",
         title: "Piattaforma di gestione territoriale",
         short: "Sistema per organizzazioni con sedi, turni e risorse: due PWA, bot Telegram, reportistica e manutenzione su backend MariaDB containerizzato.",
-        tags: ["Vue 2", "Node.js", "Docker", "Strapi 5"],
+        tags: ["Vue", "Node.js", "Docker", "Strapi 5"],
         description: "Sistema end-to-end per organizzazioni con sedi operative, turnistica, risorse umane, manutenzione e reportistica su scala territoriale. Due PWA (admin backoffice + client operativo) e bot Telegram coprono l'intero flusso: gestione turni e sostituzioni, notifiche push, code messaggi dual-channel e generazione documenti. Infrastruttura containerizzata con backend REST su MariaDB e CMS Strapi 5 per guide multilingua.",
         features: [
             "Due PWA (admin + operativo) con routing lazy-loaded, Vuex e service worker per installazione e utilizzo offline",
@@ -94,7 +94,7 @@ export const projects: Project[] = [
         ],
         skills: [
             "Node.js", "Express", "TypeORM", "MariaDB", "JWT", "Joi",
-            "Vue 2", "Vuetify", "PWA", "TypeScript", "Vuex", "Service Worker",
+            "Vue", "Vuetify", "PWA", "TypeScript", "Vuex", "Service Worker",
             "grammy", "Docker", "Docker Compose", "Apache",
             "Strapi 5", "Sentry", "Docxtemplater",
         ],
@@ -104,7 +104,7 @@ export const projects: Project[] = [
         slug: "motore-di-ricerca-multi-contesto",
         title: "Motore di ricerca multi-contesto con sincronizzazione P2P",
         short: "PWA offline-first che unifica motori di ricerca con CSE dedicati e sincronizza dispositivi in tempo reale via WebRTC P2P.",
-        tags: ["Vue 3", "WebRTC", "PWA", "Docker", "Firebase"],
+        tags: ["Vue", "WebRTC", "PWA", "Docker", "Firebase"],
         description: "PWA che unifica più domini di ricerca in un'unica interfaccia, ciascuno servito da un Google Custom Search Engine profilato per lingua (EN, IT, FR). La sincronizzazione P2P end-to-end cifrata via WebRTC — con discovery su Firebase Realtime Database e server TURN autogestito — consente la condivisione di cronologia e segnalibri tra dispositivi senza backend tradizionale. L'architettura offline-first con Dexie/IndexedDB e Workbox garantisce funzionalità completa anche in assenza di connessione.",
         features: [
             "Ricerca multi-contesto con CSE dedicati per lingua (EN, IT, FR), tab switching immediato e persistenza dello stato in sessione",
@@ -115,7 +115,7 @@ export const projects: Project[] = [
             "Deploy automation con Vite + Firebase Hosting + Docker Compose, monitoring Sentry e SRI a build",
         ],
         skills: [
-            "Vue 3", "TypeScript", "Vuetify 3", "Composition API", "Vite", "Pinia",
+            "Vue", "TypeScript", "Vuetify 3", "Composition API", "Vite", "Pinia",
             "WebRTC", "TURN/STUN", "coturn", "Node.js", "Firebase Realtime DB",
             "Docker", "Docker Compose", "Workbox", "Dexie.js", "Sentry",
         ],
@@ -138,7 +138,7 @@ export const projects: Project[] = [
         skills: [
             "Solidity", "Ethers.js", "Polygon", "ERC-721",
             "PHP", "Zend Framework 3", "Node.js", "Express",
-            "TypeORM", "MariaDB", "Vue 2", "Vuetify",
+            "TypeORM", "MariaDB", "Vue", "Vuetify",
             "PWA", "Firebase", "MetaMask", "IPFS",
             "PM2", "Filebase",
         ],
