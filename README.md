@@ -6,7 +6,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38BDF8?logo=tailwindcss&style=for-the-badge)](https://tailwindcss.com/)
 [![Static Export](https://img.shields.io/badge/Output-Static%20Export-green?style=for-the-badge)](https://nextjs.org/docs/app/api-reference/next-config-js/output)
 ![Lighthouse](https://img.shields.io/badge/Lighthouse-A11y%20100%20%7C%20SEO%20100-brightgreen?style=for-the-badge)
-[![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-yellow?style=for-the-badge)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![License](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-yellow?style=for-the-badge)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 Static portfolio for Dario Casertano. Requires **Node.js 22**.
 
@@ -100,4 +100,4 @@ npm install --prefix api && npm run build --prefix api && npm start --prefix api
 
 Copyright &copy; 2026 Casertano Dario.
 
-Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International.
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.

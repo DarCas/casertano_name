@@ -54,7 +54,7 @@ export function Footer() {
                         href="https://github.com/DarCas/casertano_name" target="_blank"
                         rel="noopener"
                         className="text-inherit no-underline transition-colors duration-200 hover:text-accent">Open
-                        Source</a> — CC BY-NC-SA 4.0</p>
+                        Source</a> — CC BY-NC-ND 4.0</p>
                     {vat &&
                         <p className="font-mono text-[0.6rem] text-text-secondary tracking-[0.05em]">{vat}</p>}
                     <Link href="/privacy"
