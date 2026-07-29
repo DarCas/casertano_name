@@ -1,4 +1,9 @@
 {
+  "author": {
+    "email": "dario@casertano.name",
+    "name": "Dario Casertano",
+    "url": "https://casertano.name"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.0",
@@ -13,6 +18,7 @@
     "tsx": "^4.19.0",
     "typescript": "^5.5.3"
   },
+  "license": "CC-BY-NC-ND-4.0",
   "name": "name.casertano.api",
   "private": true,
   "scripts": {
@@ -20,5 +26,6 @@
     "dev": "node --env-file=../.env --env-file=../.env.local --import tsx src/index.ts",
     "start": "node dist/index.js"
   },
-  "type": "module"
+  "type": "module",
+  "version": "1.0.0"
 }

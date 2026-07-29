@@ -1,10 +1,16 @@
 {
+  "author": {
+    "email": "dario@casertano.name",
+    "name": "Dario Casertano",
+    "url": "https://casertano.name"
+  },
   "dependencies": {
     "next": "^15.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^16.2.12",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
@@ -13,6 +19,7 @@
     "tailwindcss": "^3.4.0",
     "typescript": "^5.7.0"
   },
+  "license": "CC-BY-NC-ND-4.0",
   "name": "name.casertano",
   "private": true,
   "scripts": {
@@ -24,5 +31,5 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "version": "1.0.0"
+  "version": "1.1.0"
 }
