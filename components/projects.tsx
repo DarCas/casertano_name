@@ -9,6 +9,7 @@
 import { useState, useEffect } from "react"
 import { ProjectCard } from "@/components/project-card"
 import { ProjectModal } from "@/components/project-modal"
+import { SectionLabel } from "@/components/section-label"
 import { fetchProjects } from "@/lib/projects"
 import type { Project } from "@/lib/projects"
 
@@ -27,9 +28,7 @@ export function Projects() {
     return (
         <section id="progetti"
                  className="py-[var(--gp)] px-8 max-w-[1100px] mx-auto scroll-mt-[72px]">
-      <span className="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-accent-light mb-5 block">
-        // progetti
-      </span>
+      <SectionLabel className="mb-5">// progetti</SectionLabel>
             <h2 className="font-mono text-[clamp(1.3rem,2.5vw,1.8rem)] mb-2">
                 Progetti selezionati
             </h2>

@@ -7,6 +7,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { EmailLink } from "@/components/email-link"
+import { SectionLabel } from "@/components/section-label"
 
 export const metadata: Metadata = {
     title: "Privacy Policy — Dario Casertano",
@@ -33,8 +34,7 @@ export default function PrivacyPage() {
                 torna alla homepage
             </Link>
 
-            <span
-                className="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-accent block mt-14 mb-5">// privacy</span>
+            <SectionLabel color="accent" className="mt-14 mb-5">// privacy</SectionLabel>
             <h1 className="font-mono text-[clamp(1.3rem,2.5vw,1.8rem)] mb-2">Privacy Policy</h1>
             <p className="font-mono text-[0.7rem] text-text-secondary/[0.4] mb-6">Ultimo
                 aggiornamento: 26 luglio 2026</p>

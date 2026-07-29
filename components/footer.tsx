@@ -6,6 +6,7 @@
 
 import Link from "next/link"
 import React from "react";
+import { SectionLabel } from "@/components/section-label"
 import { EmailLink } from "./email-link"
 import { siteVersion } from "@/lib/version"
 
@@ -59,7 +60,7 @@ export function Footer() {
                     <Link href="/privacy"
                           className="font-mono text-[0.6rem] text-text-secondary no-underline tracking-[0.05em] transition-colors duration-200 hover:text-accent">Privacy
                         Policy</Link>
-                    <span className="font-mono text-[0.6rem] tracking-[0.15em] uppercase text-accent-light mt-3 block">// build version</span>
+                    <SectionLabel size="sm" className="mt-3">// build version</SectionLabel>
                     <span className="font-mono text-[0.6rem] text-text-secondary tracking-[0.05em]">v{siteVersion}</span>
                 </div>
                 <div className="flex flex-col items-center md:items-end gap-3">
@@ -91,7 +92,7 @@ export function Footer() {
                         ))}
                     </div>
                     <div className="font-mono text-[0.55rem] text-text-secondary tracking-[0.05em] text-center md:text-right">
-                        <span className="font-mono text-[0.6rem] tracking-[0.15em] uppercase text-accent-light mt-3 mb-1 block">// under the hood</span>
+                        <SectionLabel size="sm" className="mt-3 mb-1">// under the hood</SectionLabel>
                         Next.js 15 · React 19 · Tailwind CSS <br/>
                         Node.js · Express.js · Docker
                     </div>

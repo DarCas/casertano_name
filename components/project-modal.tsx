@@ -9,6 +9,7 @@
 import {useEffect, useCallback, useState} from "react"
 import type {Project} from "@/lib/projects"
 import {Tag} from "@/components/tag"
+import {SectionLabel} from "@/components/section-label"
 
 export function ProjectModal({project, onClose}: {project: Project; onClose: () => void}) {
   const handleKey = useCallback((e: KeyboardEvent) => {
@@ -83,7 +84,7 @@ export function ProjectModal({project, onClose}: {project: Project; onClose: () 
             <p className="text-text-secondary text-[0.9rem] leading-[1.7]">{project.description}</p>
 
             <div>
-              <span className="font-mono text-[0.65rem] text-text-secondary uppercase tracking-[0.1em] block mb-3">// features</span>
+              <SectionLabel size="md" color="secondary" className="mb-3">// features</SectionLabel>
               <div className="bg-bg border border-white/[0.04] rounded-lg p-4 sm:p-5">
                 <ul className="space-y-2.5">
                   {project.features.map((f, i) => (
@@ -97,7 +98,7 @@ export function ProjectModal({project, onClose}: {project: Project; onClose: () 
             </div>
 
             <div>
-              <span className="font-mono text-[0.65rem] text-text-secondary uppercase tracking-[0.1em] block mb-3">// skills</span>
+              <SectionLabel size="md" color="secondary" className="mb-3">// skills</SectionLabel>
               <div className="bg-bg border border-white/[0.04] rounded-lg p-4 sm:p-5">
                 <div className="flex flex-wrap gap-[6px]">
                   {project.skills.map((s) => (
