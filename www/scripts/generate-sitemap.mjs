@@ -4,14 +4,27 @@
  * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
  */
 
-import {writeFileSync} from "node:fs"
-import {join} from "node:path"
+import { writeFileSync, readdirSync } from "node:fs"
+import { join } from "node:path"
 
 const BASE = "https://casertano.name"
 const TODAY = new Date().toISOString().slice(0, 10)
+const outDir = join(import.meta.dirname, "..", "out")
+
+let projectSlugs = []
+try {
+    projectSlugs = readdirSync(join(outDir, "progetti"), { withFileTypes: true })
+        .filter((entry) => entry.isDirectory())
+        .map((entry) => entry.name)
+} catch {}
 
 const pages = [
-    {loc: "/", changefreq: "monthly", priority: "1.0"},
+    { loc: "/", changefreq: "monthly", priority: "1.0" },
+    ...projectSlugs.map((slug) => ({
+        loc: `/progetti/${slug}/`,
+        changefreq: "monthly",
+        priority: "0.8",
+    })),
 ]
 
 const urls = pages.map(
@@ -30,6 +43,5 @@ ${urls}
 </urlset>
 `
 
-const outDir = join(import.meta.dirname, "..", "out")
 writeFileSync(join(outDir, "sitemap.xml"), sitemap)
-console.log("sitemap.xml generated")
+console.log(`sitemap.xml generated (${pages.length} URL)`)

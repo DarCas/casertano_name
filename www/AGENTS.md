@@ -4,8 +4,8 @@ Portfolio statico di Dario Casertano (`https://casertano.name`). Build statica N
 
 ## Comandi
 
-- `npm run dev` — dev server (predev: `node scripts/extract-version.mjs`)
-- `npm run build` — build statica in `out/` (postbuild: `generate-sitemap.mjs` + `inline-css.mjs`)
+- `npm run dev` — dev server (predev: `extract-version.mjs` + `fetch-projects.mjs`)
+- `npm run build` — build statica in `out/` (prebuild: `extract-version.mjs` + `fetch-projects.mjs`; postbuild: `generate-sitemap.mjs` + `inline-css.mjs`)
 - `npm run lint` — `next lint`
 - `ANALYZE=true npm run build` — bundle analysis con `@next/bundle-analyzer`
 
@@ -13,10 +13,10 @@ Portfolio statico di Dario Casertano (`https://casertano.name`). Build statica N
 
 ## Architettura
 
-- `app/` — App Router: `layout.tsx` (metadata, font, JSON-LD), `page.tsx` (composizione sezioni), `not-found.tsx`, `privacy-policy/`, `globals.css`
-- `components/` — sezioni della landing (Hero, Nav, Projects, Skills, Contact, Footer) + primitivi (SectionLabel, Tag, EmailLink)
-- `lib/` — dati e tipi: `projects.ts` (fetch progetti da API), `skills.ts` (tassonomia categorie), `utils.ts`, `version.ts` (generato)
-- `scripts/` — build tooling: `extract-version.mjs` (scrive `lib/version.ts` da package.json), `generate-sitemap.mjs`, `inline-css.mjs`
+- `app/` — App Router: `layout.tsx` (metadata, font, JSON-LD), `page.tsx` (composizione sezioni), `progetti/[slug]/` (pagine statiche progetto, da snapshot), `not-found.tsx`, `privacy-policy/`, `globals.css`
+- `components/` — sezioni della landing (Hero, Nav, Projects, Skills, Contact, Footer) + primitivi (SectionLabel, Tag, EmailLink, BackToTop, HomeArrow) + ProjectDetail (dettaglio statico, riusato dalle pagine progetto; senza card: media `aspect-[2/1]`, features/skills con SectionLabel + Tag, stile sezioni homepage)
+- `lib/` — dati e tipi: `projects.ts` (fetch progetti da API), `projects-data.ts` (generato: snapshot progetti), `skills.ts` (tassonomia categorie), `utils.ts`, `version.ts` (generato)
+- `scripts/` — build tooling: `extract-version.mjs` (scrive `lib/version.ts` da package.json), `fetch-projects.mjs` (scrive `lib/projects-data.ts` da API), `generate-sitemap.mjs` (legge `out/progetti/` per aggiungere le pagine progetto), `inline-css.mjs`
 - `public/` — favicon, `llms.txt`, `robots.txt`, `opengraph.jpeg`, `sw.js`
 
 ## Configurazione
@@ -49,4 +49,8 @@ Portfolio statico di Dario Casertano (`https://casertano.name`). Build statica N
 
 - I tag hero (`heroSkills`) sono curati a mano in `components/hero.tsx`, NON derivati da `lib/skills.ts`. Modificare `skills.ts` non aggiorna l'hero: vanno editati indipendentemente.
 - Il contatore skill nell'hero deriva da `lib/skills.ts` (`categories.reduce`).
+- `lib/projects-data.ts` è generato da `scripts/fetch-projects.mjs` in predev/prebuild ed è committato: in `components/projects.tsx` è lo stato iniziale (prerender per SEO), poi il refresh client al mount può sovrascriverlo. Se il fetch fallisce, lo snapshot resta invariato (build mai rotta). Lo script legge `.env` prima di `.env.local`: lo snapshot rispecchia sempre l'API pubblica, mai quella locale.
+- Le pagine `/progetti/[slug]/` sono server component generate da `generateStaticParams()` su `projects-data.ts`: la card in `project-card.tsx` è un `<a>` reale verso la pagina (niente modal — eliminato). Ogni pagina progetto include Nav e Footer e ha una freccia `&larr;` accanto al titolo che torna alla homepage (niente breadcrumb visibile; il JSON-LD `BreadcrumbList` resta per SEO). La sitemap e `llms.txt`/`llms-full.txt` includono le pagine progetto.
+- La freccia home (pagine progetto e privacy) è il componente client `components/home-arrow.tsx` (`HomeArrow`): legge `window.location.hash` a mount; se `#from-contact` (arrivo dal form contatti) punta a `/#contatti`, altrimenti a `/`. Il link "informativa privacy" del form in `components/contact.tsx` usa `href="/privacy-policy/#from-contact"`; il link del footer resta pulito (niente hash).
+- La `Nav` (`components/nav.tsx`) usa `usePathname()`: su home gestisce scroll-spy + smooth-scroll su Home; su pagine non-home i link sezione puntano a `/#...`, Home è un Link reale e il link "Progetti" resta evidenziato (attivo) sulle pagine `/progetti/`.
 - **NON eseguire mai commit senza esplicito permesso.**

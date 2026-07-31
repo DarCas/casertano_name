@@ -23,9 +23,9 @@
   "name": "name.casertano",
   "private": true,
   "scripts": {
-    "predev": "node scripts/extract-version.mjs",
+    "predev": "node scripts/extract-version.mjs && node scripts/fetch-projects.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/extract-version.mjs",
+    "prebuild": "node scripts/extract-version.mjs && node scripts/fetch-projects.mjs",
     "build": "next build",
     "postbuild": "node scripts/generate-sitemap.mjs && node scripts/inline-css.mjs",
     "start": "next start",

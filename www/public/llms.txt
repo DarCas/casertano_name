@@ -3,6 +3,12 @@
 
 ## Pages
 - [Home](https://casertano.name/): Portfolio homepage — hero, projects, tech stack, contact
+- [Falco WS Environment](https://casertano.name/progetti/falco-ws-environment/): Workshop PWA with Syncfusion Gantt, CNC lathe IoT monitoring via MQTT, centralized backend on Docker
+- [Mail Thinker AI](https://casertano.name/progetti/mail-thinker-ai/): Autonomous AI agent for email — Gmail/IMAP, thread analysis, multi-format extraction
+- [Disaster Relief Department](https://casertano.name/progetti/disaster-relief-department/): Machine monitoring platform for hydro-meteorological and seismic alerts
+- [Territorial management platform](https://casertano.name/progetti/piattaforma-gestione-territoriale/): System for organizations with branches, shifts and resources
+- [Multi-context search engine with P2P sync](https://casertano.name/progetti/motore-di-ricerca-multi-contesto/): Offline-first PWA unifying search engines, WebRTC P2P sync
+- [NFT Marketplace for collectible virtual diamonds](https://casertano.name/progetti/bitmonds/): ERC-721 NFTs on Polygon, on-chain marketplace, PWA back-office
 - [Privacy Policy](https://casertano.name/privacy-policy/): Privacy notice
 
 ## Full content

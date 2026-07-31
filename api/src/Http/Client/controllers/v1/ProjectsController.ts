@@ -9,7 +9,7 @@ import { captureException } from "@/@stdlib/debug";
 import { extname } from "@/@stdlib/filesystem";
 import { HttpCodes } from "@/@stdlib/network";
 import { AbstractClientController } from "@/Http/Client/controllers/AbstractClientController";
-import { projects } from "@/projects";
+import { projects } from "@/database/json/projects.json";
 import { compact } from "lodash";
 import { readdir, stat } from "node:fs/promises";
 import { env } from "node:process";

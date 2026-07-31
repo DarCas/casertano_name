@@ -50,12 +50,12 @@ REST API, JWT, OAuth2, Joi, Docxtemplater, Strapi 5, Zod, Nodemailer, Express.js
 
 ## Projects
 
-- **Falco WS Environment** (Vue, Node.js, Docker, MQTT, PWA) — Digital ecosystem for Falco S.r.l.: workshop PWA with Syncfusion Gantt, CNC lathe IoT monitoring via MQTT, centralized backend on Docker.
-- **Mail Thinker AI** (LangChain, OpenAI, Vue, Docker) — Autonomous AI agent for email: Gmail/IMAP, thread analysis, multi-format extraction, cost-aware decision loops.
-- **Disaster Relief Department** (Telegram Bot, GIS, OpenAI, Docker) — Machine monitoring platform for hydro-meteorological and seismic alerts across the whole Italian territory.
-- **Territorial management platform** (Vue, Node.js, Docker, Strapi 5) — System for organizations with branches, shifts and resources: two PWAs, Telegram bot, reporting and maintenance on a containerized MariaDB backend.
-- **Multi-context search engine with P2P sync** (Vue, WebRTC, PWA, Docker, Firebase) — Offline-first PWA unifying search engines with dedicated CSEs and syncing devices in real time via WebRTC P2P.
-- **NFT Marketplace for collectible virtual diamonds tokenized on Polygon** (Solidity, Polygon, ERC-721, Vue, Node.js) — Virtual diamonds tokenized as ERC-721 NFTs on Polygon: on-chain marketplace, PWA back-office and automatic 3D rendering.
+- [Falco WS Environment](https://casertano.name/progetti/falco-ws-environment/) (Vue, Node.js, Docker, MQTT, PWA) — Digital ecosystem for Falco S.r.l.: workshop PWA with Syncfusion Gantt, CNC lathe IoT monitoring via MQTT, centralized backend on Docker.
+- [Mail Thinker AI](https://casertano.name/progetti/mail-thinker-ai/) (LangChain, OpenAI, Vue, Docker) — Autonomous AI agent for email: Gmail/IMAP, thread analysis, multi-format extraction, cost-aware decision loops.
+- [Disaster Relief Department](https://casertano.name/progetti/disaster-relief-department/) (Telegram Bot, GIS, OpenAI, Docker) — Machine monitoring platform for hydro-meteorological and seismic alerts across the whole Italian territory.
+- [Territorial management platform](https://casertano.name/progetti/piattaforma-gestione-territoriale/) (Vue, Node.js, Docker, Strapi 5) — System for organizations with branches, shifts and resources: two PWAs, Telegram bot, reporting and maintenance on a containerized MariaDB backend.
+- [Multi-context search engine with P2P sync](https://casertano.name/progetti/motore-di-ricerca-multi-contesto/) (Vue, WebRTC, PWA, Docker, Firebase) — Offline-first PWA unifying search engines with dedicated CSEs and syncing devices in real time via WebRTC P2P.
+- [NFT Marketplace for collectible virtual diamonds tokenized on Polygon](https://casertano.name/progetti/bitmonds/) (Solidity, Polygon, ERC-721, Vue, Node.js) — Virtual diamonds tokenized as ERC-721 NFTs on Polygon: on-chain marketplace, PWA back-office and automatic 3D rendering.
 
 ## Contact
 

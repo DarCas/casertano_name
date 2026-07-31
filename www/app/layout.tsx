@@ -7,6 +7,7 @@
 import type { Metadata } from "next"
 import dynamic from "next/dynamic"
 import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google"
+import { projectsData } from "@/lib/projects-data"
 import "./globals.css"
 import React from "react";
 
@@ -96,6 +97,15 @@ const jsonLd = {
                 "https://t.me/QuantumTip",
             ],
             url: "https://casertano.name/",
+        },
+        {
+            "@type": "ItemList",
+            itemListElement: projectsData.map((p, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                name: p.title,
+                url: `https://casertano.name/progetti/${p.slug}/`,
+            })),
         },
     ],
 }

@@ -237,7 +237,7 @@ export function Contact() {
                         </svg>
                     </span>
                     <span className="text-text-secondary text-[0.8rem] leading-[1.5]">Ho letto e accetto l&apos;
-                        <Link href="/privacy-policy/"
+                        <Link href="/privacy-policy/#from-contact"
                               className="text-accent-light underline">informativa privacy</Link>.</span>
                 </label>
 

@@ -5,8 +5,9 @@
  */
 
 import type { Metadata } from "next"
-import Link from "next/link"
+import { BackToTop } from "@/components/back-to-top"
 import { EmailLink } from "@/components/email-link"
+import { HomeArrow } from "@/components/home-arrow"
 import { SectionLabel } from "@/components/section-label"
 
 export const metadata: Metadata = {
@@ -25,20 +26,11 @@ function Divider() {
 export default function PrivacyPage() {
     return (
         <main className="max-w-[720px] mx-auto px-8 py-20">
-            <Link
-                href="/#contatti"
-                className="inline-flex items-center gap-2 font-mono text-[0.75rem] text-text-secondary no-underline border border-white/[0.08] rounded-full px-4 py-1.5 transition-colors duration-200 hover:border-accent hover:text-accent"
-            >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                     strokeWidth="2" strokeLinecap="round">
-                    <path d="M19 12H5"/>
-                    <path d="M12 19l-7-7 7-7"/>
-                </svg>
-                torna alla homepage
-            </Link>
-
-            <SectionLabel color="accent" className="mt-14 mb-5">// privacy</SectionLabel>
-            <h1 className="font-mono text-[clamp(1.3rem,2.5vw,1.8rem)] mb-2">Privacy Policy</h1>
+            <SectionLabel color="accent" className="mb-3">// privacy</SectionLabel>
+            <div className="flex items-center gap-4 mb-2">
+                <HomeArrow/>
+                <h1 className="font-mono text-[clamp(1.3rem,2.5vw,1.8rem)]">Privacy Policy</h1>
+            </div>
             <p className="font-mono text-[0.7rem] text-text-secondary/[0.4] mb-6">Ultimo
                 aggiornamento: 26 luglio 2026</p>
 
@@ -191,19 +183,7 @@ export default function PrivacyPage() {
                 </p>
             </section>
 
-            <div className="mt-16 text-center">
-                <a
-                    href="#"
-                    className="inline-flex items-center gap-2 font-mono text-[0.75rem] text-text-secondary no-underline border border-white/[0.08] rounded-full px-4 py-1.5 transition-colors duration-200 hover:border-accent hover:text-accent"
-                >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                         stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                        <path d="M12 5v14"/>
-                        <path d="M5 12l7-7 7 7"/>
-                    </svg>
-                    torna su
-                </a>
-            </div>
+            <BackToTop/>
         </main>
     )
 }

@@ -1,0 +1,275 @@
+/*
+ * Dario Casertano <dario@casertano.name>
+ * Copyright (c) 2026 Casertano Dario – All rights reserved.
+ * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
+ */
+
+import type { Project } from "./projects"
+
+export const projectsData: Project[] = [
+    {
+        "slug": "falco-ws-environment",
+        "title": "Falco WS Environment",
+        "short": "Ecosistema digitale per Falco S.r.l.: PWA officina con Gantt Syncfusion, monitoraggio IoT torni CNC via MQTT, backend centralizzato su Docker.",
+        "tags": [
+            "Vue",
+            "Node.js",
+            "Docker",
+            "MQTT",
+            "PWA"
+        ],
+        "description": "Ecosistema digitale per Falco S.r.l., composto da tre software modulari che coprono l'intero ciclo produttivo: PWA officina con Gantt interattivo e chat realtime, sistema IoT per monitoraggio real-time torni CNC via MQTT con dashboard telemetria, e backend centralizzato Node.js/TypeORM su MariaDB con broker MQTT integrato. Distribuito su infrastruttura ibrida tra Firebase Hosting e server on-premise Docker.",
+        "features": [
+            "Gestione completa dell'officina via PWA: 28+ viste per progetti, commesse, preventivi e clienti, con Gantt interattivo Syncfusion, chat realtime e mappe Google con persistenza offline IndexedDB",
+            "Monitoraggio industriale IoT in tempo reale: torni CNC connessi via MQTT, dashboard telemetria, statistiche Chart.js e notifiche push Firebase su allarmi e configurazione remota",
+            "Backend centralizzato REST su MariaDB con broker MQTT Mosquitto, 10 cron job schedulati, generazione automatica documenti (DOCX/PDF/XLSX) e sync FTP bidirezionale con macchinari",
+            "Infrastruttura ibrida: 5 container Docker on-premise con Apache reverse proxy e Let's Encrypt, PWA su Firebase Hosting, monitoring errori con Sentry/GlitchTip"
+        ],
+        "skills": [
+            "Vue",
+            "Vuetify",
+            "TypeScript",
+            "PWA",
+            "Node.js",
+            "Express",
+            "TypeORM",
+            "MariaDB",
+            "JWT",
+            "MQTT",
+            "Mosquitto",
+            "Docker",
+            "Firebase",
+            "Chart.js",
+            "Syncfusion",
+            "Sentry"
+        ],
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/falco-ws-environment.webp?1785321593379",
+                "type": "image"
+            }
+        ]
+    },
+    {
+        "slug": "mail-thinker-ai",
+        "title": "Mail Thinker AI",
+        "short": "Agente AI autonomo per email: Gmail/IMAP, analisi thread, estrazione multi-formato, loop decisionali cost-aware.",
+        "tags": [
+            "LangChain",
+            "OpenAI",
+            "Vue",
+            "Docker"
+        ],
+        "description": "Sistema full-stack che combina un agente AI autonomo (Node.js + OpenAI GPT con pattern ReAct) con una dashboard Vue 3 PWA. L'agente è transport-agnostic: connette Gmail via OAuth2 e provider IMAP, esplora folder, analizza thread conversazionali, estrae allegati multi-formato e risponde a obiettivi complessi in loop decisionali stateful con tool selection cost-aware.",
+        "features": [
+            "Agente AI con orchestrazione tool (deepagents/LangChain) e function calling OpenAI — reasoning configurabile, retry con exponential backoff, tool selection cost-aware",
+            "Servizio email astratto: implementazioni Gmail OAuth2 e IMAP con decryption AES-256-GCM e RSA key encapsulation",
+            "Pipeline parsing allegati multi-formato (PDF, DOCX, XLSX, PPTX, immagini via Vision API) e conversione HTML→MarkDown",
+            "Backend Express con JWT, risposte firmate, TypeORM + MariaDB su repository pattern",
+            "Dashboard PWA Vue 3 con login OAuth2, chat interattiva con agente e i18n IT/EN",
+            "Container Docker ottimizzato con dumb-init, Sentry monitoring e hot-reload in sviluppo"
+        ],
+        "skills": [
+            "Agentic AI",
+            "LangChain",
+            "OpenAI API",
+            "ReAct Pattern",
+            "Node.js",
+            "TypeScript",
+            "Express.js",
+            "JWT",
+            "TypeORM",
+            "MariaDB",
+            "Gmail API",
+            "IMAP",
+            "Vue",
+            "Vuetify 4",
+            "Docker"
+        ],
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/mail-thinker-ai.webp?1785321594013",
+                "type": "image"
+            }
+        ]
+    },
+    {
+        "slug": "disaster-relief-department",
+        "title": "Disaster Relief Department",
+        "short": "Piattaforma di machine monitoring per allerte meteo-idrologiche e sismiche su tutto il territorio italiano.",
+        "tags": [
+            "Telegram Bot",
+            "GIS",
+            "OpenAI",
+            "Docker"
+        ],
+        "description": "Sistema end-to-end che acquisisce, elabora e distribuisce automaticamente bollettini ufficiali di Protezione Civile (DPC) ed eventi sismici INGV/USGS su tutto il territorio italiano. Integra un bot Telegram per notifiche in tempo reale, classificazione assistita da AI e stima dell'intensità Mercalli per la valutazione del rischio sismico.",
+        "features": [
+            "Acquisizione ed elaborazione automatica di bollettini di criticità idrogeologica da fonti istituzionali (DPC, INGV, USGS)",
+            "Conversione geospaziale TopoJSON → GeoJSON → KML con riproiezione EPSG:4326 e styling cromatico per severità allerta",
+            "Bot Telegram con notifiche push in tempo reale, carosello eventi sismici, tastiera interattiva e pannello di amministrazione",
+            "Classificazione assistita da AI (OpenAI) per risoluzione automatica di zone di allerta non ancora catalogate",
+            "Stima intensità Mercalli con modello GMPE (Boore-Atkinson) per valutazione rapida dell'impatto sismico",
+            "Caricamento KML su Firebase Storage con cache pubblica per visualizzazione immediata in Google Earth"
+        ],
+        "skills": [
+            "Geospatial ETL",
+            "GDAL",
+            "grammY",
+            "Telegram API",
+            "OpenAI API",
+            "Sentry",
+            "Firebase Admin SDK",
+            "Docker",
+            "TypeORM",
+            "SQLite",
+            "Healthchecks.io",
+            "TypeScript"
+        ],
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/disaster-relief-department.webp?1785321592807",
+                "type": "image"
+            }
+        ]
+    },
+    {
+        "slug": "piattaforma-gestione-territoriale",
+        "title": "Piattaforma di gestione territoriale",
+        "short": "Sistema per organizzazioni con sedi, turni e risorse: due PWA, bot Telegram, reportistica e manutenzione su backend MariaDB containerizzato.",
+        "tags": [
+            "Vue",
+            "Node.js",
+            "Docker",
+            "Strapi 5"
+        ],
+        "description": "Sistema end-to-end per organizzazioni con sedi operative, turnistica, risorse umane, manutenzione e reportistica su scala territoriale. Due PWA (admin backoffice + client operativo) e bot Telegram coprono l'intero flusso: gestione turni e sostituzioni, notifiche push, code messaggi dual-channel e generazione documenti. Infrastruttura containerizzata con backend REST su MariaDB e CMS Strapi 5 per guide multilingua.",
+        "features": [
+            "Due PWA (admin + operativo) con routing lazy-loaded, Vuex e service worker per installazione e utilizzo offline",
+            "Backend REST con 19 entità su MariaDB, autenticazione JWT per ruolo e validazione Joi",
+            "Bot Telegram per gestione turni, candidature e notifiche push con conversazioni interattive",
+            "Sistema code messaggi dual-channel (in-app + email) con priorità, template DOCX e tracciamento consegna",
+            "9 cronjob per attivazione turni, reminder report, notifiche manutenzione e sync CMS",
+            "Infrastruttura containerizzata Docker Compose (5 servizi) con Apache reverse proxy"
+        ],
+        "skills": [
+            "Node.js",
+            "Express",
+            "TypeORM",
+            "MariaDB",
+            "JWT",
+            "Joi",
+            "Vue",
+            "Vuetify",
+            "PWA",
+            "TypeScript",
+            "Vuex",
+            "Service Worker",
+            "grammy",
+            "Docker",
+            "Docker Compose",
+            "Apache",
+            "Strapi 5",
+            "Sentry",
+            "Docxtemplater"
+        ],
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/piattaforma-gestione-territoriale.webp?1785321595240",
+                "type": "image"
+            }
+        ]
+    },
+    {
+        "slug": "motore-di-ricerca-multi-contesto",
+        "title": "Motore di ricerca multi-contesto con sincronizzazione P2P",
+        "short": "PWA offline-first che unifica motori di ricerca con CSE dedicati e sincronizza dispositivi in tempo reale via WebRTC P2P.",
+        "tags": [
+            "Vue",
+            "WebRTC",
+            "PWA",
+            "Docker",
+            "Firebase"
+        ],
+        "description": "PWA che unifica più domini di ricerca in un'unica interfaccia, ciascuno servito da un Google Custom Search Engine profilato per lingua (EN, IT, FR). La sincronizzazione P2P end-to-end cifrata via WebRTC — con discovery su Firebase Realtime Database e server TURN autogestito — consente la condivisione di cronologia e segnalibri tra dispositivi senza backend tradizionale. L'architettura offline-first con Dexie/IndexedDB e Workbox garantisce funzionalità completa anche in assenza di connessione.",
+        "features": [
+            "Ricerca multi-contesto con CSE dedicati per lingua (EN, IT, FR), tab switching immediato e persistenza dello stato in sessione",
+            "Sincronizzazione P2P end-to-end cifrata via WebRTC con discovery su Firebase, trasferimento a chunk su DataChannel e server TURN autogestito per NAT traversal",
+            "Server TURN coturn containerizzato con autenticazione HMAC-SHA1, Apache reverse proxy, Let's Encrypt e rate limiting",
+            "Persistenza offline con Dexie (IndexedDB): cronologia, segnalibri, backup cifrato e merge bidirezionale tra dispositivi",
+            "PWA installabile con Workbox Service Worker, caching strategico, wake lock e supporto Android/iOS",
+            "Deploy automation con Vite + Firebase Hosting + Docker Compose, monitoring Sentry e SRI a build"
+        ],
+        "skills": [
+            "Vue",
+            "TypeScript",
+            "Vuetify 3",
+            "Composition API",
+            "Vite",
+            "Pinia",
+            "WebRTC",
+            "TURN/STUN",
+            "coturn",
+            "Node.js",
+            "Firebase Realtime DB",
+            "Docker",
+            "Docker Compose",
+            "Workbox",
+            "Dexie.js",
+            "Sentry"
+        ],
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/motore-di-ricerca-multi-contesto.webp?1785321594605",
+                "type": "image"
+            }
+        ]
+    },
+    {
+        "slug": "bitmonds",
+        "title": "NFT Marketplace per diamanti virtuali collezionabili tokenizzati su Polygon",
+        "short": "Diamanti virtuali tokenizzati in NFT ERC-721 su Polygon: marketplace on-chain, back-office PWA e rendering 3D automatico.",
+        "tags": [
+            "Solidity",
+            "Polygon",
+            "ERC-721",
+            "Vue",
+            "Node.js"
+        ],
+        "description": "Piattaforma end-to-end per la tokenizzazione di diamanti virtuali in NFT ERC-721 su Polygon. Combina smart contract Solidity con marketplace on-chain, back-office PWA in Vue 2 per gestione token e artworks, e un ecosistema di backend distribuiti (PHP Zend Framework 3 per sito pubblico con Nexi/PayPal, Node.js/Express per daemon blockchain, rendering texture 3D e code di processing). L'infrastruttura PM2 in cluster mode orchestra tutti i servizi su MariaDB multi-database con storage IPFS per metadati e asset digitali.",
+        "features": [
+            "Smart contract ERC-721 con marketplace on-chain, royalties EIP-2981 e minting/drop/burn su Polygon per tokenizzare diamanti virtuali in NFT",
+            "Back-office PWA con MetaMask e Firebase: gestione catalogo token, artworks e operazioni on-chain tramite smart contract",
+            "Sito e-commerce PHP Zend Framework 3: catalogo diamanti, pagamenti Nexi/PayPal, KYC e voucher",
+            "Daemon blockchain Node.js per mirroring e caching dello stato on-chain con drops schedulati e queue processing",
+            "Logistics V3: suite backend Node.js con Renderer Bot per texture 3D, Viewer NFT interattivo e API client/admin",
+            "Infrastruttura PM2 cluster mode su MariaDB multi-database con storage IPFS/Filebase per metadati e asset"
+        ],
+        "skills": [
+            "Solidity",
+            "Ethers.js",
+            "Polygon",
+            "ERC-721",
+            "PHP",
+            "Zend Framework 3",
+            "Node.js",
+            "Express",
+            "TypeORM",
+            "MariaDB",
+            "Vue",
+            "Vuetify",
+            "PWA",
+            "Firebase",
+            "MetaMask",
+            "IPFS",
+            "PM2",
+            "Filebase"
+        ],
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/bitmonds.webp?1785321592213",
+                "type": "image"
+            }
+        ]
+    }
+]

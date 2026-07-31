@@ -8,6 +8,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 const hasContact = Boolean(process.env.NEXT_PUBLIC_CONTACT_EMAIL)
 
@@ -17,6 +18,9 @@ export function Nav() {
     const [domain, setDomain] = useState("")
     const [activeSection, setActiveSection] = useState<string>("hero")
     const ratiosRef = useRef<Map<string, number>>(new Map())
+    const pathname = usePathname()
+    const isHome = pathname === "/"
+    const isProgettiPage = pathname.startsWith("/progetti")
 
     useEffect(() => {
         setDomain(window.location.hostname)
@@ -59,11 +63,12 @@ export function Nav() {
     }, [])
 
     const handleHomeClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+        if (!isHome) return
         e.preventDefault()
         window.scrollTo({ top: 0, behavior: "smooth" })
         history.pushState({}, "", "/")
         setActiveSection("hero")
-    }, [])
+    }, [isHome])
 
     return (
         <nav
@@ -73,10 +78,10 @@ export function Nav() {
         {domain}
       </span>
             <div className="flex gap-1 sm:gap-2 justify-center items-center flex-wrap">
-                <NavLink href="/" isActive={activeSection === "hero"} onClick={handleHomeClick}>Home</NavLink>
-                <NavLink href="#progetti" isActive={activeSection === "progetti"}>Progetti</NavLink>
-                <NavLink href="#skills" isActive={activeSection === "skills"}>Tech Stack</NavLink>
-                {hasContact && <NavLink href="#contatti" isActive={activeSection === "contatti"}>Parliamone</NavLink>}
+                <NavLink href="/" isActive={isHome && activeSection === "hero"} onClick={handleHomeClick}>Home</NavLink>
+                <NavLink href={isHome ? "#progetti" : "/#progetti"} isActive={isHome ? activeSection === "progetti" : isProgettiPage}>Progetti</NavLink>
+                <NavLink href={isHome ? "#skills" : "/#skills"} isActive={isHome && activeSection === "skills"}>Tech Stack</NavLink>
+                {hasContact && <NavLink href={isHome ? "#contatti" : "/#contatti"} isActive={isHome && activeSection === "contatti"}>Parliamone</NavLink>}
             </div>
         </nav>
     )
