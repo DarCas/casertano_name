@@ -17,7 +17,7 @@ export function ProjectDetail({ project }: { project: Project }) {
             <div className="w-full aspect-[2/1] bg-bg overflow-hidden rounded-lg">
                 {media ? (
                     media.type === "image" ? (
-                        <img src={media.src} alt={media.alt ?? project.title} className="w-full h-full object-cover"/>
+                        <img src={media.src} alt={media.alt ?? project.title} fetchPriority="high" className="w-full h-full object-cover"/>
                     ) : (
                         <video src={media.src} controls className="w-full h-full object-cover"/>
                     )

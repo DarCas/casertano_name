@@ -17,20 +17,24 @@ import type { Project } from "@/lib/projects"
 const BASE = "https://casertano.name"
 
 export function generateStaticParams() {
-    return projectsData.map((p) => ({ slug: p.slug }))
+    return projectsData.map((p) => ( {slug: p.slug} ))
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-    const { slug } = await params
+export async function generateMetadata({params}: {
+    params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+    const {slug} = await params
     const project = projectsData.find((p) => p.slug === slug)
     if (!project) return {}
 
     const url = `${BASE}/progetti/${slug}/`
     const title = `${project.title} — Dario Casertano`
-    const image = project.media?.[0]?.type === "image" ? project.media[0].src : undefined
+    const image = project.media?.[ 0 ]?.type === "image" ? project.media[ 0 ].src : undefined
 
     return {
-        alternates: { canonical: url },
+        alternates: {
+            canonical: url,
+        },
         description: project.short,
         openGraph: {
             description: project.short,
@@ -60,7 +64,7 @@ function projectJsonLd(project: Project, url: string) {
                 "@type": "SoftwareApplication",
                 applicationCategory: "BusinessApplication",
                 description: project.description,
-                image: project.media?.[0]?.src,
+                image: project.media?.[ 0 ]?.src,
                 inLanguage: "it",
                 keywords: project.tags.join(", "),
                 name: project.title,
@@ -70,16 +74,16 @@ function projectJsonLd(project: Project, url: string) {
             {
                 "@type": "BreadcrumbList",
                 itemListElement: [
-                    { "@type": "ListItem", position: 1, name: "Home", item: `${BASE}/` },
-                    { "@type": "ListItem", position: 2, name: project.title, item: url },
+                    {"@type": "ListItem", position: 1, name: "Home", item: `${BASE}/`},
+                    {"@type": "ListItem", position: 2, name: project.title, item: url},
                 ],
             },
         ],
     }
 }
 
-export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params
+export default async function ProjectPage({params}: { params: Promise<{ slug: string }> }) {
+    const {slug} = await params
     const project = projectsData.find((p) => p.slug === slug)
     if (!project) notFound()
 
@@ -87,11 +91,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
     return (
         <>
-            <Nav />
+            <Nav/>
             <div className="max-w-[1100px] mx-auto px-8 pt-[120px] pb-[60px]">
                 <SectionLabel className="mb-3">// progetti</SectionLabel>
-                <div className="flex items-center gap-4 mb-2">
-                    <HomeArrow/>
+                <div className="flex items-baseline gap-4 mb-2">
+                    <HomeArrow defaultHash="#progetti"/>
                     <h1 className="font-mono text-[clamp(1.4rem,3vw,2rem)]">{project.title}</h1>
                 </div>
                 <p className="text-text-secondary max-w-[720px] mb-10">{project.short}</p>
@@ -100,10 +104,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
                 <script
                     type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd(project, url)) }}
+                    dangerouslySetInnerHTML={{__html: JSON.stringify(projectJsonLd(project, url))}}
                 />
             </div>
-            <Footer />
+            <Footer/>
         </>
     )
 }

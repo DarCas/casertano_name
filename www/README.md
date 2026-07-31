@@ -22,7 +22,7 @@ Static portfolio of **Dario Casertano** ([casertano.name](https://casertano.name
 
 | Command | Description |
 | --- | --- |
-| `npm run dev` | Dev server (predev: `node scripts/extract-version.mjs`) |
+| `npm run dev` | Dev server (predev: `extract-version.mjs` + `fetch-projects.mjs`) |
 | `npm run build` | Static build into `out/` (postbuild: sitemap + inline CSS) |
 | `npm run lint` | `next lint` |
 | `ANALYZE=true npm run build` | Build with bundle analysis (`@next/bundle-analyzer`) |
@@ -32,9 +32,9 @@ Static portfolio of **Dario Casertano** ([casertano.name](https://casertano.name
 ## Architecture
 
 ```
-app/          → App Router: layout, page, not-found, privacy-policy, globals.css
-components/   → Landing sections (Hero, Nav, Projects, Skills, Contact, Footer) + primitives
-lib/          → Data & types: projects.ts, skills.ts, utils.ts, version.ts (generated)
+app/          → App Router: layout, page, not-found, privacy-policy, progetti/[slug], globals.css
+components/   → Landing sections (Hero, Nav, Projects, Skills, Contact, Footer, Network) + primitives
+lib/          → Data & types: projects.ts, projects-data.ts (generated snapshot), skills.ts, utils.ts, version.ts (generated)
 scripts/      → Build tooling: extract-version, generate-sitemap, inline-css
 public/       → Favicon, llms.txt, robots.txt, opengraph.jpeg, sw.js
 ```

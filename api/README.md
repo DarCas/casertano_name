@@ -1,6 +1,6 @@
 # Environment API
 
-Express.js API server fot the portfolio website of Dario Casertano.
+Express.js API server for the portfolio website of Dario Casertano.
 
 ![Node.js 22](https://img.shields.io/badge/Node.js-22-339933?logo=nodedotjs&logoColor=white&style=for-the-badge)
 ![TypeScript 5.9](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white&style=for-the-badge)

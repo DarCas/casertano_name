@@ -6,18 +6,24 @@
 
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import type { Project, ProjectMedia as ProjectMediaType } from "@/lib/projects"
 import { Tag } from "@/components/tag"
 
 function ProjectMedia({ img, title }: { img: ProjectMediaType; title: string }) {
     const [loaded, setLoaded] = useState(false)
+    const imgRef = useRef<HTMLImageElement>(null)
+
+    useEffect(() => {
+        if (imgRef.current?.complete) setLoaded(true)
+    }, [])
 
     return (
         <div className="w-full aspect-[2/1] bg-bg overflow-hidden relative">
             {!loaded && <div className="absolute inset-0 skeleton !rounded-none" />}
             {img.type === "image" ? (
                 <img
+                    ref={imgRef}
                     src={img.src}
                     alt={img.alt ?? title}
                     loading="lazy"

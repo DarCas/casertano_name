@@ -14,10 +14,10 @@ Portfolio statico di Dario Casertano (`https://casertano.name`). Build statica N
 ## Architettura
 
 - `app/` — App Router: `layout.tsx` (metadata, font, JSON-LD), `page.tsx` (composizione sezioni), `progetti/[slug]/` (pagine statiche progetto, da snapshot), `not-found.tsx`, `privacy-policy/`, `globals.css`
-- `components/` — sezioni della landing (Hero, Nav, Projects, Skills, Contact, Footer) + primitivi (SectionLabel, Tag, EmailLink, BackToTop, HomeArrow) + ProjectDetail (dettaglio statico, riusato dalle pagine progetto; senza card: media `aspect-[2/1]`, features/skills con SectionLabel + Tag, stile sezioni homepage)
+- `components/` — sezioni della landing (Hero, Nav, Projects, Skills, Contact, Footer, Network) + primitivi (SectionLabel, Tag, EmailLink, BackToTop, HomeArrow, RedirectTimer) + ProjectDetail (dettaglio statico, riusato dalle pagine progetto; senza card: media `aspect-[2/1]`, features/skills con SectionLabel + Tag, stile sezioni homepage)
 - `lib/` — dati e tipi: `projects.ts` (fetch progetti da API), `projects-data.ts` (generato: snapshot progetti), `skills.ts` (tassonomia categorie), `utils.ts`, `version.ts` (generato)
 - `scripts/` — build tooling: `extract-version.mjs` (scrive `lib/version.ts` da package.json), `fetch-projects.mjs` (scrive `lib/projects-data.ts` da API), `generate-sitemap.mjs` (legge `out/progetti/` per aggiungere le pagine progetto), `inline-css.mjs`
-- `public/` — favicon, `llms.txt`, `robots.txt`, `opengraph.jpeg`, `sw.js`
+- `public/` — favicon, `apple-touch-icon.svg`, `llms.txt`, `llms-full.txt`, `robots.txt`, `opengraph.jpeg`, `sw.js`
 
 ## Configurazione
 

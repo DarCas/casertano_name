@@ -8,22 +8,23 @@
 
 import { useEffect, useState } from "react"
 
-export function HomeArrow() {
-    const [href, setHref] = useState("/")
+export function HomeArrow({defaultHash}: { defaultHash?: string }) {
+    const base = defaultHash ? `/${defaultHash}` : "/"
+    const [href, setHref] = useState(base)
 
     useEffect(() => {
         const update = () => {
-            setHref(window.location.hash === "#from-contact" ? "/#contatti" : "/")
+            setHref(window.location.hash === "#from-contact" ? "/#contatti" : base)
         }
         update()
         window.addEventListener("hashchange", update)
         return () => window.removeEventListener("hashchange", update)
-    }, [])
+    }, [base])
 
     return (
         <a
             href={href}
-            aria-label="torna alla homepage"
+            aria-label="Torna alla homepage"
             className="font-mono text-accent hover:text-accent-light transition-colors shrink-0 no-underline text-[clamp(1.2rem,2.5vw,1.6rem)]"
         >
             &larr;
