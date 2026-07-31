@@ -2,27 +2,16 @@ name: name_casertano
 
 services:
   api:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        - NEXT_PUBLIC_API
-        - NEXT_PUBLIC_CONTACT_EMAIL
-        - NEXT_PUBLIC_NAME
-        - NEXT_PUBLIC_VAT
-        - NEXT_PUBLIC_SOCIAL_GITHUB
-        - NEXT_PUBLIC_SOCIAL_LINKEDIN
-        - NEXT_PUBLIC_SOCIAL_TELEGRAM
-        - NEXT_PUBLIC_TURNSTILE_SITE_KEY
-
+    build: .
     container_name: name_casertano
     restart: unless-stopped
     command:
       - node
-      - dist/index.js
+      - api/src/index.js
+      - api
 
     env_file:
-      - .env
+      - www/.env
 
     volumes:
       - ./@storage/images/projects:/app/@storage/images/projects

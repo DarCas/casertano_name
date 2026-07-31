@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+		"name": "casertano.name API",
+		"description": "Public API for Dario Casertano's portfolio — Express.js/TypeScript\n\n- **Development:** http://localhost:3001\n- **Production:** https://casertano.name\n\n## Authentication\nNone — fully public API.\n\n## Response format\nAll JSON responses (except bare status codes) follow:\n```json\n{\n  \"code\": <HTTP_STATUS>,\n  \"text\": \"<STATUS_DESCRIPTION>\",\n  \"pyld\": <BODY>\n}\n```",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3001",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Projects",
+			"description": "Portfolio projects endpoints",
+			"item": [
+				{
+					"name": "Lista progetti",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/projects",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v1", "projects"]
+						},
+						"description": "Returns all portfolio projects enriched with storage media metadata (images/videos).\n\n**Rate limit:** None"
+					},
+					"response": [
+						{
+							"name": "Successo (302)",
+							"status": "Found",
+							"code": 302,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"body": "{\n\t\"code\": 302,\n\t\"text\": \"Found\",\n\t\"pyld\": [\n\t\t{\n\t\t\t\"slug\": \"falco-ws-environment\",\n\t\t\t\"title\": \"Falco WS Environment\",\n\t\t\t\"short\": \"Ecosistema digitale per Falco S.r.l.: PWA officina con Gantt Syncfusion, monitoraggio IoT torni CNC via MQTT, backend centralizzato su Docker.\",\n\t\t\t\"tags\": [\"Vue\", \"Node.js\", \"Docker\", \"MQTT\", \"PWA\"],\n\t\t\t\"description\": \"Ecosistema digitale per Falco S.r.l., composto da tre software modulari che coprono l'intero ciclo produttivo: PWA officina con Gantt interattivo e chat realtime, sistema IoT per monitoraggio real-time torni CNC via MQTT con dashboard telemetria, e backend centralizzato Node.js/TypeORM su MariaDB con broker MQTT integrato.\",\n\t\t\t\"features\": [\n\t\t\t\t\"Gestione completa dell'officina via PWA: 28+ viste per progetti, commesse, preventivi e clienti, con Gantt interattivo Syncfusion, chat realtime e mappe Google con persistenza offline IndexedDB\",\n\t\t\t\t\"Monitoraggio industriale IoT in tempo reale: torni CNC connessi via MQTT, dashboard telemetria, statistiche Chart.js e notifiche push Firebase su allarmi e configurazione remota\",\n\t\t\t\t\"Backend centralizzato REST su MariaDB con broker MQTT Mosquitto, 10 cron job schedulati, generazione automatica documenti (DOCX/PDF/XLSX) e sync FTP bidirezionale con macchinari\",\n\t\t\t\t\"Infrastruttura ibrida: 5 container Docker on-premise con Apache reverse proxy e Let's Encrypt, PWA su Firebase Hosting, monitoring errori con Sentry/GlitchTip\"\n\t\t\t],\n\t\t\t\"skills\": [\n\t\t\t\t\"Vue\", \"Vuetify\", \"TypeScript\", \"PWA\",\n\t\t\t\t\"Node.js\", \"Express\", \"TypeORM\", \"MariaDB\", \"JWT\",\n\t\t\t\t\"MQTT\", \"Mosquitto\", \"Docker\", \"Firebase\", \"Chart.js\",\n\t\t\t\t\"Syncfusion\", \"Sentry\"\n\t\t\t],\n\t\t\t\"media\": [\n\t\t\t\t{\n\t\t\t\t\t\"src\": \"https://casertano.name/images/projects/falco-ws-environment.webp?1740000000000\",\n\t\t\t\t\t\"type\": \"image\"\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"slug\": \"mail-thinker-ai\",\n\t\t\t\"title\": \"Mail Thinker AI\",\n\t\t\t\"short\": \"Agente AI autonomo per email: Gmail/IMAP, analisi thread, estrazione multi-formato, loop decisionali cost-aware.\",\n\t\t\t\"tags\": [\"LangChain\", \"OpenAI\", \"Vue\", \"Docker\"],\n\t\t\t\"description\": \"Sistema full-stack che combina un agente AI autonomo (Node.js + OpenAI GPT con pattern ReAct) con una dashboard Vue 3 PWA.\",\n\t\t\t\"features\": [\n\t\t\t\t\"Agente AI con orchestrazione tool (deepagents/LangChain) e function calling OpenAI — reasoning configurabile, retry con exponential backoff, tool selection cost-aware\",\n\t\t\t\t\"Servizio email astratto: implementazioni Gmail OAuth2 e IMAP con decryption AES-256-GCM e RSA key encapsulation\",\n\t\t\t\t\"Pipeline parsing allegati multi-formato (PDF, DOCX, XLSX, PPTX, immagini via Vision API) e conversione HTML→MarkDown\",\n\t\t\t\t\"Backend Express con JWT, risposte firmate, TypeORM + MariaDB su repository pattern\",\n\t\t\t\t\"Dashboard PWA Vue 3 con login OAuth2, chat interattiva con agente e i18n IT/EN\",\n\t\t\t\t\"Container Docker ottimizzato con dumb-init, Sentry monitoring e hot-reload in sviluppo\"\n\t\t\t],\n\t\t\t\"skills\": [\n\t\t\t\t\"Agentic AI\", \"LangChain\", \"OpenAI API\", \"ReAct Pattern\", \"Node.js\",\n\t\t\t\t\"TypeScript\", \"Express.js\", \"JWT\", \"TypeORM\", \"MariaDB\",\n\t\t\t\t\"Gmail API\", \"IMAP\", \"Vue\", \"Vuetify 4\", \"Docker\"\n\t\t\t],\n\t\t\t\"media\": []\n\t\t},\n\t\t{\n\t\t\t\"slug\": \"disaster-relief-department\",\n\t\t\t\"title\": \"Disaster Relief Department\",\n\t\t\t\"short\": \"Piattaforma di machine monitoring per allerte meteo-idrologiche e sismiche su tutto il territorio italiano.\",\n\t\t\t\"tags\": [\"Telegram Bot\", \"GIS\", \"OpenAI\", \"Docker\"],\n\t\t\t\"description\": \"Sistema end-to-end che acquisisce, elabora e distribuisce automaticamente bollettini ufficiali di Protezione Civile (DPC) ed eventi sismici INGV/USGS su tutto il territorio italiano.\",\n\t\t\t\"features\": [\n\t\t\t\t\"Acquisizione ed elaborazione automatica di bollettini di criticità idrogeologica da fonti istituzionali (DPC, INGV, USGS)\",\n\t\t\t\t\"Conversione geospaziale TopoJSON → GeoJSON → KML con riproiezione EPSG:4326 e styling cromatico per severità allerta\",\n\t\t\t\t\"Bot Telegram con notifiche push in tempo reale, carosello eventi sismici, tastiera interattiva e pannello di amministrazione\",\n\t\t\t\t\"Classificazione assistita da AI (OpenAI) per risoluzione automatica di zone di allerta non ancora catalogate\",\n\t\t\t\t\"Stima intensità Mercalli con modello GMPE (Boore-Atkinson) per valutazione rapida dell'impatto sismico\",\n\t\t\t\t\"Caricamento KML su Firebase Storage con cache pubblica per visualizzazione immediata in Google Earth\"\n\t\t\t],\n\t\t\t\"skills\": [\n\t\t\t\t\"Geospatial ETL\", \"GDAL\", \"grammY\", \"Telegram API\", \"OpenAI API\",\n\t\t\t\t\"Sentry\", \"Firebase Admin SDK\", \"Docker\", \"TypeORM\", \"SQLite\",\n\t\t\t\t\"Healthchecks.io\", \"TypeScript\"\n\t\t\t],\n\t\t\t\"media\": []\n\t\t}\n\t]\n}",
+							"originalRequest": {
+								"method": "GET",
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/projects",
+									"host": ["{{baseUrl}}"],
+									"path": ["api", "v1", "projects"]
+								}
+							}
+						},
+						{
+							"name": "Nessun contenuto (204)",
+							"status": "No Content",
+							"code": 204,
+							"header": [],
+							"body": "",
+							"originalRequest": {
+								"method": "GET",
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/projects",
+									"host": ["{{baseUrl}}"],
+									"path": ["api", "v1", "projects"]
+								}
+							}
+						},
+						{
+							"name": "Errore server (500)",
+							"status": "Internal Server Error",
+							"code": 500,
+							"header": [],
+							"body": "",
+							"originalRequest": {
+								"method": "GET",
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/projects",
+									"host": ["{{baseUrl}}"],
+									"path": ["api", "v1", "projects"]
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Contacts",
+			"description": "Contact form endpoints",
+			"item": [
+				{
+					"name": "Invia messaggio",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"cf-turnstile-response\": \"0x4AAAAAAA...\",\n\t\"consent\": \"on\",\n\t\"email\": \"mario.rossi@example.com\",\n\t\"message\": \"Ciao Dario, complimenti per il portfolio! Sono interessato a una collaborazione per un progetto Vue.js e Node.js. Possiamo sentirci per parlarne?\",\n\t\"name\": \"Mario Rossi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/contacts",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "v1", "contacts"]
+						},
+						"description": "Sends a contact message via email.\n\n**Rate limit:** 5 requests per 15 minutes\n\n**Required fields:**\n- `cf-turnstile-response` — Cloudflare Turnstile token\n- `consent` — must be `\"on\"` (privacy consent)\n- `email` — valid email address\n- `message` — message body (max 255 chars)\n- `name` — sender name (min 3 chars)"
+					},
+					"response": [
+						{
+							"name": "Successo (200)",
+							"status": "OK",
+							"code": 200,
+							"header": [],
+							"body": "",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"cf-turnstile-response\": \"0x4AAAAAAA...\",\n\t\"consent\": \"on\",\n\t\"email\": \"mario.rossi@example.com\",\n\t\"message\": \"Ciao Dario, complimenti per il portfolio! Sono interessato a una collaborazione per un progetto Vue.js e Node.js. Possiamo sentirci per parlarne?\",\n\t\"name\": \"Mario Rossi\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/contacts",
+									"host": ["{{baseUrl}}"],
+									"path": ["api", "v1", "contacts"]
+								}
+							}
+						},
+						{
+							"name": "Validazione fallita (412)",
+							"status": "Precondition Failed",
+							"code": 412,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"body": "{\n\t\"code\": 412,\n\t\"text\": \"Precondition Failed\",\n\t\"pyld\": {\n\t\t\"name\": \"La lunghezza di Nome deve essere di almeno 3 caratteri\",\n\t\t\"email\": \"Il parametro E-mail deve essere un'email valida\",\n\t\t\"message\": \"La lunghezza di Messaggio deve essere inferiore o uguale a 255 caratteri\",\n\t\t\"consent\": \"Il parametro Consenso deve essere uno di on\"\n\t}\n}",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"AB\",\n\t\"email\": \"non-una-email\",\n\t\"message\": \"\",\n\t\"consent\": \"off\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/contacts",
+									"host": ["{{baseUrl}}"],
+									"path": ["api", "v1", "contacts"]
+								}
+							}
+						},
+						{
+							"name": "Captcha non valido (498)",
+							"status": "Invalid Token",
+							"code": 498,
+							"header": [],
+							"body": "",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"cf-turnstile-response\": \"token-non-valido\",\n\t\"consent\": \"on\",\n\t\"email\": \"mario.rossi@example.com\",\n\t\"message\": \"Test captcha fallito\",\n\t\"name\": \"Mario Rossi\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/contacts",
+									"host": ["{{baseUrl}}"],
+									"path": ["api", "v1", "contacts"]
+								}
+							}
+						},
+						{
+							"name": "Errore server (500)",
+							"status": "Internal Server Error",
+							"code": 500,
+							"header": [],
+							"body": "",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"cf-turnstile-response\": \"0x4AAAAAAA...\",\n\t\"consent\": \"on\",\n\t\"email\": \"mario.rossi@example.com\",\n\t\"message\": \"Test errore server\",\n\t\"name\": \"Mario Rossi\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/contacts",
+									"host": ["{{baseUrl}}"],
+									"path": ["api", "v1", "contacts"]
+								}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

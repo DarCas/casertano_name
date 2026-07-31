@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#
+# Dario Casertano <dario@casertano.name>
+# Copyright (c) 2025-2026 Casertano Dario – All rights reserved.
+# Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
+#
+
+cd "$(dirname "$0")" || exit
+cd ..
+
+export NODE_ENV="${NODE_ENV:-development}"
+export NODE_OPTIONS="--no-warnings"
+
+npx ts-node-dev \
+    --respawn \
+    --transpile-only \
+    -r tsconfig-paths/register -- \
+    ./src/index.ts "$@"

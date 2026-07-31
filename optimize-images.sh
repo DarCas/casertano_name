@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #
 # Dario Casertano <dario@casertano.name>
 # Copyright (c) 2026 Casertano Dario – All rights reserved.

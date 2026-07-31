@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://casertano.name/sitemap.xml
+# llms.txt: https://casertano.name/llms.txt

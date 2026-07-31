@@ -1,0 +1,17 @@
+# Dario Casertano — Senior Full Stack Engineer
+> Distributed systems, AI agents, industrial automation. Full stack across backend, frontend and real-time — from design to deployment. 15+ years of experience.
+
+## Pages
+- [Home](https://casertano.name/): Portfolio homepage — hero, projects, tech stack, contact
+- [Privacy Policy](https://casertano.name/privacy-policy/): Privacy notice
+
+## Full content
+- [llms-full.txt](https://casertano.name/llms-full.txt): Full portfolio content in markdown — bio, services, skills, projects and contact
+
+## Contact
+- Email: [dario@casertano.name](mailto:dario@casertano.name)
+
+## Social
+- [LinkedIn](https://linkedin.com/in/dariocasertano)
+- [GitHub](https://github.com/DarCas)
+- [Telegram](https://t.me/QuantumTip)

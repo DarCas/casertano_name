@@ -1,0 +1,27 @@
+#!/bin/bash
+
+#
+# Dario Casertano <dario@casertano.name>
+# Copyright (c) 2026 Casertano Dario – All rights reserved.
+# Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
+#
+
+cd "$(dirname "$0")" || exit
+
+cd ..
+
+echo "Processing build..."
+
+rm -rf dist
+
+npx tsc
+npx tscpaths -p ./tsconfig.json -s ./src -o ./dist
+
+cp -r src/templates dist
+
+unlink ./dist/tsconfig.tsbuildinfo
+
+cp .env \
+    package.json \
+    package-lock.json \
+    ./dist

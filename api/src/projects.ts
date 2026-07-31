@@ -4,18 +4,7 @@
  * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
  */
 
-export interface Project {
-    slug: string
-    title: string
-    short: string
-    tags: string[]
-    description: string
-    features: string[]
-    skills: string[]
-    media?: Array<{ type: "image" | "video"; src: string; alt?: string }>
-}
-
-export const projects: Project[] = [
+export const projects: Projects.Project[] = [
     {
         slug: "falco-ws-environment",
         title: "Falco WS Environment",

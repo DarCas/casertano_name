@@ -4,222 +4,41 @@
  * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
  */
 
-import express from "express"
-import rateLimit from "express-rate-limit"
-import cors, { CorsOptions } from "cors"
-import { readdirSync, statSync } from "node:fs"
-import { dirname, join, resolve } from "node:path"
-import { env } from "node:process"
-import { fileURLToPath } from "node:url"
-import { createTransport } from "nodemailer"
-import { literal, object, string } from "zod"
-import { projects } from "./projects.js";
-import { contactEmailHtml } from "./templates/contact-email.js";
+import { initSentry } from '@/@stdlib/sentry'
+import { argv } from 'node:process'
+import { bootstrap } from '@/@stdlib/environment'
+import { Settings } from 'luxon'
+import { basename } from 'node:path'
+import yargs from 'yargs'
+import { hideBin } from 'yargs/helpers'
+import { blackBright, blueBright, yellowBright } from 'cli-color'
 
-async function verifyTurnstile(token: string): Promise<boolean> {
-    if (!env.TURNSTILE_SECRET_KEY) {
-        return true
-    }
+;(async function () {
+    console.clear()
 
-    const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-        body: new URLSearchParams({
-            secret: env.TURNSTILE_SECRET_KEY,
-            response: token,
-        }),
-        headers: {"Content-Type": "application/x-www-form-urlencoded"},
-        method: "POST",
-    })
+    initSentry()
 
-    const data = await res.json() as { success: boolean }
-    return data.success
-}
+    Settings.defaultZone = 'Europe/Rome'
+    Settings.defaultLocale = 'it-IT'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const storageDir = resolve(__dirname, "..", "@storage")
-const imagesDir = join(storageDir, "images", "projects")
+    const _yargs = yargs(hideBin(argv))
 
-const IMAGE_EXTS = new Set([".webp", ".png", ".jpg", ".jpeg"])
-const VIDEO_EXTS = new Set([".mp4"])
+    _yargs.version(blueBright(`${bootstrap.description} ${bootstrap.version} (🛡️  ${bootstrap.env})`))
+        .alias('V', 'version')
+        .scriptName(blackBright(basename(__filename)))
+        .usage(yellowBright('Usage: $0 <command> [options]'))
+        .help()
+        .alias('h', 'help')
+        .epilog(
+            blueBright(
+                `${bootstrap.description} © ${new Date().getFullYear()} Dario Casertano`,
+            ),
+        )
 
-function listProjectMedia(slug: string): Array<{
-    src: string
-    type: "image" | "video"
-}> {
-    try {
-        const files = readdirSync(imagesDir)
-        const media: Array<{ type: "image" | "video"; src: string; alt?: string }> = []
+        .command(require('./Http'))
 
-        for (const file of files) {
-            if (!file.startsWith(slug + ".")) continue
-            const ext = file.slice(file.lastIndexOf(".")).toLowerCase()
-
-            const fullPath = join(imagesDir, file)
-            const mtime = statSync(fullPath).mtimeMs.toFixed(0)
-
-            const url = new URL(`/images/projects/${file}?${mtime}`, env.NEXT_PUBLIC_API)
-
-            if (IMAGE_EXTS.has(ext)) {
-                media.push({src: url.toString(), type: "image"})
-            } else if (VIDEO_EXTS.has(ext)) {
-                media.push({src: url.toString(), type: "video"})
-            }
-        }
-
-        return media
-    } catch {
-        return []
-    }
-}
-
-const outDir = resolve(__dirname, "..", "out")
-
-const corsOptions = {
-    allowedHeaders: ["Content-Type"],
-    methods: ["POST"],
-    origin: ( env.CORS_ORIGIN ?? '' )
-        .split(",")
-        .map(o => o.trim().toLowerCase()),
-} satisfies CorsOptions
-
-const app = express()
-
-app.set("trust proxy", 1)
-
-app.use(cors(corsOptions))
-app.use(express.json())
-
-app.use("/images/projects", express.static(imagesDir))
-
-const ContactSchema = object({
-    "cf-turnstile-response": string().min(1, "Captcha non valido"),
-    consent: literal("on", {errorMap: () => ( {message: "Devi accettare la privacy policy"} )}),
-    email: string().email("E-Mail non valida"),
-    message: string().min(1, "Il messaggio è obbligatorio").max(5000),
-    name: string().min(1, "Il nome è obbligatorio").max(100),
-})
-
-const smtp = createTransport({
-    auth: env.SMTP_USER
-        ? {user: env.SMTP_USER, pass: env.SMTP_PASS || ""}
-        : undefined,
-    host: env.SMTP_HOST || "localhost",
-    port: Number(env.SMTP_PORT) || 587,
-    secure: env.SMTP_SECURE === "true",
-})
-
-const toEmail = env.NEXT_PUBLIC_CONTACT_EMAIL
-
-const contactLimiter = rateLimit({
-    legacyHeaders: false,
-    max: 5,
-    message: {
-        error: "Troppe richieste. Riprova tra qualche minuto.",
-    },
-    standardHeaders: true,
-    windowMs: 15 * 60 * 1000,
-})
-
-app.get("/api/projects", (_, res) => {
-    res.json(projects.map(p => ( {
-        ...p,
-        media: ( p.media?.length ? p.media : listProjectMedia(p.slug) )
-            .map(m => m),
-    } )))
-})
-
-app.post("/api/contact", contactLimiter, async (req, res) => {
-    if (!toEmail) {
-        res.status(500)
-            .json({
-                error: "Contatti non configurati",
-            })
-
-        return
-    }
-
-    const parsed = ContactSchema.safeParse(req.body)
-
-    if (!parsed.success) {
-        res.status(400)
-            .json({
-                error: parsed.error.errors[ 0 ].message,
-            })
-
-        return
-    }
-
-    const {name, email, message, "cf-turnstile-response": turnstileToken} = parsed.data
-
-    const valid = await verifyTurnstile(turnstileToken)
-
-    if (!valid) {
-        res.status(400)
-            .json({error: "Captcha non valido"})
-
-        return
-    }
-
-    const text = [`Nome: ${name}`, `E-Mail: ${email}`, "", message].join("\n")
-
-    try {
-        await smtp.sendMail({
-            from: {address: email, name},
-            replyTo: {address: email, name},
-            subject: `Richiesta da casertano.name — ${name}`,
-            text,
-            html: contactEmailHtml(name, email, message),
-            to: toEmail,
-        })
-        res.json({success: true})
-    } catch {
-        res.status(500)
-            .json({error: "Errore nell'invio dell'e-mail. Riprova più tardi."})
-    }
-})
-
-// Content-Security-Policy
-app.use((req, res, next) => {
-    if (req.path.startsWith("/api/")) return next()
-
-    res.setHeader("Content-Security-Policy", [
-        "default-src 'self'",
-        "script-src 'self' 'unsafe-inline'",
-        "style-src 'self' 'unsafe-inline'",
-        "img-src 'self' data:",
-        "connect-src 'self'",
-        "font-src 'self'",
-        "frame-src 'none'",
-        "object-src 'none'",
-        "base-uri 'self'",
-        "form-action 'self'",
-    ].join("; "))
-
-    next()
-})
-
-// Serve static files from /out (Next.js static export)
-app.use(express.static(outDir, {
-    etag: true,
-    immutable: true,
-    index: "index.html",
-    maxAge: "1y",
-}))
-
-// 404 fallback for non-API routes
-app.use((req, res, next) => {
-    if (req.path.startsWith("/api/")) {
-        return next()
-    }
-
-    res.status(404)
-        .sendFile(join(outDir, "404.html"), (err) => {
-            if (err) res.status(404)
-                .sendFile(join(outDir, "index.html"))
-        })
-})
-
-app.listen(3001, () => {
-    console.log('Server attivo su 3001', {
-        corsOptions,
-    })
-})
+        .demandCommand(1)
+        .strictCommands()
+        .wrap(_yargs.terminalWidth())
+        .parse()
+})()

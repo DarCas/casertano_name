@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -13,7 +13,12 @@
     "moduleResolution": "NodeNext",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
-    "outDir": "dist",
+    "outDir": "./dist",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
     "pretty": false,
     "removeComments": false,
     "resolveJsonModule": true,
@@ -21,9 +26,17 @@
     "sourceMap": false,
     "strictBindCallApply": true,
     "strictNullChecks": true,
-    "target": "ES2023",
+    "target": "ESNext",
     "tsBuildInfoFile": null
   },
+  "exclude": [
+    "@storage/**",
+    "node_modules/**"
+  ],
+  "files": [
+    "env.d.ts",
+    "node_modules/@types/node/index.d.ts"
+  ],
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",

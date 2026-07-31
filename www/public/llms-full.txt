@@ -1,0 +1,65 @@
+# Dario Casertano — Senior Full Stack Engineer
+
+> Distributed systems, AI agents, industrial automation. Full stack across backend, frontend and real-time — from design to deployment. 15+ years of experience.
+
+## Bio
+
+Senior Full Stack Engineer with 15+ years of experience. Designs and builds distributed systems, autonomous AI agents and industrial automation solutions, covering the whole lifecycle: architecture, backend/frontend development, real-time and deployment.
+
+### Core stack
+
+Agentic AI, LangChain, OpenAI, RAG, TypeScript, Node.js, Vue, Next.js, React, Docker, Solidity, Ethers.js, WebRTC, MQTT, PWA.
+
+## Services
+
+- **Training** — PHP, Node.js, TypeScript
+- **AI Agents** — autonomous agents, RAG, tool calling
+- **Web & mobile apps** — PWA, SPA, offline-first applications
+- **SME software** — management systems, workshops, resources
+- **Monitoring & alerting** — IoT, telemetry, real-time notifications
+- **API & backend** — REST, JWT, OAuth2, integrations
+- **DevOps/Infrastructure** — Docker, Linux, Apache, PM2
+- **CMS & migrations** — Strapi, data migrations
+- **Blockchain** — smart contracts, NFT, on-chain marketplaces
+
+## Skills
+
+### Languages & Runtimes
+TypeScript, Node.js, PHP
+
+### Databases
+MariaDB, PostgreSQL, SQLite, Redis, Firebase
+
+### DevOps & Infrastructure
+Docker, Docker Compose, Linux, Apache, Mosquitto, coturn, Sentry, PM2
+
+### AI & Agents
+OpenAI, LangChain, Agentic AI, RAG, Tool Calling, ReAct Pattern
+
+### Blockchain
+Solidity, Ethers.js, MetaMask, IPFS, Filebase
+
+### Real-time & Messaging
+MQTT, WebRTC, WebSocket, grammY, Telegram Bot, Gmail API, IMAP
+
+### Frontend & Libraries
+Vite, Vuetify, Pinia, Vuex, Chart.js, Syncfusion Gantt, Dexie.js, Workbox, Service Worker, Tailwind CSS, React, Vue, Next.js, PWA
+
+### Backend & APIs
+REST API, JWT, OAuth2, Joi, Docxtemplater, Strapi 5, Zod, Nodemailer, Express.js, Laravel, Zend Framework 3, TypeORM, GDAL, Geospatial ETL
+
+## Projects
+
+- **Falco WS Environment** (Vue, Node.js, Docker, MQTT, PWA) — Digital ecosystem for Falco S.r.l.: workshop PWA with Syncfusion Gantt, CNC lathe IoT monitoring via MQTT, centralized backend on Docker.
+- **Mail Thinker AI** (LangChain, OpenAI, Vue, Docker) — Autonomous AI agent for email: Gmail/IMAP, thread analysis, multi-format extraction, cost-aware decision loops.
+- **Disaster Relief Department** (Telegram Bot, GIS, OpenAI, Docker) — Machine monitoring platform for hydro-meteorological and seismic alerts across the whole Italian territory.
+- **Territorial management platform** (Vue, Node.js, Docker, Strapi 5) — System for organizations with branches, shifts and resources: two PWAs, Telegram bot, reporting and maintenance on a containerized MariaDB backend.
+- **Multi-context search engine with P2P sync** (Vue, WebRTC, PWA, Docker, Firebase) — Offline-first PWA unifying search engines with dedicated CSEs and syncing devices in real time via WebRTC P2P.
+- **NFT Marketplace for collectible virtual diamonds tokenized on Polygon** (Solidity, Polygon, ERC-721, Vue, Node.js) — Virtual diamonds tokenized as ERC-721 NFTs on Polygon: on-chain marketplace, PWA back-office and automatic 3D rendering.
+
+## Contact
+
+- Email: [dario@casertano.name](mailto:dario@casertano.name)
+- LinkedIn: https://linkedin.com/in/dariocasertano
+- GitHub: https://github.com/DarCas
+- Telegram: https://t.me/QuantumTip
