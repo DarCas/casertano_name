@@ -17,6 +17,7 @@ const SECTION_IDS = ["hero", "progetti", "skills", "contatti"] as const
 export function Nav() {
     const [domain, setDomain] = useState("")
     const [activeSection, setActiveSection] = useState<string>("hero")
+    const [progress, setProgress] = useState(0)
     const ratiosRef = useRef<Map<string, number>>(new Map())
     const pathname = usePathname()
     const isHome = pathname === "/"
@@ -62,12 +63,38 @@ export function Nav() {
         return () => observer.disconnect()
     }, [])
 
+    useEffect(() => {
+        let raf = 0
+        const update = () => {
+            const max = document.documentElement.scrollHeight - window.innerHeight
+            setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0)
+        }
+        const onScroll = () => {
+            cancelAnimationFrame(raf)
+            raf = requestAnimationFrame(update)
+        }
+        update()
+        window.addEventListener("scroll", onScroll, {passive: true})
+        window.addEventListener("resize", onScroll)
+        return () => {
+            cancelAnimationFrame(raf)
+            window.removeEventListener("scroll", onScroll)
+            window.removeEventListener("resize", onScroll)
+        }
+    }, [])
+
     const handleHomeClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
         if (!isHome) return
         e.preventDefault()
         window.scrollTo({ top: 0, behavior: "smooth" })
         history.pushState({}, "", "/")
         setActiveSection("hero")
+    }, [isHome])
+
+    const handleSectionClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+        if (isHome) return
+        e.preventDefault()
+        window.location.assign(`/#${id}`)
     }, [isHome])
 
     return (
@@ -79,10 +106,15 @@ export function Nav() {
       </span>
             <div className="flex gap-1 sm:gap-2 justify-center items-center flex-wrap">
                 <NavLink href="/" isActive={isHome && activeSection === "hero"} onClick={handleHomeClick}>Home</NavLink>
-                <NavLink href={isHome ? "#progetti" : "/#progetti"} isActive={isHome ? activeSection === "progetti" : isProgettiPage}>Progetti</NavLink>
-                <NavLink href={isHome ? "#skills" : "/#skills"} isActive={isHome && activeSection === "skills"}>Tech Stack</NavLink>
-                {hasContact && <NavLink href={isHome ? "#contatti" : "/#contatti"} isActive={isHome && activeSection === "contatti"}>Parliamone</NavLink>}
+                <NavLink href={isHome ? "#progetti" : "/#progetti"} onClick={(e) => handleSectionClick(e, "progetti")} isActive={isHome ? activeSection === "progetti" : isProgettiPage}>Progetti</NavLink>
+                <NavLink href={isHome ? "#skills" : "/#skills"} onClick={(e) => handleSectionClick(e, "skills")} isActive={isHome && activeSection === "skills"}>Tech Stack</NavLink>
+                {hasContact && <NavLink href={isHome ? "#contatti" : "/#contatti"} onClick={(e) => handleSectionClick(e, "contatti")} isActive={isHome && activeSection === "contatti"}>Parliamone</NavLink>}
             </div>
+            <div
+                aria-hidden="true"
+                className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-accent to-accent-secondary"
+                style={{width: `${progress * 100}%`}}
+            />
         </nav>
     )
 }

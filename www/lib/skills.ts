@@ -14,15 +14,15 @@ export const categories: SkillCategory[] = [
     },
     {
         label: "DevOps e Infrastruttura",
-        items: ["Docker", "Docker Compose", "Linux", "Apache", "Mosquitto", "coturn", "Sentry", "PM2"],
+        items: ["Docker", "Docker Compose", "Linux", "Apache", "Mosquitto", "coturn", "Sentry", "PM2", "rsync"],
     },
     {
         label: "AI e Agenti",
-        items: ["OpenAI", "LangChain", "Agentic AI", "RAG", "Tool Calling", "ReAct Pattern"],
+        items: ["OpenAI", "LangChain", "DeepAgents", "Agentic AI", "RAG", "Tool Calling", "ReAct Pattern"],
     },
     {
         label: "Blockchain",
-        items: ["Solidity", "Ethers.js", "MetaMask", "IPFS", "Filebase"],
+        items: ["Solidity", "Ethers.js", "Polygon", "ERC-721", "MetaMask", "IPFS", "Filebase"],
     },
     {
         label: "Real-time e Messaging",
@@ -34,6 +34,6 @@ export const categories: SkillCategory[] = [
     },
     {
         label: "Backend e API",
-        items: ["REST API", "JWT", "OAuth2", "Joi", "Docxtemplater", "Strapi 5", "Zod", "Nodemailer", "Express.js", "Laravel", "Zend Framework 3", "TypeORM", "GDAL", "ETL Geospaziale"],
+        items: ["REST API", "JWT", "OAuth2", "Joi", "Docxtemplater", "Strapi 5", "Dolibarr", "Zod", "Nodemailer", "yargs", "Express.js", "Laravel", "Zend Framework 3", "TypeORM", "GDAL", "GeoJSON", "KML", "ETL Geospaziale"],
     },
 ]

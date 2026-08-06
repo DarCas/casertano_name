@@ -9,126 +9,140 @@ import type { Project } from "./projects"
 export const projectsData: Project[] = [
     {
         "slug": "falco-ws-environment",
-        "title": "Falco WS Environment",
-        "short": "Ecosistema digitale per Falco S.r.l.: PWA officina con Gantt Syncfusion, monitoraggio IoT di macchine industriali via MQTT, backend centralizzato su Docker.",
+        "title": "Piattaforma integrata per l'industria manifatturiera — gestionale, IoT e acquisti",
+        "short": "Piattaforma integrata per la manifattura: gestionale PWA con Gantt, monitoraggio IoT via MQTT e acquisti ERP Dolibarr.",
         "tags": [
-            "Vue",
             "Node.js",
-            "Docker",
+            "Vue 3",
             "MQTT",
-            "PWA"
+            "Docker",
+            "Dolibarr"
         ],
-        "description": "Ecosistema digitale per Falco S.r.l., composto da tre software modulari che coprono l'intero ciclo produttivo: PWA officina con Gantt interattivo e chat realtime, sistema IoT per monitoraggio real-time di macchine industriali via MQTT con dashboard telemetria, e backend centralizzato Node.js/TypeORM su MariaDB con broker MQTT integrato. Distribuito su infrastruttura ibrida tra Firebase Hosting e server on-premise Docker.",
+        "description": "Piattaforma end-to-end per l'industria manifatturiera che copre l'intero ciclo produttivo — gestionale, monitoraggio IoT e acquisti — con un backend REST da 196 endpoint su 18 domini, una PWA Vue 3 con Gantt Syncfusion per la pianificazione a ore e una dashboard telemetria real-time via MQTT. L'ERP Dolibarr containerizzato gestisce il flusso acquisti, mentre l'infrastruttura Docker su Ubuntu con Apache e monitoring Sentry garantisce affidabilità su scala industriale.",
         "features": [
-            "Gestione completa dell'officina via PWA: 28+ viste per progetti, commesse, preventivi e clienti, con Gantt interattivo Syncfusion, chat realtime e mappe Google con persistenza offline IndexedDB",
-            "Monitoraggio industriale IoT in tempo reale: macchine industriali connesse via MQTT, dashboard telemetria, statistiche Chart.js e notifiche push Firebase su allarmi e configurazione remota",
-            "Backend centralizzato REST su MariaDB con broker MQTT Mosquitto, 10 cron job schedulati, generazione automatica documenti (DOCX/PDF/XLSX) e sync FTP bidirezionale con macchinari",
-            "Infrastruttura ibrida: 5 container Docker on-premise con Apache reverse proxy e Let's Encrypt, PWA su Firebase Hosting, monitoring errori con Sentry/GlitchTip"
+            "Backend REST con 196 endpoint su 18 domini (ordini, preventivi, progetti, commesse, macchine), validati con Joi e documentati da una Postman collection autogenerata dagli schemi",
+            "Monitoraggio IoT real-time: broker MQTT Mosquitto con 8 worker per macchina che ingeriscono telemetria, calcolano report e inviano alert push via Firebase Cloud Messaging",
+            "PWA gestionale Vue 3 con Gantt Syncfusion EJ2 per pianificare task a ore con dipendenze e lag in minuti, state Pinia e storage offline IndexedDB",
+            "Dashboard IoT PWA con telemetria real-time, tachimetri, Chart.js e statistiche per reparto",
+            "Processi automatizzati: sincronizzazione CNC via FTP, report periodici e notifiche push; documenti DOCX, PDF ed export XLSX generati programmaticamente",
+            "Infrastruttura Docker Compose (MariaDB, Mosquitto, worker LibreOffice) su Ubuntu con Apache e Let's Encrypt, monitoring Sentry/GlitchTip ed ERP Dolibarr per gli acquisti"
         ],
         "skills": [
-            "Vue",
-            "Vuetify",
+            "Node.js 22",
             "TypeScript",
-            "PWA",
-            "Node.js",
             "Express",
             "TypeORM",
+            "Joi",
+            "Vue",
+            "Vuetify 4",
+            "PWA",
+            "IndexedDB",
             "MariaDB",
-            "JWT",
             "MQTT",
             "Mosquitto",
+            "Firebase Cloud Messaging",
             "Docker",
-            "Firebase",
-            "Chart.js",
-            "Syncfusion",
-            "Sentry"
+            "Dolibarr"
         ],
         "media": [
             {
-                "src": "https://casertano.name/images/projects/falco-ws-environment.webp?1785321593379",
+                "src": "https://casertano.name/images/projects/falco-ws-environment.webp?1786007419856",
                 "type": "image"
             }
         ]
     },
     {
         "slug": "mail-thinker-ai",
-        "title": "Mail Thinker AI",
-        "short": "Agente AI autonomo per email: Gmail/IMAP, analisi thread, estrazione multi-formato, loop decisionali cost-aware.",
+        "title": "Agente AI autonomo per la gestione intelligente della posta",
+        "short": "Agente AI autonomo che legge, analizza e gestisce la posta in linguaggio naturale su Gmail e mailbox IMAP.",
         "tags": [
             "LangChain",
             "OpenAI",
-            "Vue",
-            "Docker"
+            "Vue 3",
+            "Docker",
+            "Gmail API"
         ],
-        "description": "Sistema full-stack che combina un agente AI autonomo (Node.js + OpenAI GPT con pattern ReAct) con una dashboard Vue 3 PWA. L'agente è transport-agnostic: connette Gmail via OAuth2 e provider IMAP, esplora folder, analizza thread conversazionali, estrae allegati multi-formato e risponde a obiettivi complessi in loop decisionali stateful con tool selection cost-aware.",
+        "description": "Agente AI autonomo che legge, analizza e gestisce la posta elettronica in linguaggio naturale, combinando i modelli OpenAI con un design transport-agnostic: Gmail API via OAuth2 e qualsiasi mailbox IMAP. Il backend Node.js/TypeScript usa DeepAgents e LangChain per il tool-calling su Express.js, TypeORM e MariaDB; il frontend è una SPA Vue 3/Vuetify che riproduce in streaming le risposte dell'agente via SSE. Credenziali protette con cifratura AES-256-GCM e key encapsulation RSA, stack orchestrato con Docker per sviluppo e produzione.",
         "features": [
-            "Agente AI con orchestrazione tool (deepagents/LangChain) e function calling OpenAI — reasoning configurabile, retry con exponential backoff, tool selection cost-aware",
-            "Servizio email astratto: implementazioni Gmail OAuth2 e IMAP con decryption AES-256-GCM e RSA key encapsulation",
-            "Pipeline parsing allegati multi-formato (PDF, DOCX, XLSX, PPTX, immagini via Vision API) e conversione HTML→MarkDown",
-            "Backend Express con JWT, risposte firmate, TypeORM + MariaDB su repository pattern",
-            "Dashboard PWA Vue 3 con login OAuth2, chat interattiva con agente e i18n IT/EN",
-            "Container Docker ottimizzato con dumb-init, Sentry monitoring e hot-reload in sviluppo"
+            "Agente AI autonomo con DeepAgents e LangChain: tramite tool-calling cerca, legge e analizza conversazioni email in linguaggio naturale",
+            "Doppio transport email — Gmail API via OAuth2 e IMAP (imapflow) — con credenziali cifrate AES-256-GCM e key encapsulation RSA",
+            "Parser allegati interamente JavaScript per PDF, DOCX, XLSX, PPTX e immagini, analizzate con OpenAI Vision API",
+            "Rilevamento automatico delle cartelle della mailbox e ricostruzione dei thread via header In-Reply-To e References",
+            "HTTP API Express con risposte firmate JWT, validazione Zod e middleware di autenticazione centralizzati",
+            "SPA Vue 3 e Vuetify con login, gestione mailbox e chat in streaming SSE, i18n IT/EN e installabile come PWA"
         ],
         "skills": [
-            "Agentic AI",
-            "LangChain",
-            "OpenAI API",
-            "ReAct Pattern",
-            "Node.js",
             "TypeScript",
+            "Node.js",
             "Express.js",
-            "JWT",
             "TypeORM",
             "MariaDB",
+            "DeepAgents",
+            "LangChain",
+            "OpenAI",
+            "OpenAI Vision",
             "Gmail API",
             "IMAP",
-            "Vue",
-            "Vuetify 4",
+            "OAuth2",
+            "Vue 3",
+            "Vuetify",
             "Docker"
         ],
         "media": [
             {
-                "src": "https://casertano.name/images/projects/mail-thinker-ai.webp?1785321594013",
+                "src": "https://casertano.name/images/projects/mail-thinker-ai.webp?1786007420605",
                 "type": "image"
             }
         ]
     },
     {
         "slug": "disaster-relief-department",
-        "title": "Disaster Relief Department",
-        "short": "Piattaforma di machine monitoring per allerte meteo-idrologiche e sismiche su tutto il territorio italiano.",
+        "title": "Monitoraggio e distribuzione near-realtime di allerte meteo e sismiche",
+        "short": "Piattaforma TypeScript/Node.js che raccoglie, processa e distribuisce in near-realtime allerte meteo-idrogeologiche e sismiche su tutto il territorio italiano.",
         "tags": [
             "Telegram Bot",
             "GIS",
             "OpenAI",
-            "Docker"
+            "Docker",
+            "WebSocket"
         ],
-        "description": "Sistema end-to-end che acquisisce, elabora e distribuisce automaticamente bollettini ufficiali di Protezione Civile (DPC) ed eventi sismici INGV/USGS su tutto il territorio italiano. Integra un bot Telegram per notifiche in tempo reale, classificazione assistita da AI e stima dell'intensità Mercalli per la valutazione del rischio sismico.",
+        "description": "Piattaforma backend TypeScript/Node.js che automatizza l'intero flusso di monitoraggio e distribuzione near-realtime delle allerte della Protezione Civile e dei dati sismici di INGV, USGS ed EMSC/CSEM su tutto il territorio italiano. Converte i dati grezzi in GeoJSON/KML, li persiste su SQLite e notifica in tempo reale via Telegram Bot e Firebase Storage, orchestrando tutto su tre servizi Docker con tracciamento errori via Sentry.",
         "features": [
-            "Acquisizione ed elaborazione automatica di bollettini di criticità idrogeologica da fonti istituzionali (DPC, INGV, USGS)",
-            "Conversione geospaziale TopoJSON → GeoJSON → KML con riproiezione EPSG:4326 e styling cromatico per severità allerta",
-            "Bot Telegram con notifiche push in tempo reale, carosello eventi sismici, tastiera interattiva e pannello di amministrazione",
-            "Classificazione assistita da AI (OpenAI) per risoluzione automatica di zone di allerta non ancora catalogate",
-            "Stima intensità Mercalli con modello GMPE (Boore-Atkinson) per valutazione rapida dell'impatto sismico",
-            "Caricamento KML su Firebase Storage con cache pubblica per visualizzazione immediata in Google Earth"
+            "Ingestion real-time via WebSocket di EMSC SeismicPortal: deduplicazione, filtro geografico sul bounding box italiano e riconnessione con backoff esponenziale",
+            "Cronjob idempotenti (DPC ogni 2 min, INGV/USGS ogni 5 min) con lock file-based e tracciamento SHA per un'acquisizione affidabile",
+            "Pipeline geospaziale TopoJSON → GeoJSON → KML con riproiezione EPSG:4326 e classificazione automatica in livelli GIALLA, ARANCIONE e ROSSA",
+            "Classificazione delle zone di allerta assistita da OpenAI come fallback, con cache su file per le regioni già risolte",
+            "Telegram Bot (grammY) con registrazione approvata da admin, controllo accessi e notifiche push in base alla severità",
+            "Infrastruttura Docker Compose su tre servizi (cronjob, telegram-bot, seismic) con build tipizzato e deploy remoto via rsync"
         ],
         "skills": [
-            "Geospatial ETL",
-            "GDAL",
+            "TypeScript",
+            "Node.js 22",
+            "yargs",
             "grammY",
             "Telegram API",
             "OpenAI API",
-            "Sentry",
-            "Firebase Admin SDK",
-            "Docker",
-            "TypeORM",
+            "Firebase",
+            "WebSocket",
+            "EMSC/CSEM",
+            "DPC",
+            "INGV",
+            "USGS",
             "SQLite",
-            "Healthchecks.io",
-            "TypeScript"
+            "TypeORM",
+            "Migrazioni",
+            "GeoJSON",
+            "KML",
+            "ogr2ogr",
+            "TopoJSON",
+            "Docker",
+            "Docker Compose",
+            "rsync",
+            "Sentry"
         ],
         "media": [
             {
-                "src": "https://casertano.name/images/projects/disaster-relief-department.webp?1785321592807",
+                "src": "https://casertano.name/images/projects/disaster-relief-department.webp?1786007419233",
                 "type": "image"
             }
         ]
@@ -175,7 +189,7 @@ export const projectsData: Project[] = [
         ],
         "media": [
             {
-                "src": "https://casertano.name/images/projects/piattaforma-gestione-territoriale.webp?1785321595240",
+                "src": "https://casertano.name/images/projects/piattaforma-gestione-territoriale.webp?1786007421974",
                 "type": "image"
             }
         ]
@@ -220,7 +234,7 @@ export const projectsData: Project[] = [
         ],
         "media": [
             {
-                "src": "https://casertano.name/images/projects/motore-di-ricerca-multi-contesto.webp?1785321594605",
+                "src": "https://casertano.name/images/projects/motore-di-ricerca-multi-contesto.webp?1786007421214",
                 "type": "image"
             }
         ]
@@ -267,7 +281,7 @@ export const projectsData: Project[] = [
         ],
         "media": [
             {
-                "src": "https://casertano.name/images/projects/bitmonds.webp?1785321592213",
+                "src": "https://casertano.name/images/projects/bitmonds.webp?1786007418640",
                 "type": "image"
             }
         ]

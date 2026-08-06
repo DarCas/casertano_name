@@ -23,13 +23,13 @@
   "name": "name.casertano",
   "private": true,
   "scripts": {
-    "predev": "node scripts/extract-version.mjs && node scripts/fetch-projects.mjs",
-    "dev": "next dev",
-    "prebuild": "node scripts/extract-version.mjs && node scripts/fetch-projects.mjs",
     "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
     "postbuild": "node scripts/generate-sitemap.mjs && node scripts/inline-css.mjs && node scripts/stamp-sw.mjs",
-    "start": "next start",
-    "lint": "next lint"
+    "prebuild": "node scripts/extract-version.mjs && node scripts/fetch-projects.mjs",
+    "predev": "node scripts/extract-version.mjs && node scripts/fetch-projects.mjs",
+    "start": "next start"
   },
-  "version": "1.7.0"
+  "version": "1.7.2"
 }

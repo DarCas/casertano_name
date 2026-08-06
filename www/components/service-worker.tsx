@@ -20,6 +20,13 @@ export function ServiceWorkerUpdater() {
 
         let isControlled = navigator.serviceWorker.controller != null
         let intervalId: ReturnType<typeof setInterval> | undefined
+        let registration: ServiceWorkerRegistration | undefined
+
+        const onUpdateFound = () => {
+            if (isControlled) {
+                window.location.reload()
+            }
+        }
 
         const onControllerChange = () => {
             if (isControlled) {
@@ -31,12 +38,18 @@ export function ServiceWorkerUpdater() {
 
         navigator.serviceWorker.addEventListener("controllerchange", onControllerChange)
 
-        navigator.serviceWorker.register("/sw.js").then((registration) => {
-            intervalId = setInterval(() => registration.update(), 60_000)
+        navigator.serviceWorker.register("/sw.js").then((reg) => {
+            registration = reg
+            reg.addEventListener("updatefound", onUpdateFound)
+            intervalId = setInterval(() => reg.update(), 60_000)
         })
 
         return () => {
             navigator.serviceWorker.removeEventListener("controllerchange", onControllerChange)
+
+            if (registration) {
+                registration.removeEventListener("updatefound", onUpdateFound)
+            }
 
             if (intervalId) {
                 clearInterval(intervalId)
