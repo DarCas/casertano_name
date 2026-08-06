@@ -8,6 +8,7 @@ import type { Metadata } from "next"
 import dynamic from "next/dynamic"
 import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google"
 import { projectsData } from "@/lib/projects-data"
+import { ServiceWorkerUpdater } from "@/components/service-worker"
 import "./globals.css"
 import React from "react";
 
@@ -122,6 +123,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         </head>
         <body>
         <NetworkBg/>
+        <ServiceWorkerUpdater/>
         <div className="scanlines"/>
         <div className="bg-orb orb1"/>
         <div className="bg-orb orb2"/>

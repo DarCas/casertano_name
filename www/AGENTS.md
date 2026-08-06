@@ -5,7 +5,7 @@ Portfolio statico di Dario Casertano (`https://casertano.name`). Build statica N
 ## Comandi
 
 - `npm run dev` — dev server (predev: `extract-version.mjs` + `fetch-projects.mjs`)
-- `npm run build` — build statica in `out/` (prebuild: `extract-version.mjs` + `fetch-projects.mjs`; postbuild: `generate-sitemap.mjs` + `inline-css.mjs`)
+- `npm run build` — build statica in `out/` (prebuild: `extract-version.mjs` + `fetch-projects.mjs`; postbuild: `generate-sitemap.mjs` + `inline-css.mjs` + `stamp-sw.mjs`)
 - `npm run lint` — `next lint`
 - `ANALYZE=true npm run build` — bundle analysis con `@next/bundle-analyzer`
 
@@ -14,10 +14,10 @@ Portfolio statico di Dario Casertano (`https://casertano.name`). Build statica N
 ## Architettura
 
 - `app/` — App Router: `layout.tsx` (metadata, font, JSON-LD), `page.tsx` (composizione sezioni), `progetti/[slug]/` (pagine statiche progetto, da snapshot), `not-found.tsx`, `privacy-policy/`, `globals.css`
-- `components/` — sezioni della landing (Hero, Nav, Projects, Skills, Contact, Footer, Network) + primitivi (SectionLabel, Tag, EmailLink, BackToTop, HomeArrow, RedirectTimer) + ProjectDetail (dettaglio statico, riusato dalle pagine progetto; senza card: media `aspect-[2/1]`, features/skills con SectionLabel + Tag, stile sezioni homepage)
+- `components/` — sezioni della landing (Hero, Nav, Projects, Skills, Contact, Footer, Network) + primitivi (SectionLabel, Tag, EmailLink, BackToTop, HomeArrow, RedirectTimer, ServiceWorkerUpdater) + ProjectDetail (dettaglio statico, riusato dalle pagine progetto; senza card: media `aspect-[2/1]`, features/skills con SectionLabel + Tag, stile sezioni homepage)
 - `lib/` — dati e tipi: `projects.ts` (fetch progetti da API), `projects-data.ts` (generato: snapshot progetti), `skills.ts` (tassonomia categorie), `utils.ts`, `version.ts` (generato)
-- `scripts/` — build tooling: `extract-version.mjs` (scrive `lib/version.ts` da package.json), `fetch-projects.mjs` (scrive `lib/projects-data.ts` da API), `generate-sitemap.mjs` (legge `out/progetti/` per aggiungere le pagine progetto), `inline-css.mjs`
-- `public/` — favicon, `apple-touch-icon.svg`, `llms.txt`, `llms-full.txt`, `robots.txt`, `opengraph.jpeg`, `sw.js`
+- `scripts/` — build tooling: `extract-version.mjs` (scrive `lib/version.ts` da package.json), `fetch-projects.mjs` (scrive `lib/projects-data.ts` da API), `generate-sitemap.mjs` (legge `out/progetti/` per aggiungere le pagine progetto), `inline-css.mjs`, `stamp-sw.mjs` (scrive in `out/sw.js` il marker `__BUILD_ID__` con `v{version}-{timestamp}`)
+- `public/` — favicon, `apple-touch-icon.svg`, `llms.txt`, `llms-full.txt`, `robots.txt`, `opengraph.jpeg`, `sw.js` (SW minimale di aggiornamento: nessun caching/fetch handler, solo `skipWaiting` + `clients.claim`; i byte cambiano a ogni build grazie allo stamping)
 
 ## Configurazione
 
@@ -53,4 +53,5 @@ Portfolio statico di Dario Casertano (`https://casertano.name`). Build statica N
 - Le pagine `/progetti/[slug]/` sono server component generate da `generateStaticParams()` su `projects-data.ts`: la card in `project-card.tsx` è un `<a>` reale verso la pagina (niente modal — eliminato). Ogni pagina progetto include Nav e Footer e ha una freccia `&larr;` accanto al titolo che torna alla homepage (niente breadcrumb visibile; il JSON-LD `BreadcrumbList` resta per SEO). La sitemap e `llms.txt`/`llms-full.txt` includono le pagine progetto.
 - La freccia home (pagine progetto e privacy) è il componente client `components/home-arrow.tsx` (`HomeArrow`): legge `window.location.hash` a mount; se `#from-contact` (arrivo dal form contatti) punta a `/#contatti`, altrimenti a `/`. Il link "informativa privacy" del form in `components/contact.tsx` usa `href="/privacy-policy/#from-contact"`; il link del footer resta pulito (niente hash).
 - La `Nav` (`components/nav.tsx`) usa `usePathname()`: su home gestisce scroll-spy + smooth-scroll su Home; su pagine non-home i link sezione puntano a `/#...`, Home è un Link reale e il link "Progetti" resta evidenziato (attivo) sulle pagine `/progetti/`.
+- L'auto-aggiornamento dopo il deploy dipende da due pezzi: (1) lato API, Express serve `/_next/static` con `immutable, max-age=1y` e tutto il resto (HTML, `sw.js`, `llms.txt`) con `Cache-Control: public, no-cache` + ETag; (2) il SW `public/sw.js` (stampato a ogni build) registrato da `components/service-worker.tsx` (`ServiceWorkerUpdater`, solo in produzione): su `controllerchange` fa `location.reload()` solo se era già attivo un SW (niente reload al primo install) e chiama `registration.update()` ogni 60s per le tab aperte. Nessun caching lato SW: niente offline, niente installazione PWA.
 - **NON eseguire mai commit senza esplicito permesso.**

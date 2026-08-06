@@ -46,11 +46,18 @@ export const handler = async ({port}: { port: number }): Promise<void> => {
         extended: true,
         limit: '5mb',
     }))
-    app.use(express.static(getStorageWww(), {
+    app.use('/_next/static', express.static(getStorageWww('/_next/static'), {
         etag: true,
         immutable: true,
-        index: "index.html",
-        maxAge: "1y",
+        maxAge: '1y',
+    }))
+
+    app.use(express.static(getStorageWww(), {
+        etag: true,
+        index: 'index.html',
+        setHeaders(res) {
+            res.setHeader('Cache-Control', 'public, no-cache')
+        },
     }))
 
     app.use(headersMiddleware())

@@ -10,7 +10,7 @@ export const projectsData: Project[] = [
     {
         "slug": "falco-ws-environment",
         "title": "Falco WS Environment",
-        "short": "Ecosistema digitale per Falco S.r.l.: PWA officina con Gantt Syncfusion, monitoraggio IoT torni CNC via MQTT, backend centralizzato su Docker.",
+        "short": "Ecosistema digitale per Falco S.r.l.: PWA officina con Gantt Syncfusion, monitoraggio IoT di macchine industriali via MQTT, backend centralizzato su Docker.",
         "tags": [
             "Vue",
             "Node.js",
@@ -18,10 +18,10 @@ export const projectsData: Project[] = [
             "MQTT",
             "PWA"
         ],
-        "description": "Ecosistema digitale per Falco S.r.l., composto da tre software modulari che coprono l'intero ciclo produttivo: PWA officina con Gantt interattivo e chat realtime, sistema IoT per monitoraggio real-time torni CNC via MQTT con dashboard telemetria, e backend centralizzato Node.js/TypeORM su MariaDB con broker MQTT integrato. Distribuito su infrastruttura ibrida tra Firebase Hosting e server on-premise Docker.",
+        "description": "Ecosistema digitale per Falco S.r.l., composto da tre software modulari che coprono l'intero ciclo produttivo: PWA officina con Gantt interattivo e chat realtime, sistema IoT per monitoraggio real-time di macchine industriali via MQTT con dashboard telemetria, e backend centralizzato Node.js/TypeORM su MariaDB con broker MQTT integrato. Distribuito su infrastruttura ibrida tra Firebase Hosting e server on-premise Docker.",
         "features": [
             "Gestione completa dell'officina via PWA: 28+ viste per progetti, commesse, preventivi e clienti, con Gantt interattivo Syncfusion, chat realtime e mappe Google con persistenza offline IndexedDB",
-            "Monitoraggio industriale IoT in tempo reale: torni CNC connessi via MQTT, dashboard telemetria, statistiche Chart.js e notifiche push Firebase su allarmi e configurazione remota",
+            "Monitoraggio industriale IoT in tempo reale: macchine industriali connesse via MQTT, dashboard telemetria, statistiche Chart.js e notifiche push Firebase su allarmi e configurazione remota",
             "Backend centralizzato REST su MariaDB con broker MQTT Mosquitto, 10 cron job schedulati, generazione automatica documenti (DOCX/PDF/XLSX) e sync FTP bidirezionale con macchinari",
             "Infrastruttura ibrida: 5 container Docker on-premise con Apache reverse proxy e Let's Encrypt, PWA su Firebase Hosting, monitoring errori con Sentry/GlitchTip"
         ],

@@ -27,9 +27,9 @@
     "dev": "next dev",
     "prebuild": "node scripts/extract-version.mjs && node scripts/fetch-projects.mjs",
     "build": "next build",
-    "postbuild": "node scripts/generate-sitemap.mjs && node scripts/inline-css.mjs",
+    "postbuild": "node scripts/generate-sitemap.mjs && node scripts/inline-css.mjs && node scripts/stamp-sw.mjs",
     "start": "next start",
     "lint": "next lint"
   },
-  "version": "1.6.1"
+  "version": "1.7.0"
 }

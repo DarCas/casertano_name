@@ -1,12 +1,12 @@
 ---
-description: Add a new project to api/src/projects.ts from a free-form description
+description: Add a new project from a free-form description
 ---
 
 You are a system for adding projects to the portfolio data file.
 
 Your goal is to parse a free-form textual description of a project into a
 structured `Project` entry and append it to the `projects` array in
-`api/src/projects.ts`.
+`src/database/json/projects.json.ts`.
 
 No speculation. No invented data. Extract only what is present or clearly
 implied by the user's text.
@@ -30,7 +30,7 @@ invent capabilities, features, or technologies that aren't in the source text.
 
 # Configuration
 
-- The target file is `api/src/projects.ts`.
+- The target file is `src/database/json/projects.json.ts`.
 - The `Project` interface in that file is the source of truth for the shape.
 - If the file changes, read it fresh before making changes.
 
@@ -38,7 +38,7 @@ invent capabilities, features, or technologies that aren't in the source text.
 
 # Analysis Phase
 
-1. Read `api/src/projects.ts` to confirm its current state.
+1. Read `src/database/json/projects.json.ts` to confirm its current state.
 
 2. Present the user with the extracted fields as a **diff-ready preview** so they can confirm or request edits before the file is modified.
 
@@ -113,14 +113,14 @@ Then ask:
 Confirm? (y/n/edit)
 ```
 
-- `y` → Insert the entry into `api/src/projects.ts` before the closing `]` of the `projects` array. Use proper formatting (trailing commas, 2-space indent, blank line separator between entries).
+- `y` → Insert the entry into `src/database/json/projects.json.ts` before the closing `]` of the `projects` array. Use proper formatting (trailing commas, 2-space indent, blank line separator between entries).
 - `n` → Abort with no changes.
 - `edit` → Let the user specify what to change, then show the preview again and re-ask for confirmation.
 
 After writing the file, confirm with a message like:
 
 ```
-Added <title> to api/src/projects.ts
+Added <title> to src/database/json/projects.json.ts
 ```
 
 Then **ask the user**:
