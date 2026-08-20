@@ -8,9 +8,11 @@ import { getStorageProjects, getStorageWww } from "@/@projlib/Storage";
 import { CliUx } from '@/@stdlib/cli-ux'
 import { bootstrap, EnvEnum } from '@/@stdlib/environment'
 import { jsonServices } from '@/@stdlib/expressjs/services/JsonServices'
+import { isEnabled } from "@/@stdlib/sentry";
 import { headersMiddleware } from "@/Http/@shared/middlewares/HeadersMiddleware";
 import { corsOptions as corsOptionsClient } from '@/Http/Client/cors'
 import { v1 } from '@/Http/Client/routes/v1'
+import { setupExpressErrorHandler } from "@sentry/node";
 import { blueBright, cyan, yellowBright } from 'cli-color'
 import compression from 'compression'
 import cors from 'cors'
@@ -78,6 +80,10 @@ export const handler = async ({port}: { port: number }): Promise<void> => {
                 }
             })
     })
+
+    if (isEnabled()) {
+        setupExpressErrorHandler(app)
+    }
 
     app.listen(port, '0.0.0.0', () => {
         console.log(blueBright(`${bootstrap.description} ${yellowBright(bootstrap.version)} is listening on port ${yellowBright(port)}`), {
