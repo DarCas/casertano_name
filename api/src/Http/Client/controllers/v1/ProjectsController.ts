@@ -43,6 +43,12 @@ class ProjectsController extends AbstractClientController {
                 project.media = await this.listProjectMedia(project.slug)
             }
 
+            projects.sort((a, b) => {
+                if (a.lib !== b.lib) return a.lib ? 1 : -1
+
+                return a.lib ? a.title.localeCompare(b.title, 'it') : 0
+            })
+
             return res.toJson(projects)
         } catch (e) {
             await captureException(e)

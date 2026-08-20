@@ -11,9 +11,10 @@ import { categories } from "@/lib/skills"
 import { Tag } from "@/components/tag"
 
 const heroSkills = [
-    "Agentic AI", "LangChain", "DeepAgents", "OpenAI", "RAG",
+    "Agentic AI", "LangChain", "OpenAI", "RAG",
     "TypeScript", "Node.js", "Vue", "Docker",
-    "Solidity", "Ethers.js", "Polygon", "WebRTC", "MQTT",
+    "Fastify", "Laravel",
+    "Solidity", "Ethers.js", "WebRTC", "MQTT",
 ]
 
 export function Hero() {

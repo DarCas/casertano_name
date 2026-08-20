@@ -79,7 +79,7 @@ Returns the portfolio projects enriched with media, if any exist in storage.
 - `200` → handled as **302 Found** by the controller — the list arrives in the body regardless.
 - `204 No Content` → no projects configured.
 
-Payload: array of `Projects.Project` objects (`slug`, `title`, `short`, `description`, `tags`, `skills`, `features`, `media`). Each `media` item is `{src, type}` where `src` is an absolute URL built from `NEXT_PUBLIC_API` with an `?mtime` cache-buster, e.g.:
+Payload: array of `Projects.Project` objects (`slug`, `title`, `short`, `description`, `tags`, `skills`, `features`, `media`; plus optional `lib?: boolean` and `github?: string` for open-source libraries). Projects are sorted with non-`lib` first (stable file order) and `lib` projects last, ordered by `title` (`localeCompare('it')`). Each `media` item is `{src, type}` where `src` is an absolute URL built from `NEXT_PUBLIC_API` with an `?mtime` cache-buster, e.g.:
 
 ```
 /images/projects/<slug>.<ext>?<mtime>
@@ -131,13 +131,36 @@ Notes:
 ## Architecture
 
 ```
-src/index.ts             — CLI: yargs → registers `api` command (tz Europe/Rome, locale it-IT)
-src/Http/index.ts        — Express app (port 3001, configurable via --port)
-src/Http/Client/         — REST API v1 (routes, controllers, validations)
-src/@stdlib/             — Internal lib: env loader, Joi wrapper (IT errors), route factory, Sentry
-src/@projlib/Storage     — Storage path helpers
-src/projects.ts          — Portfolio project data
-src/templates/           — Email templates (plain HTML, read at runtime)
+.
+├── .opencode/
+│   └── commands/
+│       ├── add-project.md
+│       └── generate-image.md
+├── @bin/
+│   ├── build
+│   ├── ts-node
+│   └── ts-node-respawn
+├── src/
+│   ├── @projlib/Storage.ts  → Storage path helpers
+│   ├── @stdlib/             → Internal lib: env loader, Joi wrapper (IT errors), route factory, Sentry
+│   ├── @types/              → Ambient declarations (@projlib, @stdlib)
+│   ├── database/json/       → Portfolio project data (projects.json.ts: records incl. optional `lib`/`github`)
+│   ├── Http/
+│   │   ├── @shared/         → shared middlewares (HeadersMiddleware)
+│   │   ├── Client/          → REST API v1 (routes, controllers, validations)
+│   │   └── index.ts         → Express app (port 3001, configurable via --port)
+│   ├── templates/           → Email templates (plain HTML, read at runtime)
+│   └── index.ts             → CLI: yargs → registers `api` command (tz Europe/Rome, locale it-IT)
+├── .env.example
+├── .editorconfig
+├── .nvmrc
+├── .prettierrc
+├── AGENTS.md
+├── README.md
+├── env.d.ts
+├── package-lock.json
+├── package.json
+└── tsconfig.json
 ```
 
 ### Routing

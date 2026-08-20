@@ -32,11 +32,25 @@ Static portfolio of **Dario Casertano** ([casertano.name](https://casertano.name
 ## Architecture
 
 ```
-app/          → App Router: layout, page, not-found, privacy-policy, progetti/[slug], globals.css
-components/   → Landing sections (Hero, Nav, Projects, Skills, Contact, Footer, Network) + primitives
-lib/          → Data & types: projects.ts, projects-data.ts (generated snapshot), skills.ts, utils.ts, version.ts (generated)
-scripts/      → Build tooling: extract-version, generate-sitemap, inline-css
-public/       → Favicon, llms.txt, robots.txt, opengraph.jpeg, sw.js
+.
+├── app/                → App Router: layout, page, not-found, privacy-policy, progetti/[slug], globals.css
+├── components/         → Landing sections (Hero, Nav, Projects, Skills, Contact, Footer, Network) + primitives
+├── lib/                → Data & types: projects.ts, projects-data.ts (generated snapshot), projects-server.ts (server-only fetch), skills.ts, utils.ts, version.ts (generated)
+├── public/             → Favicon (favicon.ico, favicon.jpeg, maskable_icon*), llms.txt, llms-full.txt, robots.txt, opengraph.jpeg, sw.js
+├── scripts/            → Build tooling: extract-version, fetch-projects, generate-sitemap, inline-css, stamp-sw
+├── .browserslistrc
+├── .editorconfig
+├── .env.example
+├── .nvmrc
+├── AGENTS.md
+├── README.md
+├── next-env.d.ts
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.cjs
+├── tailwind.config.ts
+└── tsconfig.json
 ```
 
 Data flow:
@@ -82,6 +96,8 @@ API-side vars (`SMTP_*`, `TURNSTILE_SECRET_KEY`) are not used here: they live in
 
 - The hero tags (`heroSkills`) are **hand-curated** in `components/hero.tsx`, not derived from `lib/skills.ts`.
 - The hero skill counter derives from `lib/skills.ts`.
+- The skills taxonomy in `lib/skills.ts` has **10 categories with English labels** in narrative build order (Languages & Runtimes → Frontend & Libraries → Backend & APIs → Databases → DevOps & Infrastructure → Tooling & Build → Real-time & Messaging → AI & Agents → Blockchain → Geospatial). Its section headers mirror **1:1** the Skills block in `public/llms-full.txt` — keep both in sync.
+- The projects grid splits open-source libraries from client work: the API flags them with `lib` and sorts non-`lib` first; the UI renders a `// TOOLING` divider before the lib grid (cards link to GitHub).
 
 ## License
 

@@ -12,6 +12,7 @@ declare global {
             description: string
             features: string[]
             github?: string
+            lib?: boolean
             media?: Project.Media[]
             short: string
             skills: string[]

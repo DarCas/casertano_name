@@ -3,12 +3,19 @@
 
 ## Pages
 - [Home](https://casertano.name/): Portfolio homepage — hero, projects, tech stack, contact
-- [Falco WS Environment](https://casertano.name/progetti/falco-ws-environment/): Workshop PWA with Syncfusion Gantt, CNC lathe IoT monitoring via MQTT, centralized backend on Docker
+- [Falco WS Environment](https://casertano.name/progetti/falco-ws-environment/): Integrated manufacturing platform — PWA management with Gantt, IoT monitoring via MQTT, Dolibarr ERP purchasing
 - [Mail Thinker AI](https://casertano.name/progetti/mail-thinker-ai/): Autonomous AI agent for email — Gmail/IMAP, thread analysis, multi-format extraction
-- [Disaster Relief Department](https://casertano.name/progetti/disaster-relief-department/): Machine monitoring platform for hydro-meteorological and seismic alerts
-- [Territorial management platform](https://casertano.name/progetti/piattaforma-gestione-territoriale/): System for organizations with branches, shifts and resources
+- [Bitmonds](https://casertano.name/progetti/bitmonds/): NFT Marketplace for collectible virtual diamonds tokenized on Polygon
+- [Disaster Relief Department](https://casertano.name/progetti/disaster-relief-department/): Near-real-time monitoring and distribution of weather and seismic alerts across Italy
+- [Interactive territorial coverage map](https://casertano.name/progetti/mappa-interattiva-di-copertura-territoriale/): Reachability isochrones by car, bike and foot over OpenStreetMap
 - [Multi-context search engine with P2P sync](https://casertano.name/progetti/motore-di-ricerca-multi-contesto/): Offline-first PWA unifying search engines, WebRTC P2P sync
-- [NFT Marketplace for collectible virtual diamonds](https://casertano.name/progetti/bitmonds/): ERC-721 NFTs on Polygon, on-chain marketplace, PWA back-office
+- [ISP customer onboarding platform](https://casertano.name/progetti/piattaforma-onboarding-clienti-isp/): From fiber coverage check to digitally signed contract, fully automated on a PWA
+- [Territorial management platform](https://casertano.name/progetti/piattaforma-gestione-territoriale/): System for organizations with branches, shifts and resources
+- [Moodle e-learning platform](https://casertano.name/progetti/piattaforma-e-learning-moodle/): Healthcare-focused Moodle platform with immersive v-classroom
+- [Made-to-measure order management for sales agents](https://casertano.name/progetti/ordini-su-misura-agenti-vendita/): Offline-first shirt order management with automatic ERP sync
+- [KeyPlex](https://casertano.name/progetti/keyplex/): Open-source npm library for namespaced key-value storage
+- [LicensePluginJson](https://casertano.name/progetti/license-plugin-json/): Vite/Rollup plugin generating JSON license reports
+- [MemoryX](https://casertano.name/progetti/memoryx/): In-memory browser key-value storage library with isolated namespaces
 - [Privacy Policy](https://casertano.name/privacy-policy/): Privacy notice
 
 ## Full content

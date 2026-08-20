@@ -35,11 +35,23 @@ export function Projects() {
             {projects.length === 0 ? (
                 <p className="text-text-secondary">Nessun progetto disponibile.</p>
             ) : (
-                <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-5">
-                    {projects.map((p) => (
-                        <ProjectCard key={p.slug} project={p}/>
-                    ))}
-                </div>
+                <>
+                    <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-5">
+                        {projects.filter((p) => !p.lib).map((p) => (
+                            <ProjectCard key={p.slug} project={p}/>
+                        ))}
+                    </div>
+                    {projects.some((p) => p.lib) && (
+                        <>
+                            <SectionLabel color="secondary" size="md" className="mt-12 mb-5">// tooling</SectionLabel>
+                            <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-5">
+                                {projects.filter((p) => p.lib).map((p) => (
+                                    <ProjectCard key={p.slug} project={p}/>
+                                ))}
+                            </div>
+                        </>
+                    )}
+                </>
             )}
         </section>
     )

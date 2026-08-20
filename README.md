@@ -20,13 +20,18 @@ The code is provided "as is", without any express or implied warranty. There is 
 
 ```
 .
-├── www/      — Next.js 15 frontend (static export)
-├── api/      — Express.js 4 backend (REST API + static file server)
+├── .opencode/
+├── api/            → Express.js 4 backend (REST API + static file server)
+├── www/            → Next.js 15 frontend (static export)
+├── .dockerignore
+├── .gitignore
+├── .nvmrc
 ├── Dockerfile
 ├── docker-compose.yml
+├── LICENSE.md
+├── opencode.jsonc
 ├── optimize-images.sh
-├── postman_collection.json
-└── LICENSE.md
+└── postman_collection.json
 ```
 
 | Directory | Description |

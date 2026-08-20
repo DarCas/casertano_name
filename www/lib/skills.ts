@@ -5,35 +5,43 @@ export interface SkillCategory {
 
 export const categories: SkillCategory[] = [
     {
-        label: "Linguaggi e Runtime",
-        items: ["TypeScript", "Node.js", "PHP"],
+        label: "Languages & Runtimes",
+        items: ["TypeScript", "JavaScript", "Node.js", "PHP"],
     },
     {
-        label: "Database",
-        items: ["MariaDB", "PostgreSQL", "SQLite", "Redis", "Firebase"],
+        label: "Frontend & Libraries",
+        items: ["Vue", "Vuetify", "Pinia", "Vuex", "React", "Next.js", "Tailwind CSS", "Vite", "Chart.js", "Syncfusion Gantt", "Dexie.js", "IndexedDB", "Workbox", "Service Worker", "Vee-Validate", "PWA"],
     },
     {
-        label: "DevOps e Infrastruttura",
-        items: ["Docker", "Docker Compose", "Linux", "Apache", "Mosquitto", "coturn", "Sentry", "PM2", "rsync"],
+        label: "Backend & APIs",
+        items: ["REST API", "JWT", "OAuth2", "Express.js", "Fastify", "TypeBox", "Laravel", "Eloquent", "Zend Framework 3", "Doctrine ORM", "TypeORM", "Drizzle ORM", "Strapi 5", "Dolibarr", "Joi", "Zod", "yargs", "Nodemailer", "Docxtemplater", "PhpWord", "mPDF", "Moodle", "Composer"],
     },
     {
-        label: "AI e Agenti",
-        items: ["OpenAI", "LangChain", "DeepAgents", "Agentic AI", "RAG", "Tool Calling", "ReAct Pattern"],
+        label: "Databases",
+        items: ["MariaDB", "PostgreSQL", "MySQL", "SQLite", "Redis", "Microsoft SQL Server", "Firebase"],
+    },
+    {
+        label: "DevOps & Infrastructure",
+        items: ["Docker", "Docker Compose", "Linux", "Apache", "Mosquitto", "coturn", "Sentry", "PM2", "rsync", "GitHub Actions"],
+    },
+    {
+        label: "Tooling & Build",
+        items: ["npm", "Rollup", "Terser", "Lodash", "Semantic Versioning", "ES6 Modules", "Vitest", "PHPUnit", "Sass", "Webpack Encore", "PostCSS"],
+    },
+    {
+        label: "Real-time & Messaging",
+        items: ["MQTT", "WebRTC", "WebSocket", "grammY", "Telegram Bot", "Gmail API", "IMAP"],
+    },
+    {
+        label: "AI & Agents",
+        items: ["OpenAI", "OpenAI Vision", "LangChain", "DeepAgents", "Agentic AI", "RAG", "Tool Calling", "ReAct Pattern"],
     },
     {
         label: "Blockchain",
         items: ["Solidity", "Ethers.js", "Polygon", "ERC-721", "MetaMask", "IPFS", "Filebase"],
     },
     {
-        label: "Real-time e Messaging",
-        items: ["MQTT", "WebRTC", "WebSocket", "grammY", "Telegram Bot", "Gmail API", "IMAP"],
-    },
-    {
-        label: "Frontend e Librerie",
-        items: ["Vite", "Vuetify", "Pinia", "Vuex", "Chart.js", "Syncfusion Gantt", "Dexie.js", "Workbox", "Service Worker", "Tailwind CSS", "React", "Vue", "Next.js", "PWA"],
-    },
-    {
-        label: "Backend e API",
-        items: ["REST API", "JWT", "OAuth2", "Joi", "Docxtemplater", "Strapi 5", "Dolibarr", "Zod", "Nodemailer", "yargs", "Express.js", "Laravel", "Zend Framework 3", "TypeORM", "GDAL", "GeoJSON", "KML", "ETL Geospaziale"],
+        label: "Geospatial",
+        items: ["GDAL", "GeoJSON", "KML", "TopoJSON", "Geospatial ETL", "Valhalla", "Leaflet", "OpenStreetMap"],
     },
 ]

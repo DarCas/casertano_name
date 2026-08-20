@@ -8,7 +8,7 @@ Senior Full Stack Engineer with 15+ years of experience. Designs and builds dist
 
 ### Core stack
 
-Agentic AI, LangChain, OpenAI, RAG, TypeScript, Node.js, Vue, Next.js, React, Docker, Solidity, Ethers.js, WebRTC, MQTT, PWA.
+Agentic AI, LangChain, OpenAI, RAG, TypeScript, Node.js, Vue, Next.js, React, Docker, Fastify, Laravel, Solidity, Ethers.js, WebRTC, MQTT, PWA.
 
 ## Services
 
@@ -21,41 +21,55 @@ Agentic AI, LangChain, OpenAI, RAG, TypeScript, Node.js, Vue, Next.js, React, Do
 - **DevOps/Infrastructure** — Docker, Linux, Apache, PM2
 - **CMS & migrations** — Strapi, data migrations
 - **Blockchain** — smart contracts, NFT, on-chain marketplaces
+- **Geospatial** — routing, isochrones, territorial coverage analysis
 
 ## Skills
 
 ### Languages & Runtimes
-TypeScript, Node.js, PHP
+TypeScript, JavaScript, Node.js, PHP
+
+### Frontend & Libraries
+Vue, Vuetify, Pinia, Vuex, React, Next.js, Tailwind CSS, Vite, Chart.js, Syncfusion Gantt, Dexie.js, IndexedDB, Workbox, Service Worker, Vee-Validate, PWA
+
+### Backend & APIs
+REST API, JWT, OAuth2, Express.js, Fastify, TypeBox, Laravel, Eloquent, Zend Framework 3, Doctrine ORM, TypeORM, Drizzle ORM, Strapi 5, Dolibarr, Joi, Zod, yargs, Nodemailer, Docxtemplater, PhpWord, mPDF, Moodle, Composer
 
 ### Databases
-MariaDB, PostgreSQL, SQLite, Redis, Firebase
+MariaDB, PostgreSQL, MySQL, SQLite, Redis, Microsoft SQL Server, Firebase
 
 ### DevOps & Infrastructure
-Docker, Docker Compose, Linux, Apache, Mosquitto, coturn, Sentry, PM2
+Docker, Docker Compose, Linux, Apache, Mosquitto, coturn, Sentry, PM2, rsync, GitHub Actions
 
-### AI & Agents
-OpenAI, LangChain, Agentic AI, RAG, Tool Calling, ReAct Pattern
-
-### Blockchain
-Solidity, Ethers.js, MetaMask, IPFS, Filebase
+### Tooling & Build
+npm, Rollup, Terser, Lodash, Semantic Versioning, ES6 Modules, Vitest, PHPUnit, Sass, Webpack Encore, PostCSS
 
 ### Real-time & Messaging
 MQTT, WebRTC, WebSocket, grammY, Telegram Bot, Gmail API, IMAP
 
-### Frontend & Libraries
-Vite, Vuetify, Pinia, Vuex, Chart.js, Syncfusion Gantt, Dexie.js, Workbox, Service Worker, Tailwind CSS, React, Vue, Next.js, PWA
+### AI & Agents
+OpenAI, OpenAI Vision, LangChain, DeepAgents, Agentic AI, RAG, Tool Calling, ReAct Pattern
 
-### Backend & APIs
-REST API, JWT, OAuth2, Joi, Docxtemplater, Strapi 5, Zod, Nodemailer, Express.js, Laravel, Zend Framework 3, TypeORM, GDAL, Geospatial ETL
+### Blockchain
+Solidity, Ethers.js, Polygon, ERC-721, MetaMask, IPFS, Filebase
+
+### Geospatial
+GDAL, GeoJSON, KML, TopoJSON, Geospatial ETL, Valhalla, Leaflet, OpenStreetMap
 
 ## Projects
 
-- [Falco WS Environment](https://casertano.name/progetti/falco-ws-environment/) (Vue, Node.js, Docker, MQTT, PWA) — Digital ecosystem for Falco S.r.l.: workshop PWA with Syncfusion Gantt, CNC lathe IoT monitoring via MQTT, centralized backend on Docker.
+- [Falco WS Environment](https://casertano.name/progetti/falco-ws-environment/) (Node.js, Vue, Docker, MQTT, PWA) — Integrated manufacturing platform: PWA management with Gantt, IoT monitoring via MQTT and Dolibarr ERP purchasing.
 - [Mail Thinker AI](https://casertano.name/progetti/mail-thinker-ai/) (LangChain, OpenAI, Vue, Docker) — Autonomous AI agent for email: Gmail/IMAP, thread analysis, multi-format extraction, cost-aware decision loops.
-- [Disaster Relief Department](https://casertano.name/progetti/disaster-relief-department/) (Telegram Bot, GIS, OpenAI, Docker) — Machine monitoring platform for hydro-meteorological and seismic alerts across the whole Italian territory.
-- [Territorial management platform](https://casertano.name/progetti/piattaforma-gestione-territoriale/) (Vue, Node.js, Docker, Strapi 5) — System for organizations with branches, shifts and resources: two PWAs, Telegram bot, reporting and maintenance on a containerized MariaDB backend.
+- [Bitmonds](https://casertano.name/progetti/bitmonds/) (Solidity, Polygon, ERC-721, Vue, Node.js) — Virtual diamonds tokenized as ERC-721 NFTs on Polygon: on-chain marketplace, PWA back-office and automatic 3D rendering.
+- [Disaster Relief Department](https://casertano.name/progetti/disaster-relief-department/) (Telegram Bot, GIS, OpenAI, Docker) — Near-real-time monitoring and distribution of weather and seismic alerts across the whole Italian territory.
+- [Interactive territorial coverage map](https://casertano.name/progetti/mappa-interattiva-di-copertura-territoriale/) (Node.js, Fastify, Valhalla, Leaflet, Docker) — Reachability isochrones by car, bike and foot over OpenStreetMap for territorial coverage analysis.
 - [Multi-context search engine with P2P sync](https://casertano.name/progetti/motore-di-ricerca-multi-contesto/) (Vue, WebRTC, PWA, Docker, Firebase) — Offline-first PWA unifying search engines with dedicated CSEs and syncing devices in real time via WebRTC P2P.
-- [NFT Marketplace for collectible virtual diamonds tokenized on Polygon](https://casertano.name/progetti/bitmonds/) (Solidity, Polygon, ERC-721, Vue, Node.js) — Virtual diamonds tokenized as ERC-721 NFTs on Polygon: on-chain marketplace, PWA back-office and automatic 3D rendering.
+- [ISP customer onboarding platform](https://casertano.name/progetti/piattaforma-onboarding-clienti-isp/) (Laravel, Vue, TypeScript, PWA, Docker) — End-to-end ISP onboarding: from fiber coverage check to digitally signed contract, fully automated on a PWA.
+- [Territorial management platform](https://casertano.name/progetti/piattaforma-gestione-territoriale/) (Vue, Node.js, Docker, Strapi 5) — System for organizations with branches, shifts and resources: two PWAs, Telegram bot, reporting and maintenance on a containerized MariaDB backend.
+- [Moodle e-learning platform](https://casertano.name/progetti/piattaforma-e-learning-moodle/) (Moodle, PHP, MySQL, Webpack, JavaScript) — Healthcare-focused e-learning: immersive v-classroom with video, slides and PDF in structured multimedia modules.
+- [Made-to-measure order management for sales agents](https://casertano.name/progetti/ordini-su-misura-agenti-vendita/) (Angular, PHP, Vue 2, PWA, Microsoft SQL Server) — Offline-first shirt order management for sales agents, with automatic sync to the ERP on reconnection.
+- [KeyPlex](https://casertano.name/progetti/keyplex/) (TypeScript, npm, Strategy Pattern, Terser) — Open-source TypeScript library for namespaced key-value storage with wildcard deletion and a minimal bundle.
+- [LicensePluginJson](https://casertano.name/progetti/license-plugin-json/) (Vite, TypeScript, Rollup, GitHub Actions, Open Source) — Vite/Rollup plugin generating JSON license reports for automated open-source compliance.
+- [MemoryX](https://casertano.name/progetti/memoryx/) (TypeScript, npm, Key-Value Store, Lodash) — In-memory browser key-value storage library with isolated namespaces, published on npm with TypeScript types.
 
 ## Contact
 
