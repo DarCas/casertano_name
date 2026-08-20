@@ -31,5 +31,5 @@
     "predev": "node scripts/extract-version.mjs && node scripts/fetch-projects.mjs",
     "start": "next start"
   },
-  "version": "1.7.2"
+  "version": "1.8.0"
 }

@@ -16,8 +16,8 @@ const NetworkBg = dynamic(() => import("@/components/network").then(m => m.Netwo
 
 const plusJakartaSans = Plus_Jakarta_Sans({
     subsets: ["latin"],
-    weight: ["400", "600", "700"],
     variable: "--font-plus-jakarta-sans",
+    weight: ["400", "600", "700"],
 })
 
 const jetbrainsMono = JetBrains_Mono({
@@ -38,8 +38,53 @@ export const metadata: Metadata = {
     }],
     description,
     icons: {
-        icon: "/favicon.svg",
-        apple: "/apple-touch-icon.svg",
+        icon: [
+            {
+                sizes: "128x128",
+                type: "image/x-icon",
+                url: "/favicon.ico",
+            },
+            {
+                sizes: "48x48",
+                type: "image/png",
+                url: "/maskable_icon_x48.png",
+            },
+            {
+                sizes: "72x72",
+                type: "image/png",
+                url: "/maskable_icon_x72.png",
+            },
+            {
+                sizes: "96x96",
+                type: "image/png",
+                url: "/maskable_icon_x96.png",
+            },
+            {
+                sizes: "128x128",
+                type: "image/png",
+                url: "/maskable_icon_x128.png",
+            },
+            {
+                sizes: "192x192",
+                type: "image/png",
+                url: "/maskable_icon_x192.png",
+            },
+            {
+                sizes: "384x384",
+                type: "image/png",
+                url: "/maskable_icon_x384.png",
+            },
+            {
+                sizes: "512x512",
+                type: "image/png",
+                url: "/maskable_icon_x512.png",
+            },
+        ],
+        apple: [{
+            sizes: "192x192",
+            type: "image/png",
+            url: "/maskable_icon_x192.png",
+        }],
     },
     keywords: [
         "Dario Casertano",
@@ -103,12 +148,12 @@ export default async function RootLayout({children}: { children: React.ReactNode
             },
             {
                 "@type": "ItemList",
-                itemListElement: projects.map((p, i) => ({
+                itemListElement: projects.map((p, i) => ( {
                     "@type": "ListItem",
-                    position: i + 1,
                     name: p.title,
+                    position: i + 1,
                     url: `https://casertano.name/progetti/${p.slug}/`,
-                })),
+                } )),
             },
         ],
     }

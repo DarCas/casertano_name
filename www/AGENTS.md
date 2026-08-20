@@ -17,7 +17,7 @@ Portfolio statico di Dario Casertano (`https://casertano.name`). Build statica N
 - `components/` — sezioni della landing (Hero, Nav, Projects, Skills, Contact, Footer, Network) + primitivi (SectionLabel, Tag, EmailLink, BackToTop, HomeArrow, RedirectTimer, ServiceWorkerUpdater) + ProjectDetail (dettaglio statico, riusato dalle pagine progetto; senza card: media `aspect-[2/1]`, features/skills con SectionLabel + Tag, stile sezioni homepage)
 - `lib/` — dati e tipi: `projects.ts` (fetch progetti da API), `projects-data.ts` (generato: snapshot progetti), `skills.ts` (tassonomia categorie), `utils.ts`, `version.ts` (generato)
 - `scripts/` — build tooling: `extract-version.mjs` (scrive `lib/version.ts` da package.json), `fetch-projects.mjs` (scrive `lib/projects-data.ts` da API), `generate-sitemap.mjs` (legge `out/progetti/` per aggiungere le pagine progetto), `inline-css.mjs`, `stamp-sw.mjs` (scrive in `out/sw.js` il marker `__BUILD_ID__` con `v{version}-{timestamp}`)
-- `public/` — favicon, `apple-touch-icon.svg`, `llms.txt`, `llms-full.txt`, `robots.txt`, `opengraph.jpeg`, `sw.js` (SW minimale di aggiornamento: nessun caching/fetch handler, solo `skipWaiting` + `clients.claim`; i byte cambiano a ogni build grazie allo stamping)
+- `public/` — icone (`favicon.ico`, `maskable_icon_x*.png`), `llms.txt`, `llms-full.txt`, `robots.txt`, `opengraph.jpeg`, `sw.js` (SW minimale di aggiornamento: nessun caching/fetch handler, solo `skipWaiting` + `clients.claim`; i byte cambiano a ogni build grazie allo stamping)
 
 ## Configurazione
 
