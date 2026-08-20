@@ -11,20 +11,22 @@ import { Footer } from "@/components/footer"
 import { HomeArrow } from "@/components/home-arrow"
 import { SectionLabel } from "@/components/section-label"
 import { ProjectDetail } from "@/components/project-detail"
-import { projectsData } from "@/lib/projects-data"
+import { getProjects } from "@/lib/projects-server"
 import type { Project } from "@/lib/projects"
 
 const BASE = "https://casertano.name"
 
-export function generateStaticParams() {
-    return projectsData.map((p) => ( {slug: p.slug} ))
+export async function generateStaticParams() {
+    const projects = await getProjects()
+    return projects.map((p) => ({slug: p.slug}))
 }
 
 export async function generateMetadata({params}: {
     params: Promise<{ slug: string }>
 }): Promise<Metadata> {
     const {slug} = await params
-    const project = projectsData.find((p) => p.slug === slug)
+    const projects = await getProjects()
+    const project = projects.find((p) => p.slug === slug)
     if (!project) return {}
 
     const url = `${BASE}/progetti/${slug}/`
@@ -63,6 +65,7 @@ function projectJsonLd(project: Project, url: string) {
                 "@id": url,
                 "@type": "SoftwareApplication",
                 applicationCategory: "BusinessApplication",
+                ...(project.github ? {codeRepository: project.github} : {}),
                 description: project.description,
                 image: project.media?.[ 0 ]?.src,
                 inLanguage: "it",
@@ -84,7 +87,8 @@ function projectJsonLd(project: Project, url: string) {
 
 export default async function ProjectPage({params}: { params: Promise<{ slug: string }> }) {
     const {slug} = await params
-    const project = projectsData.find((p) => p.slug === slug)
+    const projects = await getProjects()
+    const project = projects.find((p) => p.slug === slug)
     if (!project) notFound()
 
     const url = `${BASE}/progetti/${slug}/`

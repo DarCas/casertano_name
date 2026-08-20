@@ -11,6 +11,7 @@ declare global {
         interface Project {
             description: string
             features: string[]
+            github?: string
             media?: Project.Media[]
             short: string
             skills: string[]

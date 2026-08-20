@@ -13,6 +13,7 @@ export interface ProjectMedia {
 export interface Project {
     description: string
     features: string[]
+    github?: string
     media?: ProjectMedia[]
     short: string
     skills: string[]

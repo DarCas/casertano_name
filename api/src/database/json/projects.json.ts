@@ -136,4 +136,26 @@ export const projects: Projects.Project[] = [
         ],
         media: [],
     },
+    {
+        slug: "mappa-interattiva-di-copertura-territoriale",
+        title: "Mappa interattiva di copertura territoriale con isocrone",
+        short: "Isocrone real-time in auto, bici e a piedi per la copertura territoriale delle sedi.",
+        tags: ["Node.js", "Vue 3", "Valhalla", "Leaflet", "Docker"],
+        description: "PWA che mappa la copertura territoriale di una rete di sedi calcolando isocrone in auto, bici e a piedi su OpenStreetMap. Il backend REST Fastify 5 orchestra Valhalla per generare 10 bande da 3 a 30 minuti, confrontare più origini e individuare con point-in-polygon quali sedi ricadono dentro ogni fascia. L'architettura con marker sincronizzati via coda di retry e TTL di 100 giorni, rende lo strumento affidabile, su deploy Docker multi-stage con hardening di produzione.",
+        features: [
+            "Isocrone real-time in auto, bici e a piedi, calcolate da un'API REST Fastify 5 che orchestra Valhalla su OpenStreetMap",
+            "Analisi di copertura con motore point-in-polygon (ray casting) puro e unit-testato: individua automaticamente le sedi dentro le isocrone attive",
+            "Confronto multi-origine, ricerca e filtri sulla mappa, con import sedi da CSV e basemap CARTO Voyager",
+            "Sincronizzazione offline dei marker con Dexie/IndexedDB e coda di retry, con TTL di 100 giorni lato server",
+            "Deploy Docker multi-stage con nginx e supervisord, healthcheck e reverse proxy Apache con TLS",
+            "Hardening con Helmet, CORS, compressione e rate limiting, API documentata in OpenAPI su Swagger UI",
+        ],
+        skills: [
+            "Node.js 22", "TypeScript strict", "Fastify 5", "TypeBox", "Valhalla",
+            "Vue 3", "Vuetify 4", "Leaflet", "PWA",
+            "Docker", "SQLite", "Drizzle ORM", "Dexie",
+            "OpenStreetMap", "Vitest",
+        ],
+        media: [],
+    },
 ]

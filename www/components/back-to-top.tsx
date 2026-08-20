@@ -4,8 +4,8 @@
  * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
  */
 
-export function BackToTop({ align = "center" }: { align?: "center" | "right" }) {
-    const wrapperClass = align === "right" ? "mt-16 text-right" : "mt-16 text-center"
+export function BackToTop({ align = "center", className = "" }: { align?: "center" | "right", className?: string }) {
+    const wrapperClass = `${className || "mt-16"} ${align === "right" ? "text-right" : "text-center"}`
 
     return (
         <div className={wrapperClass}>

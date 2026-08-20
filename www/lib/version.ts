@@ -1,1 +1,1 @@
-export const siteVersion = "1.7.0"
+export const siteVersion = "1.7.2"

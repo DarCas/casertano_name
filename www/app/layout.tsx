@@ -7,7 +7,7 @@
 import type { Metadata } from "next"
 import dynamic from "next/dynamic"
 import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google"
-import { projectsData } from "@/lib/projects-data"
+import { getProjects } from "@/lib/projects-server"
 import { ServiceWorkerUpdater } from "@/components/service-worker"
 import "./globals.css"
 import React from "react";
@@ -73,45 +73,46 @@ export const metadata: Metadata = {
     },
 }
 
-const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-        {
-            "@id": "https://casertano.name/",
-            "@type": "Person",
-            email: "dario@casertano.name",
-            familyName: "Casertano",
-            givenName: "Dario",
-            image: "https://casertano.name/opengraph.jpeg",
-            jobTitle: "Senior Full Stack Engineer",
-            knowsAbout: [
-                "Artificial Intelligence",
-                "Software Engineering",
-                "Internet of Things",
-                "Industrial Automation",
-                "Web Development",
-            ],
-            name: "Dario Casertano",
-            sameAs: [
-                "https://linkedin.com/in/dariocasertano",
-                "https://github.com/DarCas",
-                "https://t.me/QuantumTip",
-            ],
-            url: "https://casertano.name/",
-        },
-        {
-            "@type": "ItemList",
-            itemListElement: projectsData.map((p, i) => ({
-                "@type": "ListItem",
-                position: i + 1,
-                name: p.title,
-                url: `https://casertano.name/progetti/${p.slug}/`,
-            })),
-        },
-    ],
-}
+export default async function RootLayout({children}: { children: React.ReactNode }) {
+    const projects = await getProjects()
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@id": "https://casertano.name/",
+                "@type": "Person",
+                email: "dario@casertano.name",
+                familyName: "Casertano",
+                givenName: "Dario",
+                image: "https://casertano.name/opengraph.jpeg",
+                jobTitle: "Senior Full Stack Engineer",
+                knowsAbout: [
+                    "Artificial Intelligence",
+                    "Software Engineering",
+                    "Internet of Things",
+                    "Industrial Automation",
+                    "Web Development",
+                ],
+                name: "Dario Casertano",
+                sameAs: [
+                    "https://linkedin.com/in/dariocasertano",
+                    "https://github.com/DarCas",
+                    "https://t.me/QuantumTip",
+                ],
+                url: "https://casertano.name/",
+            },
+            {
+                "@type": "ItemList",
+                itemListElement: projects.map((p, i) => ({
+                    "@type": "ListItem",
+                    position: i + 1,
+                    name: p.title,
+                    url: `https://casertano.name/progetti/${p.slug}/`,
+                })),
+            },
+        ],
+    }
 
-export default function RootLayout({children}: { children: React.ReactNode }) {
     return (
         <html lang="it" className={`${plusJakartaSans.variable} ${jetbrainsMono.variable}`}>
         <head>
