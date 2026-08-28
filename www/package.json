@@ -27,9 +27,9 @@
     "dev": "next dev",
     "lint": "next lint",
     "postbuild": "node scripts/generate-sitemap.mjs && node scripts/inline-css.mjs && node scripts/stamp-sw.mjs",
-    "prebuild": "node scripts/extract-version.mjs && node scripts/fetch-projects.mjs",
-    "predev": "node scripts/extract-version.mjs && node scripts/fetch-projects.mjs",
+    "prebuild": "node scripts/extract-version.mjs && node scripts/fetch-projects.mjs && node scripts/generate-llms.mjs",
+    "predev": "node scripts/extract-version.mjs && node scripts/fetch-projects.mjs && node scripts/generate-llms.mjs",
     "start": "next start"
   },
-  "version": "1.8.0"
+  "version": "1.9.0"
 }

@@ -8,16 +8,6 @@ import type { Project } from "./projects"
 
 export const projectsData: Project[] = [
     {
-        "slug": "falco-ws-environment",
-        "title": "Piattaforma integrata per l'industria manifatturiera — gestionale, IoT e acquisti",
-        "short": "Piattaforma integrata per la manifattura: gestionale PWA con Gantt, monitoraggio IoT via MQTT e acquisti ERP Dolibarr.",
-        "tags": [
-            "Node.js",
-            "Vue 3",
-            "MQTT",
-            "Docker",
-            "Dolibarr"
-        ],
         "description": "Piattaforma end-to-end per l'industria manifatturiera che copre l'intero ciclo produttivo — gestionale, monitoraggio IoT e acquisti — con un backend REST da 196 endpoint su 18 domini, una PWA Vue 3 con Gantt Syncfusion per la pianificazione a ore e una dashboard telemetria real-time via MQTT. L'ERP Dolibarr containerizzato gestisce il flusso acquisti, mentre l'infrastruttura Docker su Ubuntu con Apache e monitoring Sentry garantisce affidabilità su scala industriale.",
         "features": [
             "Backend REST con 196 endpoint su 18 domini (ordini, preventivi, progetti, commesse, macchine), validati con Joi e documentati da una Postman collection autogenerata dagli schemi",
@@ -27,6 +17,13 @@ export const projectsData: Project[] = [
             "Processi automatizzati: sincronizzazione CNC via FTP, report periodici e notifiche push; documenti DOCX, PDF ed export XLSX generati programmaticamente",
             "Infrastruttura Docker Compose (MariaDB, Mosquitto, worker LibreOffice) su Ubuntu con Apache e Let's Encrypt, monitoring Sentry/GlitchTip ed ERP Dolibarr per gli acquisti"
         ],
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/falco-ws-environment.webp?1787223940267",
+                "type": "image"
+            }
+        ],
+        "short": "Piattaforma integrata per la manifattura: gestionale PWA con Gantt, monitoraggio IoT via MQTT e acquisti ERP Dolibarr.",
         "skills": [
             "Node.js 22",
             "TypeScript",
@@ -44,24 +41,17 @@ export const projectsData: Project[] = [
             "Docker",
             "Dolibarr"
         ],
-        "media": [
-            {
-                "src": "https://casertano.name/images/projects/falco-ws-environment.webp?1787223940267",
-                "type": "image"
-            }
-        ]
+        "slug": "falco-ws-environment",
+        "tags": [
+            "Node.js",
+            "Vue 3",
+            "MQTT",
+            "Docker",
+            "Dolibarr"
+        ],
+        "title": "Piattaforma integrata per l'industria manifatturiera — gestionale, IoT e acquisti"
     },
     {
-        "slug": "mail-thinker-ai",
-        "title": "Agente AI autonomo per la gestione intelligente della posta",
-        "short": "Agente AI autonomo che legge, analizza e gestisce la posta in linguaggio naturale su Gmail e mailbox IMAP.",
-        "tags": [
-            "LangChain",
-            "OpenAI",
-            "Vue 3",
-            "Docker",
-            "Gmail API"
-        ],
         "description": "Agente AI autonomo che legge, analizza e gestisce la posta elettronica in linguaggio naturale, combinando i modelli OpenAI con un design transport-agnostic: Gmail API via OAuth2 e qualsiasi mailbox IMAP. Il backend Node.js/TypeScript usa DeepAgents e LangChain per il tool-calling su Express.js, TypeORM e MariaDB; il frontend è una SPA Vue 3/Vuetify che riproduce in streaming le risposte dell'agente via SSE. Credenziali protette con cifratura AES-256-GCM e key encapsulation RSA, stack orchestrato con Docker per sviluppo e produzione.",
         "features": [
             "Agente AI autonomo con DeepAgents e LangChain: tramite tool-calling cerca, legge e analizza conversazioni email in linguaggio naturale",
@@ -71,6 +61,13 @@ export const projectsData: Project[] = [
             "HTTP API Express con risposte firmate JWT, validazione Zod e middleware di autenticazione centralizzati",
             "SPA Vue 3 e Vuetify con login, gestione mailbox e chat in streaming SSE, i18n IT/EN e installabile come PWA"
         ],
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/mail-thinker-ai.webp?1787223941069",
+                "type": "image"
+            }
+        ],
+        "short": "Agente AI autonomo che legge, analizza e gestisce la posta in linguaggio naturale su Gmail e mailbox IMAP.",
         "skills": [
             "TypeScript",
             "Node.js",
@@ -88,24 +85,17 @@ export const projectsData: Project[] = [
             "Vuetify",
             "Docker"
         ],
-        "media": [
-            {
-                "src": "https://casertano.name/images/projects/mail-thinker-ai.webp?1787223941069",
-                "type": "image"
-            }
-        ]
+        "slug": "mail-thinker-ai",
+        "tags": [
+            "LangChain",
+            "OpenAI",
+            "Vue 3",
+            "Docker",
+            "Gmail API"
+        ],
+        "title": "Agente AI autonomo per la gestione intelligente della posta"
     },
     {
-        "slug": "bitmonds",
-        "title": "NFT Marketplace per diamanti virtuali collezionabili tokenizzati su Polygon",
-        "short": "Diamanti virtuali tokenizzati in NFT ERC-721 su Polygon: marketplace on-chain, back-office PWA e rendering 3D automatico.",
-        "tags": [
-            "Solidity",
-            "Polygon",
-            "ERC-721",
-            "Vue",
-            "Node.js"
-        ],
         "description": "Piattaforma end-to-end per la tokenizzazione di diamanti virtuali in NFT ERC-721 su Polygon. Combina smart contract Solidity con marketplace on-chain, back-office PWA in Vue 2 per gestione token e artworks, e un ecosistema di backend distribuiti (PHP Zend Framework 3 per sito pubblico con Nexi/PayPal, Node.js/Express per daemon blockchain, rendering texture 3D e code di processing). L'infrastruttura PM2 in cluster mode orchestra tutti i servizi su MariaDB multi-database con storage IPFS per metadati e asset digitali.",
         "features": [
             "Smart contract ERC-721 con marketplace on-chain, royalties EIP-2981 e minting/drop/burn su Polygon per tokenizzare diamanti virtuali in NFT",
@@ -115,6 +105,13 @@ export const projectsData: Project[] = [
             "Logistics V3: suite backend Node.js con Renderer Bot per texture 3D, Viewer NFT interattivo e API client/admin",
             "Infrastruttura PM2 cluster mode su MariaDB multi-database con storage IPFS/Filebase per metadati e asset"
         ],
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/bitmonds.webp?1787223939107",
+                "type": "image"
+            }
+        ],
+        "short": "Diamanti virtuali tokenizzati in NFT ERC-721 su Polygon: marketplace on-chain, back-office PWA e rendering 3D automatico.",
         "skills": [
             "Solidity",
             "Ethers.js",
@@ -135,24 +132,17 @@ export const projectsData: Project[] = [
             "PM2",
             "Filebase"
         ],
-        "media": [
-            {
-                "src": "https://casertano.name/images/projects/bitmonds.webp?1787223939107",
-                "type": "image"
-            }
-        ]
+        "slug": "bitmonds",
+        "tags": [
+            "Solidity",
+            "Polygon",
+            "ERC-721",
+            "Vue",
+            "Node.js"
+        ],
+        "title": "NFT Marketplace per diamanti virtuali collezionabili tokenizzati su Polygon"
     },
     {
-        "slug": "disaster-relief-department",
-        "title": "Monitoraggio e distribuzione near-realtime di allerte meteo e sismiche",
-        "short": "Piattaforma TypeScript/Node.js che raccoglie, processa e distribuisce in near-realtime allerte meteo-idrogeologiche e sismiche su tutto il territorio italiano.",
-        "tags": [
-            "Telegram Bot",
-            "GIS",
-            "OpenAI",
-            "Docker",
-            "WebSocket"
-        ],
         "description": "Piattaforma backend TypeScript/Node.js che automatizza l'intero flusso di monitoraggio e distribuzione near-realtime delle allerte della Protezione Civile e dei dati sismici di INGV, USGS ed EMSC/CSEM su tutto il territorio italiano. Converte i dati grezzi in GeoJSON/KML, li persiste su SQLite e notifica in tempo reale via Telegram Bot e Firebase Storage, orchestrando tutto su tre servizi Docker con tracciamento errori via Sentry.",
         "features": [
             "Ingestion real-time via WebSocket di EMSC SeismicPortal: deduplicazione, filtro geografico sul bounding box italiano e riconnessione con backoff esponenziale",
@@ -162,6 +152,13 @@ export const projectsData: Project[] = [
             "Telegram Bot (grammY) con registrazione approvata da admin, controllo accessi e notifiche push in base alla severità",
             "Infrastruttura Docker Compose su tre servizi (cronjob, telegram-bot, seismic) con build tipizzato e deploy remoto via rsync"
         ],
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/disaster-relief-department.webp?1787223939648",
+                "type": "image"
+            }
+        ],
+        "short": "Piattaforma TypeScript/Node.js che raccoglie, processa e distribuisce in near-realtime allerte meteo-idrogeologiche e sismiche su tutto il territorio italiano.",
         "skills": [
             "TypeScript",
             "Node.js 22",
@@ -187,24 +184,17 @@ export const projectsData: Project[] = [
             "rsync",
             "Sentry"
         ],
-        "media": [
-            {
-                "src": "https://casertano.name/images/projects/disaster-relief-department.webp?1787223939648",
-                "type": "image"
-            }
-        ]
+        "slug": "disaster-relief-department",
+        "tags": [
+            "Telegram Bot",
+            "GIS",
+            "OpenAI",
+            "Docker",
+            "WebSocket"
+        ],
+        "title": "Monitoraggio e distribuzione near-realtime di allerte meteo e sismiche"
     },
     {
-        "slug": "mappa-interattiva-di-copertura-territoriale",
-        "title": "Mappa interattiva di copertura territoriale con isocrone di raggiungibilità",
-        "short": "Isocrone real-time in auto, bici e a piedi per la copertura territoriale delle sedi.",
-        "tags": [
-            "Node.js",
-            "Vue 3",
-            "Valhalla",
-            "Leaflet",
-            "Docker"
-        ],
         "description": "PWA che mappa la copertura territoriale di una rete di sedi calcolando isocrone in auto, bici e a piedi su OpenStreetMap. Il backend REST Fastify 5 orchestra Valhalla per generare 10 bande da 3 a 30 minuti, confrontare più origini e individuare con point-in-polygon quali sedi ricadono dentro ogni fascia. L'architettura con marker sincronizzati via coda di retry e TTL di 100 giorni, rende lo strumento affidabile, su deploy Docker multi-stage con hardening di produzione.",
         "features": [
             "Isocrone real-time in auto, bici e a piedi, calcolate da un'API REST Fastify 5 che orchestra Valhalla su OpenStreetMap",
@@ -214,6 +204,13 @@ export const projectsData: Project[] = [
             "Deploy Docker multi-stage con nginx e supervisord, healthcheck e reverse proxy Apache con TLS",
             "Hardening con Helmet, CORS, compressione e rate limiting, API documentata in OpenAPI su Swagger UI"
         ],
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/mappa-interattiva-di-copertura-territoriale.webp?1787223944948",
+                "type": "image"
+            }
+        ],
+        "short": "Isocrone real-time in auto, bici e a piedi per la copertura territoriale delle sedi.",
         "skills": [
             "Node.js 22",
             "TypeScript strict",
@@ -231,24 +228,17 @@ export const projectsData: Project[] = [
             "OpenStreetMap",
             "Vitest"
         ],
-        "media": [
-            {
-                "src": "https://casertano.name/images/projects/mappa-interattiva-di-copertura-territoriale.webp?1787223944948",
-                "type": "image"
-            }
-        ]
+        "slug": "mappa-interattiva-di-copertura-territoriale",
+        "tags": [
+            "Node.js",
+            "Vue 3",
+            "Valhalla",
+            "Leaflet",
+            "Docker"
+        ],
+        "title": "Mappa interattiva di copertura territoriale con isocrone di raggiungibilità"
     },
     {
-        "slug": "motore-di-ricerca-multi-contesto",
-        "title": "Motore di ricerca multi-contesto con sincronizzazione P2P",
-        "short": "PWA offline-first che unifica motori di ricerca con CSE dedicati e sincronizza dispositivi in tempo reale via WebRTC P2P.",
-        "tags": [
-            "Vue",
-            "WebRTC",
-            "PWA",
-            "Docker",
-            "Firebase"
-        ],
         "description": "PWA che unifica più domini di ricerca in un'unica interfaccia, ciascuno servito da un Google Custom Search Engine profilato per lingua (EN, IT, FR). La sincronizzazione P2P end-to-end cifrata via WebRTC — con discovery su Firebase Realtime Database e server TURN autogestito — consente la condivisione di cronologia e segnalibri tra dispositivi senza backend tradizionale. L'architettura offline-first con Dexie/IndexedDB e Workbox garantisce funzionalità completa anche in assenza di connessione.",
         "features": [
             "Ricerca multi-contesto con CSE dedicati per lingua (EN, IT, FR), tab switching immediato e persistenza dello stato in sessione",
@@ -258,6 +248,13 @@ export const projectsData: Project[] = [
             "PWA installabile con Workbox Service Worker, caching strategico, wake lock e supporto Android/iOS",
             "Deploy automation con Vite + Firebase Hosting + Docker Compose, monitoring Sentry e SRI a build"
         ],
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/motore-di-ricerca-multi-contesto.webp?1787223941770",
+                "type": "image"
+            }
+        ],
+        "short": "PWA offline-first che unifica motori di ricerca con CSE dedicati e sincronizza dispositivi in tempo reale via WebRTC P2P.",
         "skills": [
             "Vue",
             "TypeScript",
@@ -276,24 +273,17 @@ export const projectsData: Project[] = [
             "Dexie.js",
             "Sentry"
         ],
-        "media": [
-            {
-                "src": "https://casertano.name/images/projects/motore-di-ricerca-multi-contesto.webp?1787223941770",
-                "type": "image"
-            }
-        ]
+        "slug": "motore-di-ricerca-multi-contesto",
+        "tags": [
+            "Vue",
+            "WebRTC",
+            "PWA",
+            "Docker",
+            "Firebase"
+        ],
+        "title": "Motore di ricerca multi-contesto con sincronizzazione P2P"
     },
     {
-        "slug": "piattaforma-onboarding-clienti-isp",
-        "title": "Piattaforma di onboarding clienti per ISP",
-        "short": "Onboarding ISP end-to-end: dalla verifica copertura fibra al contratto firmato digitalmente, tutto automatizzato su PWA.",
-        "tags": [
-            "Laravel 12",
-            "Vue 3",
-            "TypeScript",
-            "PWA",
-            "Docker"
-        ],
         "description": "PWA che automatizza l'intero onboarding clienti di un ISP: dalla verifica della copertura fibra alla generazione e all'invio del contratto firmato digitalmente. Un frontend Vue 3 con form multi-step e validazione avanzata (codice fiscale, partita IVA, IBAN) alimenta un backend REST Laravel 12 con matching automatico offerta-tecnologia-carrier via Tools4Isp, mentre la generazione PDF e l'invio email sono gestiti da una pipeline asincrona Artisan containerizzata. Il risultato è un percorso di attivazione rapido e senza carta, tracciato end-to-end.",
         "features": [
             "Verifica copertura fibra da indirizzo civico via Tools4Isp con matching automatico offerta-tecnologia-carrier per FTTH, FTTC e Wireless",
@@ -303,6 +293,13 @@ export const projectsData: Project[] = [
             "Address autocomplete con database comuni/province italiani integrato lato frontend e telemetria errori Sentry",
             "Backend Laravel containerizzato con MariaDB e pipeline asincrona orchestrata via cron per generazione e invio documenti"
         ],
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/piattaforma-onboarding-clienti-isp.webp?1787223947875",
+                "type": "image"
+            }
+        ],
+        "short": "Onboarding ISP end-to-end: dalla verifica copertura fibra al contratto firmato digitalmente, tutto automatizzato su PWA.",
         "skills": [
             "PHP",
             "Laravel 12",
@@ -320,23 +317,17 @@ export const projectsData: Project[] = [
             "Tools4Isp API",
             "Docker"
         ],
-        "media": [
-            {
-                "src": "https://casertano.name/images/projects/piattaforma-onboarding-clienti-isp.webp?1787223947875",
-                "type": "image"
-            }
-        ]
+        "slug": "piattaforma-onboarding-clienti-isp",
+        "tags": [
+            "Laravel 12",
+            "Vue 3",
+            "TypeScript",
+            "PWA",
+            "Docker"
+        ],
+        "title": "Piattaforma di onboarding clienti per ISP"
     },
     {
-        "slug": "piattaforma-gestione-territoriale",
-        "title": "Piattaforma di gestione territoriale",
-        "short": "Sistema per organizzazioni con sedi, turni e risorse: due PWA, bot Telegram, reportistica e manutenzione su backend MariaDB containerizzato.",
-        "tags": [
-            "Vue",
-            "Node.js",
-            "Docker",
-            "Strapi 5"
-        ],
         "description": "Sistema end-to-end per organizzazioni con sedi operative, turnistica, risorse umane, manutenzione e reportistica su scala territoriale. Due PWA (admin backoffice + client operativo) e bot Telegram coprono l'intero flusso: gestione turni e sostituzioni, notifiche push, code messaggi dual-channel e generazione documenti. Infrastruttura containerizzata con backend REST su MariaDB e CMS Strapi 5 per guide multilingua.",
         "features": [
             "Due PWA (admin + operativo) con routing lazy-loaded, Vuex e service worker per installazione e utilizzo offline",
@@ -346,6 +337,13 @@ export const projectsData: Project[] = [
             "9 cronjob per attivazione turni, reminder report, notifiche manutenzione e sync CMS",
             "Infrastruttura containerizzata Docker Compose (5 servizi) con Apache reverse proxy"
         ],
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/piattaforma-gestione-territoriale.webp?1787223942556",
+                "type": "image"
+            }
+        ],
+        "short": "Sistema per organizzazioni con sedi, turni e risorse: due PWA, bot Telegram, reportistica e manutenzione su backend MariaDB containerizzato.",
         "skills": [
             "Node.js",
             "Express",
@@ -367,24 +365,16 @@ export const projectsData: Project[] = [
             "Sentry",
             "Docxtemplater"
         ],
-        "media": [
-            {
-                "src": "https://casertano.name/images/projects/piattaforma-gestione-territoriale.webp?1787223942556",
-                "type": "image"
-            }
-        ]
+        "slug": "piattaforma-gestione-territoriale",
+        "tags": [
+            "Vue",
+            "Node.js",
+            "Docker",
+            "Strapi 5"
+        ],
+        "title": "Piattaforma di gestione territoriale"
     },
     {
-        "slug": "piattaforma-e-learning-moodle",
-        "title": "Piattaforma E-Learning Moodle — Soluzione educativa per sanità",
-        "short": "Formazione sanitaria su Moodle: v-classroom immersiva con video, slide e PDF in moduli multimediali strutturati.",
-        "tags": [
-            "Moodle",
-            "PHP",
-            "MySQL",
-            "Webpack",
-            "JavaScript"
-        ],
         "description": "Piattaforma e-learning basata su Moodle con moduli personalizzati per la formazione in ambito sanitario. Risorse multimediali avanzate — video, slide e PDF — e una v-classroom su misura con interfaccia moderna rendono l'apprendimento interattivo e immersivo, mentre l'infrastruttura MySQLi e il sistema di backup moodledata garantiscono una gestione sicura di utenti, corsi e progressi.",
         "features": [
             "Modulo v-classroom personalizzato con interfaccia moderna per una visualizzazione immersiva dei contenuti",
@@ -393,6 +383,13 @@ export const projectsData: Project[] = [
             "Pipeline di build frontend con webpack-encore, autoprefixer e sass-loader per risorse statiche ottimizzate",
             "Backup e gestione dei contenuti con directory moodledata dedicata per la sicurezza dei dati"
         ],
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/piattaforma-e-learning-moodle.webp?1787223947212",
+                "type": "image"
+            }
+        ],
+        "short": "Formazione sanitaria su Moodle: v-classroom immersiva con video, slide e PDF in moduli multimediali strutturati.",
         "skills": [
             "PHP",
             "MySQL",
@@ -407,24 +404,17 @@ export const projectsData: Project[] = [
             "PostCSS",
             "Node.js"
         ],
-        "media": [
-            {
-                "src": "https://casertano.name/images/projects/piattaforma-e-learning-moodle.webp?1787223947212",
-                "type": "image"
-            }
-        ]
+        "slug": "piattaforma-e-learning-moodle",
+        "tags": [
+            "Moodle",
+            "PHP",
+            "MySQL",
+            "Webpack",
+            "JavaScript"
+        ],
+        "title": "Piattaforma E-Learning Moodle — Soluzione educativa per sanità"
     },
     {
-        "slug": "ordini-su-misura-agenti-vendita",
-        "title": "Gestione ordini su misura offline-first per agenti di vendita",
-        "short": "Ordini di camicie su misura offline-first per agenti di vendita, con sincronizzazione automatica al gestionale.",
-        "tags": [
-            "Angular",
-            "PHP",
-            "Vue 2",
-            "PWA",
-            "Microsoft SQL Server"
-        ],
         "description": "Piattaforma che gestisce l'intero ciclo di vendita di camicie su misura, consentendo agli agenti di operare anche senza connessione: ordini configurabili (tessuti, colletti, tasche, polsi, contrasti) creati in PWA e sincronizzati automaticamente con il gestionale aziendale alla riconnessione. La sincronizzazione a hash differenziali riduce del 70% i tempi di aggiornamento, mentre l'integrazione con i sistemi legacy passa da una sincronizzazione incrementale tra MySQL e Microsoft SQL Server. Un pannello amministrativo dedicato completa il flusso con tracciabilità dei colli via scanner barcode.",
         "features": [
             "Sincronizzazione a hash differenziali tra PWA e API REST che riduce del 70% i tempi di aggiornamento rispetto al download completo",
@@ -434,6 +424,13 @@ export const projectsData: Project[] = [
             "Amministrazione Vue 2/Vuetify con scanner barcode per la tracciabilità dei colli",
             "Generazione PDF via mPDF e CDN interno per la distribuzione delle immagini prodotto"
         ],
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/ordini-su-misura-agenti-vendita.webp?1787223946433",
+                "type": "image"
+            }
+        ],
+        "short": "Ordini di camicie su misura offline-first per agenti di vendita, con sincronizzazione automatica al gestionale.",
         "skills": [
             "Angular 7",
             "TypeScript",
@@ -451,12 +448,15 @@ export const projectsData: Project[] = [
             "Vuetify",
             "mPDF"
         ],
-        "media": [
-            {
-                "src": "https://casertano.name/images/projects/ordini-su-misura-agenti-vendita.webp?1787223946433",
-                "type": "image"
-            }
-        ]
+        "slug": "ordini-su-misura-agenti-vendita",
+        "tags": [
+            "Angular",
+            "PHP",
+            "Vue 2",
+            "PWA",
+            "Microsoft SQL Server"
+        ],
+        "title": "Gestione ordini su misura offline-first per agenti di vendita"
     },
     {
         "description": "Libreria TypeScript open source per lo storage key-value namespaced: isola i dati in namespace derivati dal dominio, eliminando le collisioni tra chiavi nelle applicazioni web complesse. L'abstract class KeyPlex con pattern Strategy astrae il backend di storage (localStorage e sessionStorage con serializzazione JSON), mentre la cancellazione wildcard consente pulizie batch su dataset strutturati. Distribuita su npm con bundle ottimizzato, declaration files e documentazione completa.",
@@ -504,47 +504,6 @@ export const projectsData: Project[] = [
         "title": "KeyPlex — Libreria TypeScript per lo storage namespaced key-value"
     },
     {
-        "description": "Plugin Vite/Rollup che automatizza la generazione di report JSON con le licenze delle dipendenze, semplificando la compliance open source nei progetti JavaScript. Estrae e normalizza i metadati di licenza in un formato strutturato e leggibile, integrandosi nel build con opzioni di filtraggio per dipendenze private, inclusione del pacchetto stesso e tracciamento di versioni multiple.",
-        "features": [
-            "Genera automaticamente un report JSON strutturato con licenze e metadati delle dipendenze a ogni build",
-            "Integrazione nativa nel pipeline Vite/Rollup con minificazione terser per un output di produzione ottimizzato",
-            "Normalizzazione dei testi di licenza: rimozione HTML e formattazione con tag <br> per una lettura pulita",
-            "Opzioni avanzate: filtraggio delle dipendenze private, inclusione del proprio pacchetto e tracciamento di versioni multiple",
-            "Distribuzione automatizzata del pacchetto su npm tramite GitHub Actions"
-        ],
-        "github": "https://github.com/DarCas/rollup-plugin-license-json",
-        "lib": true,
-        "media": [
-            {
-                "src": "https://casertano.name/images/projects/license-plugin-json.webp?1787223944044",
-                "type": "image"
-            }
-        ],
-        "short": "Plugin Vite/Rollup che genera report JSON delle licenze delle dipendenze per compliance open source automatizzata.",
-        "skills": [
-            "TypeScript",
-            "Vite",
-            "Rollup",
-            "JavaScript",
-            "rollup-plugin-license",
-            "terser",
-            "GitHub Actions",
-            "npm",
-            "Node.js",
-            "JSON",
-            "Compliance licenze"
-        ],
-        "slug": "license-plugin-json",
-        "tags": [
-            "Vite",
-            "TypeScript",
-            "Rollup",
-            "GitHub Actions",
-            "Open Source"
-        ],
-        "title": "LicensePluginJson — Generatore di licenze JSON per progetti JavaScript"
-    },
-    {
         "description": "Libreria TypeScript leggera che organizza i dati in namespace isolati all'interno della sessione browser, eliminando le collisioni tra chiavi nelle applicazioni web. Espone un'API CRUD completa sostenuta dalle utility lodash e un sistema statico per la gestione degli spazi attivi. Distribuita su npm come @darcas/memoryx con tipi TypeScript e documentazione integrale.",
         "features": [
             "Namespace che isolano i dati in aree separate della sessione browser, eliminando le collisioni tra chiavi",
@@ -581,5 +540,89 @@ export const projectsData: Project[] = [
             "Lodash"
         ],
         "title": "MemoryX — Libreria di storage in-memory per browser"
+    },
+    {
+        "description": "Plugin Vite/Rollup che automatizza la generazione di report JSON con le licenze delle dipendenze, semplificando la compliance open source nei progetti JavaScript. Estrae e normalizza i metadati di licenza in un formato strutturato e leggibile, integrandosi nel build con opzioni di filtraggio per dipendenze private, inclusione del pacchetto stesso e tracciamento di versioni multiple.",
+        "features": [
+            "Genera automaticamente un report JSON strutturato con licenze e metadati delle dipendenze a ogni build",
+            "Integrazione nativa nel pipeline Vite/Rollup con minificazione terser per un output di produzione ottimizzato",
+            "Normalizzazione dei testi di licenza: rimozione HTML e formattazione con tag <br> per una lettura pulita",
+            "Opzioni avanzate: filtraggio delle dipendenze private, inclusione del proprio pacchetto e tracciamento di versioni multiple",
+            "Distribuzione automatizzata del pacchetto su npm tramite GitHub Actions"
+        ],
+        "github": "https://github.com/DarCas/rollup-plugin-license-json",
+        "lib": true,
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/rollup-plugin-license-json.webp?1787223944044",
+                "type": "image"
+            }
+        ],
+        "short": "Plugin Vite/Rollup che genera report JSON delle licenze delle dipendenze per compliance open source automatizzata.",
+        "skills": [
+            "TypeScript",
+            "Vite",
+            "Rollup",
+            "JavaScript",
+            "rollup-plugin-license",
+            "terser",
+            "GitHub Actions",
+            "npm",
+            "Node.js",
+            "JSON",
+            "Compliance licenze"
+        ],
+        "slug": "rollup-plugin-license-json",
+        "tags": [
+            "Vite",
+            "TypeScript",
+            "Rollup",
+            "GitHub Actions",
+            "Open Source"
+        ],
+        "title": "Rollup License JSON — Generatore di licenze JSON per progetti JavaScript"
+    },
+    {
+        "description": "Plugin Rollup/Vite che automatizza la generazione di hash Subresource Integrity per tutti gli asset emessi dal build. Alla compilazione calcola l'hash crittografico di ogni file referenziato nell'HTML e inietta gli attributi integrity e crossorigin sui tag <script> e <link>, eliminando la gestione manuale degli hash e garantendo che il browser verifichi l'integrità di ogni risorsa prima di eseguirla. Compatibile con Rollup 2/3/4, Vite, code splitting e build multi-pagina, senza dipendenze runtime.",
+        "features": [
+            "Hash automatico SHA-256, SHA-384 (default) o SHA-512 per ogni asset referenziato dall'HTML",
+            "Iniezione nativa degli attributi integrity e crossorigin sui tag script/link a build time",
+            "Zero manutenzione manuale: gli hash si ricalcolano a ogni build e non possono mai divergere dagli asset",
+            "Supporto nativo per filename hashati, code splitting e configurazioni multi-pagina",
+            "Plugin Rollup standard che aggancia generateBundle — nessun wrapper o step extra",
+            "Compatibile con Rollup ^2/^3/^4, Vite (che usa Rollup in produzione) e Node.js ≥ 18"
+        ],
+        "github": "https://github.com/DarCas/rollup-sub-resource-integrity",
+        "lib": true,
+        "media": [
+            {
+                "src": "https://casertano.name/images/projects/rollup-subresource-integrity.webp?1787909889596",
+                "type": "image"
+            }
+        ],
+        "short": "Plugin Rollup che genera automaticamente hash Subresource Integrity (SHA-256/384/512) per ogni asset del build, iniettando integrity e crossorigin nel markup HTML.",
+        "skills": [
+            "TypeScript",
+            "Rollup",
+            "Vite",
+            "Subresource Integrity",
+            "SHA-256",
+            "SHA-384",
+            "SHA-512",
+            "npm",
+            "MIT License",
+            "GitHub Actions",
+            "Build Tooling",
+            "Security"
+        ],
+        "slug": "rollup-subresource-integrity",
+        "tags": [
+            "Rollup",
+            "Vite",
+            "SRI",
+            "TypeScript",
+            "Open Source"
+        ],
+        "title": "Rollup Subresource Integrity — Automated SRI for Rollup"
     }
 ]

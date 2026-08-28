@@ -4,11 +4,12 @@
  * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
  */
 
-import type { Metadata } from "next"
+import { Divider } from "@/components/divider";
 import { BackToTop } from "@/components/back-to-top"
 import { EmailLink } from "@/components/email-link"
 import { HomeArrow } from "@/components/home-arrow"
 import { SectionLabel } from "@/components/section-label"
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
     alternates: {
@@ -16,11 +17,6 @@ export const metadata: Metadata = {
     },
     title: "Privacy Policy — Dario Casertano",
     robots: {index: false, follow: false},
-}
-
-function Divider() {
-    return <div
-        className="my-12 h-px mx-auto max-w-[200px] bg-gradient-to-r from-transparent via-white/[0.08] to-transparent"/>
 }
 
 export default function PrivacyPage() {
@@ -31,21 +27,20 @@ export default function PrivacyPage() {
                 <HomeArrow/>
                 <h1 className="font-mono text-[clamp(1.3rem,2.5vw,1.8rem)]">Privacy Policy</h1>
             </div>
-            <p className="font-mono text-[0.7rem] text-text-secondary/[0.4] mb-6">Ultimo
-                aggiornamento: 26 luglio 2026</p>
+            <p className="font-mono text-[0.7rem] text-text-secondary/[0.4] mb-6">
+                Ultimo aggiornamento: 28 agosto 2026
+            </p>
 
             <Divider/>
 
             <section className="mb-10">
-                <h2 className="font-mono text-[1rem] text-text mb-4">1. Titolare del
-                    trattamento</h2>
+                <h2 className="font-mono text-[1rem] text-text mb-4">
+                    1. Titolare del trattamento
+                </h2>
                 <p className="text-text-secondary text-[0.9rem] leading-[1.8]">
                     Dario Casertano<br/>
-                    Bitetto (BA), Italia<br/>
-                    Email: <EmailLink
-                    className="text-accent no-underline hover:underline transition-colors duration-200"/><br/>
-                    Sito: <a href="https://casertano.name"
-                             className="text-accent no-underline hover:underline transition-colors duration-200">casertano.name</a>
+                    Bari, Italia<br/>
+                    Email: <EmailLink className="text-accent no-underline hover:underline transition-colors duration-200"/>
                 </p>
             </section>
 
@@ -60,7 +55,7 @@ export default function PrivacyPage() {
                 <p className="text-text-secondary text-[0.9rem] leading-[1.8] mb-6">
                     I dati inseriti volontariamente dall&apos;utente nel modulo di contatto (nome,
                     email e messaggio) vengono utilizzati
-                    esclusivamente per rispondere alla richiesta.                     L&apos;invio avviene tramite un
+                    esclusivamente per rispondere alla richiesta. L&apos;invio avviene tramite un
                     server che inoltra il
                     messaggio via email al titolare; i dati non vengono memorizzati in modo
                     persistente sul server oltre il tempo

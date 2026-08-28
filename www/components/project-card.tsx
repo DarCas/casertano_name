@@ -43,7 +43,7 @@ function GitHubBanner({ href, label }: { href: string; label: string }) {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Codice sorgente su GitHub — ${label}`}
+            aria-label={`Open Source — Codice sorgente su GitHub, ${label}`}
             className="relative z-[2] flex items-center justify-center gap-2 py-3 font-mono text-[0.6rem] tracking-[0.08em] text-text-secondary bg-bg-surface-hover border-t border-white/10 transition-colors duration-300 hover:text-accent-secondary"
         >
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

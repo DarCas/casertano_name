@@ -6,7 +6,7 @@ WORKDIR /app
 COPY www/. .
 RUN unlink .env.local
 
-RUN npm install && npm run build
+RUN npm ci && npm run build
 
 # Build API
 FROM node:22-alpine AS api-builder
@@ -15,7 +15,7 @@ WORKDIR /app
 
 COPY api/. ./
 
-RUN npm install
+RUN npm ci
 
 RUN sh ./@bin/build && npm prune --omit=dev
 

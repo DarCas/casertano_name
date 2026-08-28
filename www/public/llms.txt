@@ -3,19 +3,20 @@
 
 ## Pages
 - [Home](https://casertano.name/): Portfolio homepage — hero, projects, tech stack, contact
-- [Falco WS Environment](https://casertano.name/progetti/falco-ws-environment/): Integrated manufacturing platform — PWA management with Gantt, IoT monitoring via MQTT, Dolibarr ERP purchasing
-- [Mail Thinker AI](https://casertano.name/progetti/mail-thinker-ai/): Autonomous AI agent for email — Gmail/IMAP, thread analysis, multi-format extraction
-- [Bitmonds](https://casertano.name/progetti/bitmonds/): NFT Marketplace for collectible virtual diamonds tokenized on Polygon
-- [Disaster Relief Department](https://casertano.name/progetti/disaster-relief-department/): Near-real-time monitoring and distribution of weather and seismic alerts across Italy
-- [Interactive territorial coverage map](https://casertano.name/progetti/mappa-interattiva-di-copertura-territoriale/): Reachability isochrones by car, bike and foot over OpenStreetMap
-- [Multi-context search engine with P2P sync](https://casertano.name/progetti/motore-di-ricerca-multi-contesto/): Offline-first PWA unifying search engines, WebRTC P2P sync
-- [ISP customer onboarding platform](https://casertano.name/progetti/piattaforma-onboarding-clienti-isp/): From fiber coverage check to digitally signed contract, fully automated on a PWA
-- [Territorial management platform](https://casertano.name/progetti/piattaforma-gestione-territoriale/): System for organizations with branches, shifts and resources
-- [Moodle e-learning platform](https://casertano.name/progetti/piattaforma-e-learning-moodle/): Healthcare-focused Moodle platform with immersive v-classroom
-- [Made-to-measure order management for sales agents](https://casertano.name/progetti/ordini-su-misura-agenti-vendita/): Offline-first shirt order management with automatic ERP sync
-- [KeyPlex](https://casertano.name/progetti/keyplex/): Open-source npm library for namespaced key-value storage
-- [LicensePluginJson](https://casertano.name/progetti/license-plugin-json/): Vite/Rollup plugin generating JSON license reports
-- [MemoryX](https://casertano.name/progetti/memoryx/): In-memory browser key-value storage library with isolated namespaces
+- [Piattaforma integrata per l'industria manifatturiera — gestionale, IoT e acquisti](https://casertano.name/progetti/falco-ws-environment/): Piattaforma integrata per la manifattura: gestionale PWA con Gantt, monitoraggio IoT via MQTT e acquisti ERP Dolibarr.
+- [Agente AI autonomo per la gestione intelligente della posta](https://casertano.name/progetti/mail-thinker-ai/): Agente AI autonomo che legge, analizza e gestisce la posta in linguaggio naturale su Gmail e mailbox IMAP.
+- [NFT Marketplace per diamanti virtuali collezionabili tokenizzati su Polygon](https://casertano.name/progetti/bitmonds/): Diamanti virtuali tokenizzati in NFT ERC-721 su Polygon: marketplace on-chain, back-office PWA e rendering 3D automatico.
+- [Monitoraggio e distribuzione near-realtime di allerte meteo e sismiche](https://casertano.name/progetti/disaster-relief-department/): Piattaforma TypeScript/Node.js che raccoglie, processa e distribuisce in near-realtime allerte meteo-idrogeologiche e sismiche su tutto il territorio italiano.
+- [Mappa interattiva di copertura territoriale con isocrone di raggiungibilità](https://casertano.name/progetti/mappa-interattiva-di-copertura-territoriale/): Isocrone real-time in auto, bici e a piedi per la copertura territoriale delle sedi.
+- [Motore di ricerca multi-contesto con sincronizzazione P2P](https://casertano.name/progetti/motore-di-ricerca-multi-contesto/): PWA offline-first che unifica motori di ricerca con CSE dedicati e sincronizza dispositivi in tempo reale via WebRTC P2P.
+- [Piattaforma di onboarding clienti per ISP](https://casertano.name/progetti/piattaforma-onboarding-clienti-isp/): Onboarding ISP end-to-end: dalla verifica copertura fibra al contratto firmato digitalmente, tutto automatizzato su PWA.
+- [Piattaforma di gestione territoriale](https://casertano.name/progetti/piattaforma-gestione-territoriale/): Sistema per organizzazioni con sedi, turni e risorse: due PWA, bot Telegram, reportistica e manutenzione su backend MariaDB containerizzato.
+- [Piattaforma E-Learning Moodle — Soluzione educativa per sanità](https://casertano.name/progetti/piattaforma-e-learning-moodle/): Formazione sanitaria su Moodle: v-classroom immersiva con video, slide e PDF in moduli multimediali strutturati.
+- [Gestione ordini su misura offline-first per agenti di vendita](https://casertano.name/progetti/ordini-su-misura-agenti-vendita/): Ordini di camicie su misura offline-first per agenti di vendita, con sincronizzazione automatica al gestionale.
+- [KeyPlex — Libreria TypeScript per lo storage namespaced key-value](https://casertano.name/progetti/keyplex/): Pacchetto npm open source che isola le chiavi di storage in namespace, con cancellazione wildcard e bundle TypeScript minimale.
+- [MemoryX — Libreria di storage in-memory per browser](https://casertano.name/progetti/memoryx/): Storage in-memory key-value con namespace isolati nella sessione browser, distribuito su npm con tipi TypeScript e bundle minificato.
+- [Rollup License JSON — Generatore di licenze JSON per progetti JavaScript](https://casertano.name/progetti/rollup-plugin-license-json/): Plugin Vite/Rollup che genera report JSON delle licenze delle dipendenze per compliance open source automatizzata.
+- [Rollup Subresource Integrity — Automated SRI for Rollup](https://casertano.name/progetti/rollup-subresource-integrity/): Plugin Rollup che genera automaticamente hash Subresource Integrity (SHA-256/384/512) per ogni asset del build, iniettando integrity e crossorigin nel markup HTML.
 - [Privacy Policy](https://casertano.name/privacy-policy/): Privacy notice
 
 ## Full content

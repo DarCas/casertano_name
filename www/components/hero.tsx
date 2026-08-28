@@ -43,6 +43,7 @@ export function Hero() {
             </span>
             <h1 className="font-mono text-[clamp(1.5rem,4.5vw,3.2rem)] font-semibold leading-[1.15] mb-5">
                 Dario <span className="text-accent-secondary">Casertano</span>
+                <span className="sr-only"> &mdash; Senior Full Stack Engineer</span>
             </h1>
             <p className="max-w-[620px] text-[clamp(0.95rem,1.4vw,1.15rem)] text-text-secondary leading-[1.7] mb-9">
                 Sistemi distribuiti, agenti AI, automazione industriale. Full stack su backend,
