@@ -4,7 +4,7 @@
  * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
  */
 
-import { getStorageProjects, getStorageWww } from "@/@projlib/Storage";
+import { getStorageWww } from "@/@projlib/Storage";
 import { CliUx } from '@/@stdlib/cli-ux'
 import { bootstrap, EnvEnum } from '@/@stdlib/environment'
 import { jsonServices } from '@/@stdlib/expressjs/services/JsonServices'
@@ -66,7 +66,6 @@ export const handler = async ({port}: { port: number }): Promise<void> => {
     app.use(jsonServices())
 
     app.use('/api/v1', cors(corsOptionsClient), v1)
-    app.use("/images/projects", express.static(getStorageProjects()))
 
     app.use((req, res, next) => {
         if (req.path.startsWith("/api/")) {

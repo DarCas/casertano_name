@@ -6,11 +6,9 @@
 
 import factory from '@/@stdlib/expressjs/routes'
 import { contactsRoute } from "@/Http/Client/routes/v1/contacts";
-import { projectsRoute } from "@/Http/Client/routes/v1/projects";
 
 export const v1 = factory(
     {
         ...contactsRoute,
-        ...projectsRoute,
     }
 )

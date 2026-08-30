@@ -34,7 +34,6 @@ updates. The author **assumes no responsibility** for any direct or indirect dam
 ├── docker-compose.yml
 ├── LICENSE.md
 ├── opencode.jsonc
-├── optimize-images.sh
 └── postman_collection.json
 ```
 
@@ -68,7 +67,7 @@ The image is built in **three stages** (multi-stage build):
 2. **`api-builder`** — `node:22-alpine`: compiles the API TypeScript (`./@bin/build`), then `npm prune --omit=dev` to
    keep only production dependencies.
 3. **Production** — `node:22-alpine`: copies the static frontend (`www/out/`), the compiled API (`dist/`), and
-   production `node_modules`. Includes `bash`, `nano`, and `libwebp-tools` for maintenance utilities.
+   production `node_modules`. Includes `bash` and `nano` for container maintenance.
 
 The container starts Express with `node api/src/index.js api` on port 3001. Memory is limited to 128 MB.
 

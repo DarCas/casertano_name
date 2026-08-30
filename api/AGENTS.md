@@ -25,7 +25,6 @@ src/Http/index.ts        — Express app (port 3001, configurable via --port)
 src/Http/Client/         — REST API v1 (routes, controllers, validations)
 src/@stdlib/             — Internal lib: env loader, Joi wrapper (IT errors), route factory, Sentry
 src/@projlib/Storage     — Storage path helpers
-src/database/json/       — Portfolio project data (projects.json.ts: records incl. optional lib/github)
 src/templates/           — Email templates (plain HTML, read at runtime; copied into dist by build)
 ```
 
@@ -50,7 +49,7 @@ Controllers reply via `res.toJson(body)` → `{code, text, pyld}` (`pyld` is mis
 
 ## Static serving
 
-Express also serves the built frontend from `../www` (immutable, `maxAge: 1y`); non-`/api/*` misses serve `www/404.html`. `/images/projects` serves `@storage/images/projects`; media files are `<slug>.<ext>` (webp/png/jpg/jpeg, mp4) and URLs are built from `NEXT_PUBLIC_API` with an `?mtime` cache-buster. ETag is disabled globally (`app.disable('etag')`) — static re-enables it via `etag: true`.
+Express also serves the built frontend from `../www` (immutable, `maxAge: 1y`); non-`/api/*` misses serve `www/404.html`. ETag is disabled globally (`app.disable('etag')`) — static re-enables it via `etag: true`.
 
 ## Code style
 

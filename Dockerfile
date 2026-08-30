@@ -22,7 +22,7 @@ RUN sh ./@bin/build && npm prune --omit=dev
 # Production
 FROM node:22-alpine
 
-RUN apk add --no-cache bash nano libwebp-tools file
+RUN apk add --no-cache bash nano
 
 WORKDIR /app
 
@@ -31,5 +31,3 @@ COPY --from=frontend-builder /app/out ./www
 COPY --from=api-builder /app/node_modules ./api/node_modules
 COPY --from=api-builder /app/package-lock.json /app/package.json ./api/
 COPY --from=api-builder /app/dist ./api/src
-
-COPY optimize-images.sh ./api/optimize-images.sh

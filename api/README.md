@@ -15,9 +15,8 @@ Express.js API server for the portfolio website of Dario Casertano.
 
 A single Node.js service that powers the entire site:
 
-- **REST API v1** under `/api/v1` (portfolio projects + contact form).
+- **REST API v1** under `/api/v1` (contact form).
 - **Static hosting** of the built frontend (from `../www`), with a SPA-style 404 fallback.
-- **Project media** served from local storage at `/images/projects`.
 
 ## Features
 
@@ -72,19 +71,6 @@ All endpoints are mounted under `/api/v1` and answer with the envelope below.
 - `pyld` — the payload (note the misspelling: it is the actual wire contract).
 - Every response carries the `x-api-version` header (package version).
 
-### `GET /api/v1/projects`
-
-Returns the portfolio projects enriched with media, if any exist in storage.
-
-- `200` → handled as **302 Found** by the controller — the list arrives in the body regardless.
-- `204 No Content` → no projects configured.
-
-Payload: array of `Projects.Project` objects (`slug`, `title`, `short`, `description`, `tags`, `skills`, `features`, `media`; plus optional `lib?: boolean` and `github?: string` for open-source libraries). Projects are sorted with non-`lib` first (stable file order) and `lib` projects last, ordered by `title` (`localeCompare('it')`). Each `media` item is `{src, type}` where `src` is an absolute URL built from `NEXT_PUBLIC_API` with an `?mtime` cache-buster, e.g.:
-
-```
-/images/projects/<slug>.<ext>?<mtime>
-```
-
 ### `POST /api/v1/contacts`
 
 Sends the contact form by email (body is HTML + text, from the templates in `src/templates/form/contacts/`).
@@ -113,7 +99,6 @@ Responses:
 |---|---|---|
 | `GLITCHTIP_AUTH_TOKEN` | no | GlitchTip tooling; **not read at runtime** |
 | `GLITCHTIP_DSN` | no | Sentry/GlitchTip DSN |
-| `NEXT_PUBLIC_API` | yes | base URL used to build project media URLs |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | yes | recipient of contact form emails |
 | `RELEASESTAGE` | no | Sentry environment label |
 | `SMTP_HOST` / `SMTP_PORT` | yes | mailer connection |
@@ -126,16 +111,12 @@ Notes:
 - The effective environment name is derived from the **suffix of the last env file present**: `.env` → `production`, `.env.rc` → `rc`, `.env.beta` → `beta`, `.env.local` → `development`. It is **not** `NODE_ENV`.
 - `bootstrap.env` / `testEnv()` drive CORS and Sentry behavior. In `development` the CORS origin becomes `*`.
 - Env vars are typed in `env.d.ts` (`NodeJS.ProcessEnv`) but never validated at runtime — add new ones there.
-- `NEXT_PUBLIC_*` variables also feed the frontend build; only the two above are consumed by the API.
+- `NEXT_PUBLIC_*` variables also feed the frontend build.
 
 ## Architecture
 
 ```
 .
-├── .opencode/
-│   └── commands/
-│       ├── add-project.md
-│       └── generate-image.md
 ├── @bin/
 │   ├── build
 │   ├── ts-node
@@ -144,7 +125,6 @@ Notes:
 │   ├── @projlib/Storage.ts  → Storage path helpers
 │   ├── @stdlib/             → Internal lib: env loader, Joi wrapper (IT errors), route factory, Sentry
 │   ├── @types/              → Ambient declarations (@projlib, @stdlib)
-│   ├── database/json/       → Portfolio project data (projects.json.ts: records incl. optional `lib`/`github`)
 │   ├── Http/
 │   │   ├── @shared/         → shared middlewares (HeadersMiddleware)
 │   │   ├── Client/          → REST API v1 (routes, controllers, validations)
@@ -170,7 +150,6 @@ The route factory (`@stdlib/expressjs/routes`) maps `path` + HTTP method to `cam
 ### Static serving
 
 - The built frontend is served from `../www` (immutable, `maxAge: 1y`); non-`/api/*` misses serve `www/404.html`.
-- `/images/projects` serves `@storage/images/projects`. Media files are `<slug>.<ext>` (webp/png/jpg/jpeg, mp4).
 - ETag is disabled globally (`app.disable('etag')`) — static middleware re-enables it via `etag: true`, keeping API JSON responses ETag-free.
 
 ## Build & deployment
