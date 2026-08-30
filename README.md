@@ -10,11 +10,14 @@
 
 [![CC BY-NC-ND 4.0](https://img.shields.io/badge/license-CC_BY--NC--ND_4.0-E9347A?style=for-the-badge&logo=creativecommons&logoColor=white)](LICENSE.md)
 
-> This repository is intended for **illustrative and educational purposes** only. It is not a product designed for general use, nor is it offered as a ready-made solution for third parties. Some files useful for development or deployment may not be published.
+> This repository is intended for **illustrative and educational purposes** only. It is not a product designed for
+> general use, nor is it offered as a ready-made solution for third parties. Some files useful for development or
+> deployment may not be published.
 
 ## Disclaimer
 
-The code is provided "as is", without any express or implied warranty. There is no obligation for ongoing maintenance or updates. The author **assumes no responsibility** for any direct or indirect damages arising from its use.
+The code is provided "as is", without any express or implied warranty. There is no obligation for ongoing maintenance or
+updates. The author **assumes no responsibility** for any direct or indirect damages arising from its use.
 
 ## Structure
 
@@ -22,6 +25,7 @@ The code is provided "as is", without any express or implied warranty. There is 
 .
 ├── .opencode/
 ├── api/            → Express.js 4 backend (REST API + static file server)
+├── strapi/         → Strapi 5 headless CMS (projects content type, admin panel, MCP)
 ├── www/            → Next.js 15 frontend (static export)
 ├── .dockerignore
 ├── .gitignore
@@ -34,12 +38,14 @@ The code is provided "as is", without any express or implied warranty. There is 
 └── postman_collection.json
 ```
 
-| Directory | Description |
-|---|---|
-| [`www/`](www/README.md) | Static Next.js 15 site with App Router, React 19, and Tailwind CSS. Built and exported to `out/`. |
-| [`api/`](api/README.md) | Express.js 4 server: REST API v1 (`/api/v1`) and static file serving for the frontend. |
+| Directory                     | Description                                                                                       |
+|-------------------------------|---------------------------------------------------------------------------------------------------|
+| [`api/`](api/README.md)       | Express.js 4 server: REST API v1 (`/api/v1`) and static file serving for the frontend.            |
+| [`strapi/`](strapi/README.md) | Strapi 5 headless CMS: project content type, REST API, admin panel, MCP server. SQLite database.  |
+| [`www/`](www/README.md)       | Static Next.js 15 site with App Router, React 19, and Tailwind CSS. Built and exported to `out/`. |
 
-In production both layers run inside a **single Docker container** (Node.js 22 Alpine, 128 MB memory). Express serves both the API and the pre-built site on port 3001.
+In production both layers run inside a **single Docker container** (Node.js 22 Alpine, 128 MB memory). Express serves
+both the API and the pre-built site on port 3001.
 
 ## Quick start
 
@@ -47,15 +53,22 @@ In production both layers run inside a **single Docker container** (Node.js 22 A
 docker compose up -d
 ```
 
-For local development, see the [`www/`](www/README.md) and [`api/`](api/README.md) READMEs.
+For local development, see:
+
+- [`api/`](api/README.md)
+- [`www/`](www/README.md)
+- [`strapi/`](strapi/README.md)
 
 ## Docker
 
 The image is built in **three stages** (multi-stage build):
 
-1. **`frontend-builder`** — `node:22-alpine`: installs `www/` dependencies, runs `npm run build` (Next.js static export → `out/`).
-2. **`api-builder`** — `node:22-alpine`: compiles the API TypeScript (`./@bin/build`), then `npm prune --omit=dev` to keep only production dependencies.
-3. **Production** — `node:22-alpine`: copies the static frontend (`www/out/`), the compiled API (`dist/`), and production `node_modules`. Includes `bash`, `nano`, and `libwebp-tools` for maintenance utilities.
+1. **`frontend-builder`** — `node:22-alpine`: installs `www/` dependencies, runs `npm run build` (Next.js static
+   export → `out/`).
+2. **`api-builder`** — `node:22-alpine`: compiles the API TypeScript (`./@bin/build`), then `npm prune --omit=dev` to
+   keep only production dependencies.
+3. **Production** — `node:22-alpine`: copies the static frontend (`www/out/`), the compiled API (`dist/`), and
+   production `node_modules`. Includes `bash`, `nano`, and `libwebp-tools` for maintenance utilities.
 
 The container starts Express with `node api/src/index.js api` on port 3001. Memory is limited to 128 MB.
 
