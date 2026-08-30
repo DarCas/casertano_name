@@ -12,7 +12,7 @@ const config: Core.Config.Middlewares = [
     'strapi::security',
     {
         config: {
-            headers: '*',
+            headers: ['Content-Type', 'Authorization'],
         },
         name: 'strapi::cors',
     },
