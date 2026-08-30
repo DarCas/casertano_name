@@ -1,0 +1,50 @@
+{
+  "author": {
+    "email": "dario@casertano.name",
+    "name": "Dario Casertano",
+    "url": "https://casertano.name"
+  },
+  "dependencies": {
+    "@strapi/database": "5.52.2",
+    "@strapi/plugin-cloud": "5.52.2",
+    "@strapi/plugin-users-permissions": "5.52.2",
+    "@strapi/strapi": "5.52.2",
+    "better-sqlite3": "12.8.0",
+    "fs-extra": "^10.0.0",
+    "mime-types": "^2.1.27",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.30.3",
+    "styled-components": "^6.0.0"
+  },
+  "description": "Strapi CMS for casertano.name",
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.0.0 <=26.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "CC-BY-NC-ND-4.0",
+  "name": "name.casertano.cms",
+  "private": true,
+  "scripts": {
+    "build": "strapi build",
+    "console": "strapi console",
+    "deploy": "strapi deploy",
+    "dev": "strapi develop",
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "strapi": "strapi",
+    "upgrade": "npx @strapi/upgrade latest",
+    "upgrade:dry": "npx @strapi/upgrade latest --dry"
+  },
+  "strapi": {
+    "uuid": "26edfafe-5dae-4e54-abe7-f98455aeb55b",
+    "installId": "8af9c38ec9ed02f5b4416df56a05d4e0a73564ae5ea9f3ea33a7f7c9136ccf26"
+  },
+  "version": "1.0.0"
+}

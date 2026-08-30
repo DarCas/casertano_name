@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_project_tags",
+  "info": {
+    "displayName": "Tag",
+    "icon": "tag"
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

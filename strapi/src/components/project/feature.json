@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_project_features",
+  "info": {
+    "displayName": "Feature",
+    "icon": "plus"
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

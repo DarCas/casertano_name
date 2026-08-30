@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project",
+    "description": "Portfolio projects"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 60,
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "short": {
+      "type": "string",
+      "maxLength": 500,
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "features": {
+      "type": "component",
+      "component": "project.feature",
+      "repeatable": true
+    },
+    "skills": {
+      "type": "component",
+      "component": "project.skill",
+      "repeatable": true
+    },
+    "sort_order": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "tags": {
+      "type": "component",
+      "component": "project.tag",
+      "repeatable": true
+    },
+    "lib": {
+      "type": "boolean",
+      "default": false
+    },
+    "github": {
+      "type": "string",
+      "unique": true
+    },
+    "website": {
+      "type": "string",
+      "unique": true
+    },
+    "media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    }
+  }
+}

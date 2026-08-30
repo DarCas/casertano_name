@@ -24,7 +24,7 @@ function ProjectMedia({ img, title }: { img: ProjectMediaType; title: string }) 
             {img.type === "image" ? (
                 <img
                     ref={imgRef}
-                    src={img.src}
+                    src={img.formats?.small ?? img.src}
                     alt={img.alt ?? title}
                     loading="lazy"
                     onLoad={() => setLoaded(true)}

@@ -3,6 +3,14 @@
   "mcp": {
     "github": {
       "enabled": true
+    },
+    "strapi": {
+      "enabled": true,
+      "headers": {
+        "Authorization": "Bearer {file:strapi/.secrets/strapi-mcp-token}"
+      },
+      "type": "remote",
+      "url": "https://cms.casertano.name/mcp"
     }
   }
 }

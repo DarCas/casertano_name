@@ -4,8 +4,9 @@
  * Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International.
  */
 
-import { readFileSync, writeFileSync } from "node:fs"
+import { writeFileSync } from "node:fs"
 import { join } from "node:path"
+import { fetchProjects } from "./lib/strapi.mjs"
 
 const root = join(import.meta.dirname, "..")
 const BASE = "https://casertano.name"
@@ -69,14 +70,6 @@ GDAL, GeoJSON, KML, TopoJSON, Geospatial ETL, Valhalla, Leaflet, OpenStreetMap
 
 `
 
-function loadProjects() {
-    const raw = readFileSync(join(root, "lib", "projects-data.ts"), "utf-8")
-    const start = raw.indexOf("= [")
-    const json = raw.slice(start + 2)
-    const end = json.lastIndexOf("]")
-    return JSON.parse(json.slice(0, end + 1))
-}
-
 function tagLine(p) {
     return p.tags && p.tags.length > 0 ? ` (${p.tags.join(", ")})` : ""
 }
@@ -89,14 +82,15 @@ function shortProjectLine(p) {
     return `- [${p.title}](${BASE}/progetti/${p.slug}/): ${p.short}`
 }
 
-const projects = loadProjects()
+async function main() {
+    const projects = await fetchProjects()
 
-const pages = [
-    `- [Home](https://casertano.name/): Portfolio homepage — hero, projects, tech stack, contact`,
-    ...projects.map(shortProjectLine),
-]
+    const pages = [
+        `- [Home](https://casertano.name/): Portfolio homepage — hero, projects, tech stack, contact`,
+        ...projects.map(shortProjectLine),
+    ]
 
-const llmsTxt = `# Dario Casertano — Senior Full Stack Engineer
+    const llmsTxt = `# Dario Casertano — Senior Full Stack Engineer
 > Distributed systems, AI agents, industrial automation. Full stack across backend, frontend and real-time — from design to deployment. 15+ years of experience.
 
 ## Pages
@@ -126,6 +120,9 @@ ${projects.map(fullProjectLine).join("\n")}
 - Telegram: https://t.me/QuantumTip
 `
 
-writeFileSync(join(root, "public", "llms.txt"), llmsTxt)
-writeFileSync(join(root, "public", "llms-full.txt"), llmsFullTxt)
-console.log(`llms.txt / llms-full.txt regenerated (${projects.length} projects)`)
+    writeFileSync(join(root, "public", "llms.txt"), llmsTxt)
+    writeFileSync(join(root, "public", "llms-full.txt"), llmsFullTxt)
+    console.log(`llms.txt / llms-full.txt regenerated (${projects.length} projects)`)
+}
+
+main()

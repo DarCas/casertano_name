@@ -9,17 +9,17 @@
 import { useState, useEffect } from "react"
 import { ProjectCard } from "@/components/project-card"
 import { SectionLabel } from "@/components/section-label"
-import { fetchProjects } from "@/lib/projects"
+import { fetchProjects, sortProjects } from "@/lib/projects"
 import { projectsData } from "@/lib/projects-data"
 import type { Project } from "@/lib/projects"
 
 export function Projects() {
-    const [projects, setProjects] = useState<Project[]>(projectsData)
+    const [projects, setProjects] = useState<Project[]>(sortProjects(projectsData))
 
     useEffect(() => {
         fetchProjects().then((data) => {
-            if (data.length > 0) setProjects(data)
-        })
+            if (data.length > 0) setProjects(sortProjects(data))
+        }).catch(() => {})
     }, [])
 
     return (

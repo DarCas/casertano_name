@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_project_skills",
+  "info": {
+    "displayName": "Skill",
+    "icon": "wrench"
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
