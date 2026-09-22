@@ -23,7 +23,7 @@
   "name": "name.casertano",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "rm -rf out/ .next/cache/fetch-cache && next build",
     "dev": "next dev",
     "lint": "next lint",
     "postbuild": "node scripts/generate-sitemap.mjs && node scripts/inline-css.mjs && node scripts/stamp-sw.mjs",
@@ -31,5 +31,5 @@
     "predev": "node scripts/extract-version.mjs && node scripts/fetch-projects.mjs && node scripts/generate-llms.mjs",
     "start": "next start"
   },
-  "version": "1.11.0"
+  "version": "1.12.1"
 }

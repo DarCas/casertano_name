@@ -20,7 +20,7 @@ import type { Project } from "./projects"
 
 export const projectsData: Project[] = `
 
-;( async function () {
+;await ( async function () {
     const out = join(root, "lib", "projects-data.ts")
 
     const projects = await fetchProjects()

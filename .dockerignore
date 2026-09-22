@@ -1,10 +1,10 @@
 .idea
-.next
 .opencode
-node_modules
-out
 .git
-.env.example
-.env.local
 Dockerfile
 docker-compose.yml
+**/.next
+**/node_modules
+**/out
+**/.env.local
+**/.env.example

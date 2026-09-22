@@ -162,6 +162,60 @@ export const projectsData: Project[] = [
         "title": "Aula virtuale Moodle: video e slide sincronizzate"
     },
     {
+        "description": "DocMorph converte documenti .docx in PDF esponendo un'API HTTP minimale (`POST /convert`, `GET /health`) pensata per uso container-first e sicura sotto concorrenza. Un pool a semaforo orchestra le conversioni LibreOffice headless con isolamento per job, mentre auth API key, validazione degli upload e rate limiting proteggono il servizio in produzione. La stack è completata da un'immagine Docker multi-stage e una landing React con prerendering SSR, distribuita via GitHub Actions.",
+        "features": [
+            "API REST con validazione upload .docx via magic-byte OOXML e verifica integrità del PDF prodotto con assertion %PDF",
+            "Pool a semaforo con max 3 conversioni LibreOffice simultanee e profilo utente dedicato per job, per isolamento totale tra le richieste",
+            "Auth API key con hashing SHA-256 e confronto timingSafeEqual, abbinata a rate limiting per IP con header RateLimit draft-8",
+            "Immagine Docker multi-stage con LibreOffice Writer e font Microsoft core, eseguita come utente non-root con dumb-init e healthcheck pubblico",
+            "Landing React 19 + Vite 7 con prerendering SSR, syntax highlight Shiki e plugin Subresource Integrity",
+            "Deploy automatico su GitHub Pages via GitHub Actions con build TypeScript, prerendering e dominio custom via CNAME"
+        ],
+        "github": "https://github.com/DarCas/docmorph",
+        "lib": true,
+        "media": [
+            {
+                "src": "https://cms.casertano.name/uploads/Gemini_Generated_Image_ykukbbykukbbykuk_42645faaa2.jpeg",
+                "type": "image",
+                "alt": "DocMorph — Conversione DOCX in PDF via microservizio HTTP",
+                "formats": {
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_Gemini_Generated_Image_ykukbbykukbbykuk_42645faaa2.jpeg",
+                    "small": "https://cms.casertano.name/uploads/small_Gemini_Generated_Image_ykukbbykukbbykuk_42645faaa2.jpeg",
+                    "large": "https://cms.casertano.name/uploads/large_Gemini_Generated_Image_ykukbbykukbbykuk_42645faaa2.jpeg",
+                    "medium": "https://cms.casertano.name/uploads/medium_Gemini_Generated_Image_ykukbbykukbbykuk_42645faaa2.jpeg"
+                }
+            }
+        ],
+        "short": "Microservizio HTTP stateless che converte DOCX in PDF via LibreOffice, con auth API key, rate limiting e immagine Docker multi-stage",
+        "skills": [
+            "Node.js 22",
+            "TypeScript",
+            "Express",
+            "Multer",
+            "REST API",
+            "LibreOffice headless",
+            "Docker",
+            "GitHub Actions",
+            "GitHub Pages",
+            "React 19",
+            "Vite",
+            "Shiki",
+            "SHA-256",
+            "Subresource Integrity"
+        ],
+        "slug": "docmorph",
+        "sort_order": 0,
+        "tags": [
+            "Node.js",
+            "TypeScript",
+            "Docker",
+            "LibreOffice",
+            "React"
+        ],
+        "title": "DocMorph — Conversione DOCX in PDF via microservizio HTTP",
+        "website": "https://docmorph.os.darcas.app/"
+    },
+    {
         "description": "Piattaforma gestionale end-to-end per l'industria manifatturiera che copre l'intero ciclo produttivo — gestionale, monitoraggio IoT e acquisti — con un backend REST da 196 endpoint su 18 domini, una PWA Vue 3 con Gantt Syncfusion per la pianificazione a ore e una dashboard di telemetria real-time via MQTT. L'ERP Dolibarr containerizzato gestisce il flusso acquisti, mentre l'infrastruttura Docker su Ubuntu con Apache e monitoring Sentry garantisce affidabilità su scala industriale.",
         "features": [
             "Backend REST con 196 endpoint su 18 domini (ordini, preventivi, progetti, commesse, macchine), validati con Joi e documentati da una Postman collection autogenerata dagli schemi",
@@ -448,7 +502,7 @@ export const projectsData: Project[] = [
                 }
             }
         ],
-        "short": "PWA offline-first che unifica motori di ricerca con CSE dedicati per lingua e sincronizza cronologia e segnalibri tra dispositivi via WebRTC P2P cifrato.",
+        "short": "PWA che unifica motori di ricerca con CSE dedicati per lingua e sincronizza cronologia e segnalibri tra dispositivi via WebRTC P2P cifrato.",
         "skills": [
             "Vue",
             "TypeScript",
@@ -689,6 +743,61 @@ export const projectsData: Project[] = [
         ],
         "title": "Plugin Rollup per i report JSON delle licenze",
         "website": "https://rollup-license.os.darcas.app/"
+    },
+    {
+        "description": "SmartDns accelera la risoluzione DNS su Node.js 20/22+ grazie a una cache LRU con scadenza TTL reale, negative caching e deduplicazione delle query concorrenti, ottimizzando fetch e axios in ambienti ad alto traffico. La libreria TypeScript zero-dipendenze integra stale-while-revalidate e 9 provider DNS configurabili (CloudFlare, Google, Quad9, OpenDNS, AdGuard, Comodo, DNS.WATCH, Verisign, Yandex) con selezione family IPv4/IPv6. Completano il progetto suite di test con Vitest, build dual-format ESM/CJS, una landing page React 19 e il rilascio automatizzato via GitHub Actions.",
+        "features": [
+            "Cache LRU con TTL reale, negative caching e deduplicazione delle query concorrenti",
+            "Stale-while-revalidate e statistiche di lookup (hit, miss, errori, rvalidazioni, tempo medio) via callback onStats",
+            "9 provider DNS configurabili con selezione family IPv4/IPv6 e ordinamento dei risultati",
+            "Build dual-format ESM/CJS con minificazione esbuild e bundle index.min.js",
+            "Suite di test unitari Vitest (16 suite, 42 asserzioni) su TTL, SWR e singleton con timer fittizi",
+            "Landing page React 19 su GitHub Pages e rilascio automatizzato: npm via OIDC su tag v*, docs su push master"
+        ],
+        "github": "https://github.com/DarCas/smart-dns-promises",
+        "lib": true,
+        "media": [
+            {
+                "src": "https://cms.casertano.name/uploads/Gemini_Generated_Image_lyh5filyh5filyh5_bd0fc97090.jpeg",
+                "type": "image",
+                "alt": "SmartDns — Resolver DNS con caching intelligente per Node.js",
+                "formats": {
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_Gemini_Generated_Image_lyh5filyh5filyh5_bd0fc97090.jpeg",
+                    "medium": "https://cms.casertano.name/uploads/medium_Gemini_Generated_Image_lyh5filyh5filyh5_bd0fc97090.jpeg",
+                    "large": "https://cms.casertano.name/uploads/large_Gemini_Generated_Image_lyh5filyh5filyh5_bd0fc97090.jpeg",
+                    "small": "https://cms.casertano.name/uploads/small_Gemini_Generated_Image_lyh5filyh5filyh5_bd0fc97090.jpeg"
+                }
+            }
+        ],
+        "short": "Libreria TypeScript zero-dipendenze che velocizza la risoluzione DNS con cache TTL-aware, deduplicazione e stale-while-revalidate",
+        "skills": [
+            "TypeScript",
+            "Node.js",
+            "node:dns",
+            "LRU cache",
+            "TTL",
+            "stale-while-revalidate",
+            "ESM/CJS",
+            "Vitest",
+            "axios",
+            "React 19",
+            "Vite",
+            "Shiki",
+            "GitHub Actions",
+            "GitHub Pages",
+            "npm"
+        ],
+        "slug": "smartdns",
+        "sort_order": 0,
+        "tags": [
+            "TypeScript",
+            "Node.js",
+            "DNS",
+            "npm",
+            "React"
+        ],
+        "title": "SmartDns — Resolver DNS con caching intelligente per Node.js",
+        "website": "https://smartdns.os.darcas.app"
     },
     {
         "description": "Plugin Rollup/Vite che automatizza la generazione di hash Subresource Integrity (SRI) per tutti gli asset emessi dal build. Alla compilazione calcola l'hash crittografico di ogni file referenziato nell'HTML e inietta gli attributi integrity e crossorigin sui tag <script> e <link>, eliminando la gestione manuale degli hash e garantendo che il browser verifichi l'integrità di ogni risorsa prima di eseguirla. Compatibile con Rollup 2/3/4, Vite, code splitting e build multi-pagina, senza dipendenze runtime.",

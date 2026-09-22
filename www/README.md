@@ -23,7 +23,7 @@ Static portfolio of **Dario Casertano** ([casertano.name](https://casertano.name
 | Command | Description |
 | --- | --- |
 | `npm run dev` | Dev server (predev: `extract-version.mjs` + `fetch-projects.mjs`) |
-| `npm run build` | Static build into `out/` (postbuild: sitemap + inline CSS) |
+| `npm run build` | Clears `out/` and the Next fetch cache (`.next/cache/fetch-cache`), then static build into `out/` (postbuild: sitemap + inline CSS) |
 | `npm run lint` | `next lint` |
 | `ANALYZE=true npm run build` | Build with bundle analysis (`@next/bundle-analyzer`) |
 
@@ -98,6 +98,7 @@ API-side vars (`SMTP_*`, `TURNSTILE_SECRET_KEY`) are not used here: they live in
 - The hero skill counter derives from `lib/skills.ts`.
 - The skills taxonomy in `lib/skills.ts` has **10 categories with English labels** in narrative build order (Languages & Runtimes → Frontend & Libraries → Backend & APIs → Databases → DevOps & Infrastructure → Tooling & Build → Real-time & Messaging → AI & Agents → Blockchain → Geospatial). Its section headers mirror **1:1** the Skills block in `public/llms-full.txt` — keep both in sync.
 - The projects grid splits open-source libraries from client work: the API flags them with `lib` and sorts non-`lib` first; the UI renders a `// TOOLING` divider before the lib grid (cards link to GitHub).
+- **Stale Next fetch cache → 404 project pages.** `next build` keeps a persistent Data Cache in `.next/cache/fetch-cache`. A stale `/projects` response there is reused by the render phase (page `[slug]` + `ItemList` in `layout.tsx`), so newly added projects end up in `notFound()` (HTTP 200 with a 404 body) even though `generateStaticParams` and the `.mjs` scripts (plain Node `fetch`) see them. That is why `npm run build` runs `rm -rf out/ .next/cache/fetch-cache` first, the `Dockerfile` clears the cache after `COPY www/. .`, and `.dockerignore` uses recursive patterns (`**/.next`, `**/out`, `**/node_modules`, `**/.env.local`; bare patterns do not match `www/*`). Do **not** add `cache: "no-store"` to the projects fetch: with `output: "export"` Next turns it into `revalidate: 0` and static prerendering fails.
 
 ## License
 

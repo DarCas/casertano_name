@@ -4,7 +4,7 @@ FROM node:22.13-alpine AS frontend-builder
 WORKDIR /app
 
 COPY www/. .
-RUN unlink .env.local
+RUN rm -rf .next/cache/fetch-cache
 
 RUN npm ci && npm run build
 
