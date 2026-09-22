@@ -1,5 +1,5 @@
 # Build frontend (Next.js static export)
-FROM node:22-alpine AS frontend-builder
+FROM node:22.13-alpine AS frontend-builder
 
 WORKDIR /app
 
@@ -9,7 +9,7 @@ RUN unlink .env.local
 RUN npm ci && npm run build
 
 # Build API
-FROM node:22-alpine AS api-builder
+FROM node:22.13-alpine AS api-builder
 
 WORKDIR /app
 
@@ -20,7 +20,7 @@ RUN npm ci
 RUN sh ./@bin/build && npm prune --omit=dev
 
 # Production
-FROM node:22-alpine
+FROM node:22.13-alpine
 
 RUN apk add --no-cache bash nano
 

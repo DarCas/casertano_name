@@ -31,5 +31,5 @@
     "predev": "node scripts/extract-version.mjs && node scripts/fetch-projects.mjs && node scripts/generate-llms.mjs",
     "start": "next start"
   },
-  "version": "1.10.0"
+  "version": "1.11.0"
 }

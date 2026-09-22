@@ -1,4 +1,4 @@
-FROM node:22-alpine AS build
+FROM node:22.13-alpine AS build
 
 WORKDIR /opt/app
 
@@ -13,7 +13,7 @@ COPY . .
 RUN npm run build
 RUN npm prune --omit=dev
 
-FROM node:22-alpine AS production
+FROM node:22.13-alpine AS production
 
 ENV NODE_ENV=production
 
