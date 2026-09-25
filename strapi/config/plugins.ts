@@ -24,6 +24,25 @@ const deniedTypes = [
 ]
 
 const config = ({env}: Core.Config.Shared.ConfigParams): Core.Config.Plugin => ( {
+    'strapi-media-webp-convertor': {
+        enabled: true,
+        config: {
+            // --- WebP conversion ---
+            webpConversionEnabled: true,
+            webpQuality: 80,
+
+            // --- Upload type policy ---
+            fileTypePolicyEnabled: true,
+            allowedFileExtensions: [],        // [] = the recommended set below
+            blockMultipleExtensions: true,
+            randomizeStoredFilenames: false,
+
+            // --- Document validation ---
+            pdfValidationEnabled: true,
+            blockPdfActiveContent: true,
+            maxSvgSizeMb: 5,
+        },
+    },
     upload: {
         config: {
             provider: 'local',

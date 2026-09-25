@@ -20,14 +20,14 @@ export const projectsData: Project[] = [
         "lib": false,
         "media": [
             {
-                "src": "https://cms.casertano.name/uploads/agente_ai_autonomo_gestione_posta_d6ea8a3ef9.png",
+                "src": "https://cms.casertano.name/uploads/agente_ai_autonomo_gestione_posta_d6ea8a3ef9.webp",
                 "type": "image",
                 "alt": "Agente AI autonomo per la gestione della posta",
                 "formats": {
-                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_agente_ai_autonomo_gestione_posta_d6ea8a3ef9.png",
-                    "small": "https://cms.casertano.name/uploads/small_agente_ai_autonomo_gestione_posta_d6ea8a3ef9.png",
-                    "medium": "https://cms.casertano.name/uploads/medium_agente_ai_autonomo_gestione_posta_d6ea8a3ef9.png",
-                    "large": "https://cms.casertano.name/uploads/large_agente_ai_autonomo_gestione_posta_d6ea8a3ef9.png"
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_agente_ai_autonomo_gestione_posta_d6ea8a3ef9.webp",
+                    "small": "https://cms.casertano.name/uploads/small_agente_ai_autonomo_gestione_posta_d6ea8a3ef9.webp",
+                    "medium": "https://cms.casertano.name/uploads/medium_agente_ai_autonomo_gestione_posta_d6ea8a3ef9.webp",
+                    "large": "https://cms.casertano.name/uploads/large_agente_ai_autonomo_gestione_posta_d6ea8a3ef9.webp"
                 }
             }
         ],
@@ -73,24 +73,24 @@ export const projectsData: Project[] = [
         "lib": false,
         "media": [
             {
-                "src": "https://cms.casertano.name/uploads/allerte_meteo_sismiche_near_realtime_e0965370ac.png",
+                "src": "https://cms.casertano.name/uploads/allerte_meteo_sismiche_near_realtime_e0965370ac.webp",
                 "type": "image",
                 "alt": "Allerte meteo e sismiche in near-realtime",
                 "formats": {
-                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_allerte_meteo_sismiche_near_realtime_e0965370ac.png",
-                    "small": "https://cms.casertano.name/uploads/small_allerte_meteo_sismiche_near_realtime_e0965370ac.png",
-                    "medium": "https://cms.casertano.name/uploads/medium_allerte_meteo_sismiche_near_realtime_e0965370ac.png",
-                    "large": "https://cms.casertano.name/uploads/large_allerte_meteo_sismiche_near_realtime_e0965370ac.png"
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_allerte_meteo_sismiche_near_realtime_e0965370ac.webp",
+                    "small": "https://cms.casertano.name/uploads/small_allerte_meteo_sismiche_near_realtime_e0965370ac.webp",
+                    "medium": "https://cms.casertano.name/uploads/medium_allerte_meteo_sismiche_near_realtime_e0965370ac.webp",
+                    "large": "https://cms.casertano.name/uploads/large_allerte_meteo_sismiche_near_realtime_e0965370ac.webp"
                 }
             }
         ],
         "short": "Allerte meteo-idrogeologiche e sismiche: piattaforma TypeScript/Node.js che raccoglie, processa e distribuisce in near-realtime su tutto il territorio italiano.",
         "skills": [
             "TypeScript",
-            "Node.js 22",
+            "Node.js",
             "yargs",
             "grammY",
-            "Telegram API",
+            "Telegram Bot",
             "OpenAI API",
             "Firebase",
             "WebSocket",
@@ -132,14 +132,14 @@ export const projectsData: Project[] = [
         "lib": false,
         "media": [
             {
-                "src": "https://cms.casertano.name/uploads/aula_virtuale_moodle_16eb2e067d.jpeg",
+                "src": "https://cms.casertano.name/uploads/aula_virtuale_moodle_16eb2e067d.webp",
                 "type": "image",
                 "alt": "Aula virtuale Moodle: video e slide sincronizzate",
                 "formats": {
-                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_aula_virtuale_moodle_16eb2e067d.jpeg",
-                    "small": "https://cms.casertano.name/uploads/small_aula_virtuale_moodle_16eb2e067d.jpeg",
-                    "large": "https://cms.casertano.name/uploads/large_aula_virtuale_moodle_16eb2e067d.jpeg",
-                    "medium": "https://cms.casertano.name/uploads/medium_aula_virtuale_moodle_16eb2e067d.jpeg"
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_aula_virtuale_moodle_16eb2e067d.webp",
+                    "small": "https://cms.casertano.name/uploads/small_aula_virtuale_moodle_16eb2e067d.webp",
+                    "large": "https://cms.casertano.name/uploads/large_aula_virtuale_moodle_16eb2e067d.webp",
+                    "medium": "https://cms.casertano.name/uploads/medium_aula_virtuale_moodle_16eb2e067d.webp"
                 }
             }
         ],
@@ -175,22 +175,22 @@ export const projectsData: Project[] = [
         "lib": true,
         "media": [
             {
-                "src": "https://cms.casertano.name/uploads/Gemini_Generated_Image_ykukbbykukbbykuk_42645faaa2.jpeg",
+                "src": "https://cms.casertano.name/uploads/Gemini_Generated_Image_ykukbbykukbbykuk_42645faaa2.webp",
                 "type": "image",
                 "alt": "DocMorph — Conversione DOCX in PDF via microservizio HTTP",
                 "formats": {
-                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_Gemini_Generated_Image_ykukbbykukbbykuk_42645faaa2.jpeg",
-                    "small": "https://cms.casertano.name/uploads/small_Gemini_Generated_Image_ykukbbykukbbykuk_42645faaa2.jpeg",
-                    "large": "https://cms.casertano.name/uploads/large_Gemini_Generated_Image_ykukbbykukbbykuk_42645faaa2.jpeg",
-                    "medium": "https://cms.casertano.name/uploads/medium_Gemini_Generated_Image_ykukbbykukbbykuk_42645faaa2.jpeg"
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_Gemini_Generated_Image_ykukbbykukbbykuk_42645faaa2.webp",
+                    "small": "https://cms.casertano.name/uploads/small_Gemini_Generated_Image_ykukbbykukbbykuk_42645faaa2.webp",
+                    "large": "https://cms.casertano.name/uploads/large_Gemini_Generated_Image_ykukbbykukbbykuk_42645faaa2.webp",
+                    "medium": "https://cms.casertano.name/uploads/medium_Gemini_Generated_Image_ykukbbykukbbykuk_42645faaa2.webp"
                 }
             }
         ],
         "short": "Microservizio HTTP stateless che converte DOCX in PDF via LibreOffice, con auth API key, rate limiting e immagine Docker multi-stage",
         "skills": [
-            "Node.js 22",
+            "Node.js",
             "TypeScript",
-            "Express",
+            "Express.js",
             "Multer",
             "REST API",
             "LibreOffice headless",
@@ -228,26 +228,26 @@ export const projectsData: Project[] = [
         "lib": false,
         "media": [
             {
-                "src": "https://cms.casertano.name/uploads/gestionale_manifatturiero_iot_acquisti_16389f8701.png",
+                "src": "https://cms.casertano.name/uploads/gestionale_manifatturiero_iot_acquisti_16389f8701.webp",
                 "type": "image",
                 "alt": "Gestionale manifatturiero con IoT e acquisti",
                 "formats": {
-                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_gestionale_manifatturiero_iot_acquisti_16389f8701.png",
-                    "small": "https://cms.casertano.name/uploads/small_gestionale_manifatturiero_iot_acquisti_16389f8701.png",
-                    "medium": "https://cms.casertano.name/uploads/medium_gestionale_manifatturiero_iot_acquisti_16389f8701.png",
-                    "large": "https://cms.casertano.name/uploads/large_gestionale_manifatturiero_iot_acquisti_16389f8701.png"
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_gestionale_manifatturiero_iot_acquisti_16389f8701.webp",
+                    "small": "https://cms.casertano.name/uploads/small_gestionale_manifatturiero_iot_acquisti_16389f8701.webp",
+                    "medium": "https://cms.casertano.name/uploads/medium_gestionale_manifatturiero_iot_acquisti_16389f8701.webp",
+                    "large": "https://cms.casertano.name/uploads/large_gestionale_manifatturiero_iot_acquisti_16389f8701.webp"
                 }
             }
         ],
         "short": "Piattaforma manifatturiera: gestionale PWA con Gantt, monitoraggio IoT via MQTT, acquisti ERP Dolibarr e backend REST con 196 endpoint su 18 domini applicativi.",
         "skills": [
-            "Node.js 22",
+            "Node.js",
             "TypeScript",
-            "Express",
+            "Express.js",
             "TypeORM",
             "Joi",
             "Vue",
-            "Vuetify 4",
+            "Vuetify",
             "PWA",
             "IndexedDB",
             "MariaDB",
@@ -281,21 +281,21 @@ export const projectsData: Project[] = [
         "lib": false,
         "media": [
             {
-                "src": "https://cms.casertano.name/uploads/gestione_territoriale_sedi_turni_risorse_ee2e065cdc.png",
+                "src": "https://cms.casertano.name/uploads/gestione_territoriale_sedi_turni_risorse_ee2e065cdc.webp",
                 "type": "image",
                 "alt": "Gestione territoriale di sedi, turni e risorse",
                 "formats": {
-                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_gestione_territoriale_sedi_turni_risorse_ee2e065cdc.png",
-                    "small": "https://cms.casertano.name/uploads/small_gestione_territoriale_sedi_turni_risorse_ee2e065cdc.png",
-                    "medium": "https://cms.casertano.name/uploads/medium_gestione_territoriale_sedi_turni_risorse_ee2e065cdc.png",
-                    "large": "https://cms.casertano.name/uploads/large_gestione_territoriale_sedi_turni_risorse_ee2e065cdc.png"
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_gestione_territoriale_sedi_turni_risorse_ee2e065cdc.webp",
+                    "small": "https://cms.casertano.name/uploads/small_gestione_territoriale_sedi_turni_risorse_ee2e065cdc.webp",
+                    "medium": "https://cms.casertano.name/uploads/medium_gestione_territoriale_sedi_turni_risorse_ee2e065cdc.webp",
+                    "large": "https://cms.casertano.name/uploads/large_gestione_territoriale_sedi_turni_risorse_ee2e065cdc.webp"
                 }
             }
         ],
         "short": "Piattaforma di gestione territoriale per sedi, turni e risorse: due PWA, bot Telegram, reportistica e manutenzione su backend MariaDB containerizzato.",
         "skills": [
             "Node.js",
-            "Express",
+            "Express.js",
             "TypeORM",
             "MariaDB",
             "JWT",
@@ -306,7 +306,7 @@ export const projectsData: Project[] = [
             "TypeScript",
             "Vuex",
             "Service Worker",
-            "grammy",
+            "grammY",
             "Docker",
             "Docker Compose",
             "Apache",
@@ -338,14 +338,14 @@ export const projectsData: Project[] = [
         "lib": true,
         "media": [
             {
-                "src": "https://cms.casertano.name/uploads/keyplex_key_value_namespaced_typescript_aff4333b58.jpeg",
+                "src": "https://cms.casertano.name/uploads/keyplex_key_value_namespaced_typescript_aff4333b58.webp",
                 "type": "image",
                 "alt": "KeyPlex: key-value namespaced in TypeScript",
                 "formats": {
-                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_keyplex_key_value_namespaced_typescript_aff4333b58.jpeg",
-                    "small": "https://cms.casertano.name/uploads/small_keyplex_key_value_namespaced_typescript_aff4333b58.jpeg",
-                    "large": "https://cms.casertano.name/uploads/large_keyplex_key_value_namespaced_typescript_aff4333b58.jpeg",
-                    "medium": "https://cms.casertano.name/uploads/medium_keyplex_key_value_namespaced_typescript_aff4333b58.jpeg"
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_keyplex_key_value_namespaced_typescript_aff4333b58.webp",
+                    "small": "https://cms.casertano.name/uploads/small_keyplex_key_value_namespaced_typescript_aff4333b58.webp",
+                    "large": "https://cms.casertano.name/uploads/large_keyplex_key_value_namespaced_typescript_aff4333b58.webp",
+                    "medium": "https://cms.casertano.name/uploads/medium_keyplex_key_value_namespaced_typescript_aff4333b58.webp"
                 }
             }
         ],
@@ -391,32 +391,32 @@ export const projectsData: Project[] = [
         "lib": false,
         "media": [
             {
-                "src": "https://cms.casertano.name/uploads/mappa_copertura_territoriale_isocrone_94a1947556.jpeg",
+                "src": "https://cms.casertano.name/uploads/mappa_copertura_territoriale_isocrone_94a1947556.webp",
                 "type": "image",
                 "alt": "Mappa di copertura territoriale con isocrone",
                 "formats": {
-                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_mappa_copertura_territoriale_isocrone_94a1947556.jpeg",
-                    "small": "https://cms.casertano.name/uploads/small_mappa_copertura_territoriale_isocrone_94a1947556.jpeg",
-                    "medium": "https://cms.casertano.name/uploads/medium_mappa_copertura_territoriale_isocrone_94a1947556.jpeg",
-                    "large": "https://cms.casertano.name/uploads/large_mappa_copertura_territoriale_isocrone_94a1947556.jpeg"
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_mappa_copertura_territoriale_isocrone_94a1947556.webp",
+                    "small": "https://cms.casertano.name/uploads/small_mappa_copertura_territoriale_isocrone_94a1947556.webp",
+                    "medium": "https://cms.casertano.name/uploads/medium_mappa_copertura_territoriale_isocrone_94a1947556.webp",
+                    "large": "https://cms.casertano.name/uploads/large_mappa_copertura_territoriale_isocrone_94a1947556.webp"
                 }
             }
         ],
         "short": "Isocrone real-time in auto, bici e a piedi per mappare la copertura territoriale di una rete di sedi, con analisi point-in-polygon e confronto multi-origine.",
         "skills": [
-            "Node.js 22",
+            "Node.js",
             "TypeScript strict",
             "Fastify 5",
             "TypeBox",
             "Valhalla",
             "Vue 3",
-            "Vuetify 4",
+            "Vuetify",
             "Leaflet",
             "PWA",
             "Docker",
             "SQLite",
             "Drizzle ORM",
-            "Dexie",
+            "Dexie.js",
             "OpenStreetMap",
             "Vitest"
         ],
@@ -444,14 +444,14 @@ export const projectsData: Project[] = [
         "lib": true,
         "media": [
             {
-                "src": "https://cms.casertano.name/uploads/memoryx_storage_in_memory_browser_8b927378c2.jpeg",
+                "src": "https://cms.casertano.name/uploads/memoryx_storage_in_memory_browser_8b927378c2.webp",
                 "type": "image",
                 "alt": "MemoryX: storage in-memory per il browser",
                 "formats": {
-                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_memoryx_storage_in_memory_browser_8b927378c2.jpeg",
-                    "small": "https://cms.casertano.name/uploads/small_memoryx_storage_in_memory_browser_8b927378c2.jpeg",
-                    "medium": "https://cms.casertano.name/uploads/medium_memoryx_storage_in_memory_browser_8b927378c2.jpeg",
-                    "large": "https://cms.casertano.name/uploads/large_memoryx_storage_in_memory_browser_8b927378c2.jpeg"
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_memoryx_storage_in_memory_browser_8b927378c2.webp",
+                    "small": "https://cms.casertano.name/uploads/small_memoryx_storage_in_memory_browser_8b927378c2.webp",
+                    "medium": "https://cms.casertano.name/uploads/medium_memoryx_storage_in_memory_browser_8b927378c2.webp",
+                    "large": "https://cms.casertano.name/uploads/large_memoryx_storage_in_memory_browser_8b927378c2.webp"
                 }
             }
         ],
@@ -491,14 +491,14 @@ export const projectsData: Project[] = [
         "lib": false,
         "media": [
             {
-                "src": "https://cms.casertano.name/uploads/motore_ricerca_multi_contesto_sync_p2p_60e48b4c0e.png",
+                "src": "https://cms.casertano.name/uploads/motore_ricerca_multi_contesto_sync_p2p_60e48b4c0e.webp",
                 "type": "image",
                 "alt": "Motore di ricerca multi-contesto con sync P2P",
                 "formats": {
-                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_motore_ricerca_multi_contesto_sync_p2p_60e48b4c0e.png",
-                    "small": "https://cms.casertano.name/uploads/small_motore_ricerca_multi_contesto_sync_p2p_60e48b4c0e.png",
-                    "medium": "https://cms.casertano.name/uploads/medium_motore_ricerca_multi_contesto_sync_p2p_60e48b4c0e.png",
-                    "large": "https://cms.casertano.name/uploads/large_motore_ricerca_multi_contesto_sync_p2p_60e48b4c0e.png"
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_motore_ricerca_multi_contesto_sync_p2p_60e48b4c0e.webp",
+                    "small": "https://cms.casertano.name/uploads/small_motore_ricerca_multi_contesto_sync_p2p_60e48b4c0e.webp",
+                    "medium": "https://cms.casertano.name/uploads/medium_motore_ricerca_multi_contesto_sync_p2p_60e48b4c0e.webp",
+                    "large": "https://cms.casertano.name/uploads/large_motore_ricerca_multi_contesto_sync_p2p_60e48b4c0e.webp"
                 }
             }
         ],
@@ -506,7 +506,7 @@ export const projectsData: Project[] = [
         "skills": [
             "Vue",
             "TypeScript",
-            "Vuetify 3",
+            "Vuetify",
             "Composition API",
             "Vite",
             "Pinia",
@@ -545,14 +545,14 @@ export const projectsData: Project[] = [
         "lib": false,
         "media": [
             {
-                "src": "https://cms.casertano.name/uploads/nft_marketplace_diamanti_virtuali_polygon_8757361e7b.png",
+                "src": "https://cms.casertano.name/uploads/nft_marketplace_diamanti_virtuali_polygon_8757361e7b.webp",
                 "type": "image",
                 "alt": "NFT Marketplace di diamanti virtuali su Polygon",
                 "formats": {
-                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_nft_marketplace_diamanti_virtuali_polygon_8757361e7b.png",
-                    "small": "https://cms.casertano.name/uploads/small_nft_marketplace_diamanti_virtuali_polygon_8757361e7b.png",
-                    "medium": "https://cms.casertano.name/uploads/medium_nft_marketplace_diamanti_virtuali_polygon_8757361e7b.png",
-                    "large": "https://cms.casertano.name/uploads/large_nft_marketplace_diamanti_virtuali_polygon_8757361e7b.png"
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_nft_marketplace_diamanti_virtuali_polygon_8757361e7b.webp",
+                    "small": "https://cms.casertano.name/uploads/small_nft_marketplace_diamanti_virtuali_polygon_8757361e7b.webp",
+                    "medium": "https://cms.casertano.name/uploads/medium_nft_marketplace_diamanti_virtuali_polygon_8757361e7b.webp",
+                    "large": "https://cms.casertano.name/uploads/large_nft_marketplace_diamanti_virtuali_polygon_8757361e7b.webp"
                 }
             }
         ],
@@ -565,7 +565,7 @@ export const projectsData: Project[] = [
             "PHP",
             "Zend Framework 3",
             "Node.js",
-            "Express",
+            "Express.js",
             "TypeORM",
             "MariaDB",
             "Vue",
@@ -601,14 +601,14 @@ export const projectsData: Project[] = [
         "lib": false,
         "media": [
             {
-                "src": "https://cms.casertano.name/uploads/onboarding_clienti_isp_contratti_digitali_de92f3911e.jpeg",
+                "src": "https://cms.casertano.name/uploads/onboarding_clienti_isp_contratti_digitali_de92f3911e.webp",
                 "type": "image",
                 "alt": "Onboarding clienti ISP con contratti digitali",
                 "formats": {
-                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_onboarding_clienti_isp_contratti_digitali_de92f3911e.jpeg",
-                    "small": "https://cms.casertano.name/uploads/small_onboarding_clienti_isp_contratti_digitali_de92f3911e.jpeg",
-                    "large": "https://cms.casertano.name/uploads/large_onboarding_clienti_isp_contratti_digitali_de92f3911e.jpeg",
-                    "medium": "https://cms.casertano.name/uploads/medium_onboarding_clienti_isp_contratti_digitali_de92f3911e.jpeg"
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_onboarding_clienti_isp_contratti_digitali_de92f3911e.webp",
+                    "small": "https://cms.casertano.name/uploads/small_onboarding_clienti_isp_contratti_digitali_de92f3911e.webp",
+                    "large": "https://cms.casertano.name/uploads/large_onboarding_clienti_isp_contratti_digitali_de92f3911e.webp",
+                    "medium": "https://cms.casertano.name/uploads/medium_onboarding_clienti_isp_contratti_digitali_de92f3911e.webp"
                 }
             }
         ],
@@ -621,7 +621,7 @@ export const projectsData: Project[] = [
             "MariaDB",
             "PhpWord",
             "Vue 3",
-            "Vuetify 3",
+            "Vuetify",
             "TypeScript",
             "Vee-Validate",
             "Zod",
@@ -654,14 +654,14 @@ export const projectsData: Project[] = [
         "lib": false,
         "media": [
             {
-                "src": "https://cms.casertano.name/uploads/ordini_su_misura_agenti_vendita_0036a976a8.jpeg",
+                "src": "https://cms.casertano.name/uploads/ordini_su_misura_agenti_vendita_0036a976a8.webp",
                 "type": "image",
                 "alt": "Ordini su misura per agenti di vendita",
                 "formats": {
-                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_ordini_su_misura_agenti_vendita_0036a976a8.jpeg",
-                    "small": "https://cms.casertano.name/uploads/small_ordini_su_misura_agenti_vendita_0036a976a8.jpeg",
-                    "large": "https://cms.casertano.name/uploads/large_ordini_su_misura_agenti_vendita_0036a976a8.jpeg",
-                    "medium": "https://cms.casertano.name/uploads/medium_ordini_su_misura_agenti_vendita_0036a976a8.jpeg"
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_ordini_su_misura_agenti_vendita_0036a976a8.webp",
+                    "small": "https://cms.casertano.name/uploads/small_ordini_su_misura_agenti_vendita_0036a976a8.webp",
+                    "large": "https://cms.casertano.name/uploads/large_ordini_su_misura_agenti_vendita_0036a976a8.webp",
+                    "medium": "https://cms.casertano.name/uploads/medium_ordini_su_misura_agenti_vendita_0036a976a8.webp"
                 }
             }
         ],
@@ -672,7 +672,7 @@ export const projectsData: Project[] = [
             "RxJS",
             "Service Worker",
             "Dexie/IndexedDB",
-            "PHP 7.2",
+            "PHP",
             "Zend Framework 3",
             "Doctrine ORM",
             "MySQL",
@@ -707,14 +707,14 @@ export const projectsData: Project[] = [
         "lib": true,
         "media": [
             {
-                "src": "https://cms.casertano.name/uploads/plugin_rollup_report_json_licenze_c83321d925.jpeg",
+                "src": "https://cms.casertano.name/uploads/plugin_rollup_report_json_licenze_c83321d925.webp",
                 "type": "image",
                 "alt": "Plugin Rollup per i report JSON delle licenze",
                 "formats": {
-                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_plugin_rollup_report_json_licenze_c83321d925.jpeg",
-                    "small": "https://cms.casertano.name/uploads/small_plugin_rollup_report_json_licenze_c83321d925.jpeg",
-                    "medium": "https://cms.casertano.name/uploads/medium_plugin_rollup_report_json_licenze_c83321d925.jpeg",
-                    "large": "https://cms.casertano.name/uploads/large_plugin_rollup_report_json_licenze_c83321d925.jpeg"
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_plugin_rollup_report_json_licenze_c83321d925.webp",
+                    "small": "https://cms.casertano.name/uploads/small_plugin_rollup_report_json_licenze_c83321d925.webp",
+                    "medium": "https://cms.casertano.name/uploads/medium_plugin_rollup_report_json_licenze_c83321d925.webp",
+                    "large": "https://cms.casertano.name/uploads/large_plugin_rollup_report_json_licenze_c83321d925.webp"
                 }
             }
         ],
@@ -758,14 +758,14 @@ export const projectsData: Project[] = [
         "lib": true,
         "media": [
             {
-                "src": "https://cms.casertano.name/uploads/Gemini_Generated_Image_lyh5filyh5filyh5_bd0fc97090.jpeg",
+                "src": "https://cms.casertano.name/uploads/Gemini_Generated_Image_lyh5filyh5filyh5_bd0fc97090.webp",
                 "type": "image",
                 "alt": "SmartDns — Resolver DNS con caching intelligente per Node.js",
                 "formats": {
-                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_Gemini_Generated_Image_lyh5filyh5filyh5_bd0fc97090.jpeg",
-                    "medium": "https://cms.casertano.name/uploads/medium_Gemini_Generated_Image_lyh5filyh5filyh5_bd0fc97090.jpeg",
-                    "large": "https://cms.casertano.name/uploads/large_Gemini_Generated_Image_lyh5filyh5filyh5_bd0fc97090.jpeg",
-                    "small": "https://cms.casertano.name/uploads/small_Gemini_Generated_Image_lyh5filyh5filyh5_bd0fc97090.jpeg"
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_Gemini_Generated_Image_lyh5filyh5filyh5_bd0fc97090.webp",
+                    "medium": "https://cms.casertano.name/uploads/medium_Gemini_Generated_Image_lyh5filyh5filyh5_bd0fc97090.webp",
+                    "large": "https://cms.casertano.name/uploads/large_Gemini_Generated_Image_lyh5filyh5filyh5_bd0fc97090.webp",
+                    "small": "https://cms.casertano.name/uploads/small_Gemini_Generated_Image_lyh5filyh5filyh5_bd0fc97090.webp"
                 }
             }
         ],
@@ -813,14 +813,14 @@ export const projectsData: Project[] = [
         "lib": true,
         "media": [
             {
-                "src": "https://cms.casertano.name/uploads/subresource_integrity_automatica_rollup_42a1c04970.jpeg",
+                "src": "https://cms.casertano.name/uploads/subresource_integrity_automatica_rollup_42a1c04970.webp",
                 "type": "image",
                 "alt": "Subresource Integrity automatica per Rollup",
                 "formats": {
-                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_subresource_integrity_automatica_rollup_42a1c04970.jpeg",
-                    "small": "https://cms.casertano.name/uploads/small_subresource_integrity_automatica_rollup_42a1c04970.jpeg",
-                    "large": "https://cms.casertano.name/uploads/large_subresource_integrity_automatica_rollup_42a1c04970.jpeg",
-                    "medium": "https://cms.casertano.name/uploads/medium_subresource_integrity_automatica_rollup_42a1c04970.jpeg"
+                    "thumbnail": "https://cms.casertano.name/uploads/thumbnail_subresource_integrity_automatica_rollup_42a1c04970.webp",
+                    "small": "https://cms.casertano.name/uploads/small_subresource_integrity_automatica_rollup_42a1c04970.webp",
+                    "large": "https://cms.casertano.name/uploads/large_subresource_integrity_automatica_rollup_42a1c04970.webp",
+                    "medium": "https://cms.casertano.name/uploads/medium_subresource_integrity_automatica_rollup_42a1c04970.webp"
                 }
             }
         ],

@@ -11,13 +11,21 @@ import { SectionLabel } from "@/components/section-label"
 
 export function ProjectDetail({ project }: { project: Project }) {
     const media = project.media?.[0]
+    const srcSet = media?.type === "image" && media.formats
+        ? [
+            media.formats.small ? `${media.formats.small} 500w` : null,
+            media.formats.medium ? `${media.formats.medium} 750w` : null,
+            media.formats.large ? `${media.formats.large} 1000w` : null,
+            `${media.src} 1360w`,
+        ].filter((s): s is string => s !== null).join(", ")
+        : undefined
 
     return (
         <div className="flex flex-col gap-10">
             <div className="w-full aspect-[2/1] bg-bg overflow-hidden rounded-lg">
                 {media ? (
                     media.type === "image" ? (
-                        <img src={media.src} alt={media.alt ?? project.title} fetchPriority="high" className="w-full h-full object-cover"/>
+                        <img src={media.formats?.large ?? media.src} srcSet={srcSet} sizes="(max-width: 768px) 100vw, 1036px" alt={media.alt ?? project.title} width={1036} height={597} decoding="async" fetchPriority="high" className="w-full h-full object-cover"/>
                     ) : (
                         <video src={media.src} controls className="w-full h-full object-cover"/>
                     )

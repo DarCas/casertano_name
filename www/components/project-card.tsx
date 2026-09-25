@@ -14,6 +14,14 @@ function ProjectMedia({ img, title }: { img: ProjectMediaType; title: string }) 
     const [loaded, setLoaded] = useState(false)
     const imgRef = useRef<HTMLImageElement>(null)
 
+    const srcSet = img.formats
+        ? [
+            img.formats.thumbnail ? `${img.formats.thumbnail} 245w` : null,
+            img.formats.small ? `${img.formats.small} 500w` : null,
+            img.formats.medium ? `${img.formats.medium} 750w` : null,
+        ].filter((s): s is string => s !== null).join(", ") || undefined
+        : undefined
+
     useEffect(() => {
         if (imgRef.current?.complete) setLoaded(true)
     }, [])
@@ -25,8 +33,13 @@ function ProjectMedia({ img, title }: { img: ProjectMediaType; title: string }) 
                 <img
                     ref={imgRef}
                     src={img.formats?.small ?? img.src}
+                    srcSet={srcSet}
+                    sizes="(max-width: 768px) 100vw, 340px"
                     alt={img.alt ?? title}
+                    width={500}
+                    height={288}
                     loading="lazy"
+                    decoding="async"
                     onLoad={() => setLoaded(true)}
                     className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${loaded ? "opacity-100" : "opacity-0"}`}
                 />
