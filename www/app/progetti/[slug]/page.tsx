@@ -66,6 +66,7 @@ function projectJsonLd(project: Project, url: string) {
                 "@type": "SoftwareApplication",
                 applicationCategory: "BusinessApplication",
                 ...(project.github ? {codeRepository: project.github} : {}),
+                ...(project.website ? {sameAs: [project.website]} : {}),
                 description: project.description,
                 image: project.media?.[ 0 ]?.src,
                 inLanguage: "it",

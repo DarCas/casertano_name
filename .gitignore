@@ -1,12 +1,5 @@
 .DS_Store
 .firebase
-node_modules
-dist
-tsconfig.tsbuildinfo
-@docs
-out
-api/@storage
-@vps
 
 # local env files
 .env*
@@ -29,3 +22,13 @@ pnpm-debug.log*
 *.sln
 *.sw?
 docker-build.sh
+
+@todo
+@vps
+
+api/@storage
+
+node_modules
+dist
+tsconfig.tsbuildinfo
+out

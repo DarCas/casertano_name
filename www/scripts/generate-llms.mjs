@@ -75,11 +75,13 @@ function tagLine(p) {
 }
 
 function fullProjectLine(p) {
-    return `- [${p.title}](${BASE}/progetti/${p.slug}/)${tagLine(p)} — ${p.short}`
+    const landing = p.website ? ` — Landing: ${p.website}` : ""
+    return `- [${p.title}](${BASE}/progetti/${p.slug}/)${tagLine(p)} — ${p.short}${landing}`
 }
 
 function shortProjectLine(p) {
-    return `- [${p.title}](${BASE}/progetti/${p.slug}/): ${p.short}`
+    const landing = p.website ? ` — Landing: ${p.website}` : ""
+    return `- [${p.title}](${BASE}/progetti/${p.slug}/): ${p.short}${landing}`
 }
 
 async function main() {

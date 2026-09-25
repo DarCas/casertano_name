@@ -50,22 +50,37 @@ export function ProjectDetail({ project }: { project: Project }) {
                     </div>
                 </div>
 
-                <div className="mt-16 flex items-center gap-4">
-                    {project.github && (
+                <div className="mt-16 flex flex-col items-center gap-4 sm:flex-row sm:items-center">
+                    {project.website ? (
+                        <a
+                            href={project.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Esplora il progetto — ${project.title}`}
+                            className="inline-flex items-center gap-2 font-mono text-[0.75rem] text-text-secondary no-underline border border-white/[0.08] rounded-full px-4 py-1.5 transition-colors duration-200 hover:border-accent hover:text-accent whitespace-nowrap"
+                        >
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                            esplora il progetto
+                        </a>
+                    ) : project.github ? (
                         <a
                             href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={`Codice sorgente su GitHub — ${project.title}`}
-                            className="inline-flex items-center gap-2 font-mono text-[0.75rem] text-text-secondary no-underline border border-white/[0.08] rounded-full px-4 py-1.5 transition-colors duration-200 hover:border-accent hover:text-accent"
+                            className="inline-flex items-center gap-2 font-mono text-[0.75rem] text-text-secondary no-underline border border-white/[0.08] rounded-full px-4 py-1.5 transition-colors duration-200 hover:border-accent hover:text-accent whitespace-nowrap"
                         >
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                             </svg>
                             codice sorgente
                         </a>
-                    )}
-                    <BackToTop align="right" className="mt-0 ml-auto"/>
+                    ) : null}
+                    <BackToTop align="right" className="mt-0 ml-0 sm:ml-auto"/>
                 </div>
             </div>
         </div>

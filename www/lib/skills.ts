@@ -14,7 +14,7 @@ export const categories: SkillCategory[] = [
     },
     {
         label: "Backend & APIs",
-        items: ["REST API", "JWT", "OAuth2", "Express.js", "Fastify", "TypeBox", "Laravel", "Eloquent", "Zend Framework 3", "Doctrine ORM", "TypeORM", "Drizzle ORM", "Strapi 5", "Dolibarr", "Joi", "Zod", "yargs", "Nodemailer", "Docxtemplater", "PhpWord", "mPDF", "Moodle", "Composer"],
+        items: ["REST API", "JWT", "OAuth2", "Express.js", "Fastify", "TypeBox", "Laravel", "Eloquent", "Zend Framework 3", "Doctrine ORM", "TypeORM", "Drizzle ORM", "Strapi", "Dolibarr", "Joi", "Zod", "yargs", "Nodemailer", "Docxtemplater", "PhpWord", "mPDF", "Moodle", "Composer"],
     },
     {
         label: "Databases",
@@ -22,7 +22,7 @@ export const categories: SkillCategory[] = [
     },
     {
         label: "DevOps & Infrastructure",
-        items: ["Docker", "Docker Compose", "Linux", "Apache", "Mosquitto", "coturn", "Sentry", "PM2", "rsync", "GitHub Actions"],
+        items: ["Docker", "Docker Compose", "Linux", "Apache", "Mosquitto", "coturn", "Sentry", "PM2", "rsync", "GitHub Actions", "GitHub Pages"],
     },
     {
         label: "Tooling & Build",
