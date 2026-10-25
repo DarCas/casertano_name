@@ -1,10 +1,10 @@
 # casertano.name — www
 
-[![Next.js](https://img.shields.io/badge/Next.js_15-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org)
-[![React](https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+[![Next.js 15.5](https://img.shields.io/badge/Next.js-15.5-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org)
+[![React 19.2](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
 ![TypeScript 5.9](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white&style=for-the-badge)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_v3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
-[![Node.js](https://img.shields.io/badge/Node.js_22-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)
+[![Tailwind CSS 3.4](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![Node.js 22.23.4](https://img.shields.io/badge/Node.js-22.23.4-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)
 [![Static Export](https://img.shields.io/badge/static_export-0A0A0B?style=for-the-badge&logo=vercel&logoColor=white)](#)
 
 [![CC BY-NC-ND 4.0](https://img.shields.io/badge/license-CC_BY--NC--ND_4.0-E9347A?style=for-the-badge&logo=creativecommons&logoColor=white)](../LICENSE.md)
@@ -68,7 +68,7 @@ Projects and contacts are fetched client-side: static export does no server-side
 - **next.config.ts** — `output: "export"`, `trailingSlash: true`, `images.unoptimized: true`
 - **tsconfig.json** — strict, alias `@/*` → root
 - **tailwind.config.ts** — custom palette (bg, accent, accent-secondary…) and glow animations
-- **.nvmrc** — Node 22.22.2
+- **.nvmrc** — Node 22.23.4
 
 ## Environment variables (`.env`)
 

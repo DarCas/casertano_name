@@ -2,10 +2,10 @@
 
 Headless CMS for the portfolio website of Dario Casertano.
 
-![Strapi 5](https://img.shields.io/badge/Strapi-5.52-2E7EEA?logo=strapi&logoColor=white&style=for-the-badge)
-![Node.js 22](https://img.shields.io/badge/Node.js-22-339933?logo=nodedotjs&logoColor=white&style=for-the-badge)
+![Strapi 5.55](https://img.shields.io/badge/Strapi-5.55-2E7EEA?logo=strapi&logoColor=white&style=for-the-badge)
+![Node.js 22.23.4](https://img.shields.io/badge/Node.js-22.23.4-339933?logo=nodedotjs&logoColor=white&style=for-the-badge)
 ![SQLite](https://img.shields.io/badge/SQLite-3-003B57?logo=sqlite&logoColor=white&style=for-the-badge)
-![TypeScript 5](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white&style=for-the-badge)
+![TypeScript 5.9](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white&style=for-the-badge)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white&style=for-the-badge)
 
 [![CC BY-NC-ND 4.0](https://img.shields.io/badge/license-CC_BY--NC--ND_4.0-E9347A?style=for-the-badge&logo=creativecommons&logoColor=white)](../LICENSE.md)
@@ -31,7 +31,7 @@ Strapi 5 headless CMS that stores and serves portfolio project data for the `www
 
 ## Getting started
 
-Requirements: **Node.js 22** (`.nvmrc`), npm.
+Requirements: **Node.js 22.23.4** (`.nvmrc`), npm.
 
 ```bash
 npm install
@@ -160,7 +160,7 @@ Notes:
 ├── types/generated/          → Auto-generated TypeScript definitions
 ├── .env.dist                 → Environment template
 ├── .secrets/                 → Runtime secrets (gitignored)
-├── Dockerfile                → Multi-stage build (node:22-alpine)
+├── Dockerfile                → Multi-stage build (node:22.23.4-alpine)
 ├── tsconfig.json             → CommonJS, ES2019, strict
 └── package.json              → Strapi 5.52.2 dependencies
 ```

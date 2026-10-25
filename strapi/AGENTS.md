@@ -35,7 +35,7 @@ Headless CMS Strapi 5 per il portfolio di Dario Casertano (`https://casertano.na
 - `config/api.ts` — `rest.defaultLimit: 25`, `rest.maxLimit: 100`, `strictParams: true`, `withCount: true`
 - `config/middlewares.ts` — strapi stack standard (logger, errors, security, cors `*`, poweredBy, query, body, session, favicon, public)
 - `tsconfig.json` — CommonJS, ES2019, strict, `outDir: dist`
-- `.nvmrc` — Node 22
+- `.nvmrc` — Node 22.23.4
 - Licenza CC BY-NC-ND 4.0 — header di copyright in cima ai file sorgente
 
 ## Ambiente (variabili `.env`)

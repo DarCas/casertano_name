@@ -2,11 +2,11 @@
 
 Express.js API server for the portfolio website of Dario Casertano.
 
-![Node.js 22](https://img.shields.io/badge/Node.js-22-339933?logo=nodedotjs&logoColor=white&style=for-the-badge)
+![Node.js 22.23.4](https://img.shields.io/badge/Node.js-22.23.4-339933?logo=nodedotjs&logoColor=white&style=for-the-badge)
 ![TypeScript 5.9](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white&style=for-the-badge)
-![Express 4](https://img.shields.io/badge/Express-4-000000?logo=express&logoColor=white&style=for-the-badge)
-![Joi 18](https://img.shields.io/badge/Joi-18-fdd835?style=for-the-badge)
-![Nodemailer 9](https://img.shields.io/badge/Nodemailer-9-339933?style=for-the-badge)
+![Express 4.22](https://img.shields.io/badge/Express-4.22-000000?logo=express&logoColor=white&style=for-the-badge)
+![Joi 18.3](https://img.shields.io/badge/Joi-18.3-fdd835?style=for-the-badge)
+![Nodemailer 10.2](https://img.shields.io/badge/Nodemailer-10.2-339933?style=for-the-badge)
 ![GlitchTip](https://img.shields.io/badge/Monitoring-GlitchTip-362D59?logo=sentry&logoColor=white&style=for-the-badge)
 
 [![CC BY-NC-ND 4.0](https://img.shields.io/badge/license-CC_BY--NC--ND_4.0-E9347A?style=for-the-badge&logo=creativecommons&logoColor=white)](../LICENSE.md)
@@ -30,7 +30,7 @@ A single Node.js service that powers the entire site:
 
 ## Getting started
 
-Requirements: **Node.js 22** (`.nvmrc`), npm.
+Requirements: **Node.js 22.23.4** (`.nvmrc`), npm.
 
 ```bash
 npm install

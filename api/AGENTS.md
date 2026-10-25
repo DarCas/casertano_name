@@ -4,7 +4,7 @@ Express.js API server for casertano.name portfolio/contact.
 
 ## Stack
 
-Node.js 22 (`.nvmrc`), TypeScript 5, Express 4, ts-node-dev, Yargs CLI, compression, cors, express-rate-limit, Joi, Nodemailer, Sentry (GlitchTip), Luxon, dotenv.
+Node.js 22.23.4 (`.nvmrc`), TypeScript 5, Express 4, ts-node-dev, Yargs CLI, compression, cors, express-rate-limit, Joi, Nodemailer, Sentry (GlitchTip), Luxon, dotenv.
 
 ## Commands
 

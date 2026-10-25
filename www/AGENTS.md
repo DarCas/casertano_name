@@ -24,7 +24,7 @@ Portfolio statico di Dario Casertano (`https://casertano.name`). Build statica N
 - `next.config.ts` — `output: "export"`, `trailingSlash: true`, `images.unoptimized: true`
 - `tsconfig.json` — strict, alias `@/*` → root, exclude `api`
 - `tailwind.config.ts` — palette custom (bg, bg-surface, text, text-secondary, accent, accent-light, accent-secondary), font JetBrains Mono / Plus Jakarta Sans via variabili CSS
-- `.nvmrc` — Node 22.22.2
+- `.nvmrc` — Node 22.23.4
 - Licenza CC BY-NC-ND 4.0 — header di copyright in cima ai file sorgente
 
 ## Ambiente (variabili `.env`, prefisso `NEXT_PUBLIC_`)

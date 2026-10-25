@@ -22,7 +22,7 @@
     "luxon": "^3.7.2",
     "mime-types": "^3.0.2",
     "nocache": "^4.0.0",
-    "nodemailer": "^9.0.3",
+    "nodemailer": "^10.2.1",
     "serve-favicon": "^2.5.1",
     "uuid": "^14.0.1",
     "yargs": "^18.1.0"
