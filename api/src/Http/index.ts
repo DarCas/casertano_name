@@ -8,6 +8,7 @@ import { getStorageWww } from "@/@projlib/Storage";
 import { CliUx } from '@/@stdlib/cli-ux'
 import { bootstrap, EnvEnum } from '@/@stdlib/environment'
 import { jsonServices } from '@/@stdlib/expressjs/services/JsonServices'
+import { HttpCodes } from '@/@stdlib/network'
 import { isEnabled } from "@/@stdlib/sentry";
 import { headersMiddleware } from "@/Http/@shared/middlewares/HeadersMiddleware";
 import { corsOptions as corsOptionsClient } from '@/Http/Client/cors'
@@ -64,6 +65,9 @@ export const handler = async ({port}: { port: number }): Promise<void> => {
 
     app.use(headersMiddleware())
     app.use(jsonServices())
+
+    app.get('/health', (_: RequestExpress, res: ResponseExpress) =>
+        res.status(HttpCodes.OK).toJson({ status: 'ok' }))
 
     app.use('/api/v1', cors(corsOptionsClient), v1)
 

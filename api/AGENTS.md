@@ -34,6 +34,8 @@ Route factory (`@stdlib/expressjs/routes`) maps `path` + HTTP method to `camelCa
 
 Controllers reply via `res.toJson(body)` → `{code, text, pyld}` (`pyld` is misspelled by design — it's the wire contract). `x-api-version` header is added to every response (`HeadersMiddleware`).
 
+`GET /health` is registered directly in `src/Http/index.ts` after `jsonServices()` — same envelope and `x-api-version`, but outside the `/api/v1` factory. It is the liveness probe used by the compose `healthcheck`; it must stay before the static 404 catch-all.
+
 ## Validation
 
 `@stdlib/joi.ts` wraps Joi with Italian messages. `JoiValidate` rejects with a `{field: message}` map (not a Joi error); controllers catch it and answer HTTP 412 via `.toJson(e)`. A Joi `ValidationError` thrown inside an action is also mapped to 412 by the route factory.

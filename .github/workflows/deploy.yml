@@ -41,5 +41,5 @@ jobs:
             echo "::error::VPS_SSH_KEY is malformed (not a valid OpenSSH private key). Expect header -----BEGIN OPENSSH PRIVATE KEY-----, no passphrase, Unix line endings."
             exit 1
           fi
-          ssh -o BatchMode=yes -o StrictHostKeyChecking=accept-new -p "$VPS_PORT" -i ~/.ssh/deploy_key "$VPS_USER@$VPS_HOST" 'cd docker/name_casertano && ./update'
+          ssh -o BatchMode=yes -o StrictHostKeyChecking=accept-new -p "$VPS_PORT" -i ~/.ssh/deploy_key "$VPS_USER@$VPS_HOST" 'cd docker/name_casertano && ./docker-compose.sh'
           rm -f ~/.ssh/deploy_key

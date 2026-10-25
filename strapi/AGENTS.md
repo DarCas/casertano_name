@@ -69,4 +69,5 @@ Non c'è cascade `.env` come in `api/` — solo `.env` (e `.env.local` per overr
 - `public/robots.txt` blocca l'indicizzazione di tutto tranne `/uploads/` — il CMS non deve essere indicizzato dai motori di ricerca.
 - Il database SQLite è in `data/database.sqlite` (gitignored). Le migrazioni sono auto-generate in `database/migrations/`.
 - `types/generated/` contiene i tipi TypeScript auto-generati da Strapi — non modificarli a mano, vengono rigenerati ad ogni build/dev.
+- **Healthcheck** — `GET /_health` è registrato dal core di Strapi (non dal progetto) e risponde `204` senza auth: è l'endpoint usato dal `healthcheck` del servizio `strapi` in `docker-compose`. Non va aggiunto codice custom.
 - **NON eseguire mai commit senza esplicito permesso.**

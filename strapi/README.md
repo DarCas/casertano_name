@@ -2,7 +2,7 @@
 
 Headless CMS for the portfolio website of Dario Casertano.
 
-![Strapi 5.55](https://img.shields.io/badge/Strapi-5.55-2E7EEA?logo=strapi&logoColor=white&style=for-the-badge)
+![Strapi 5.59](https://img.shields.io/badge/Strapi-5.59-2E7EEA?logo=strapi&logoColor=white&style=for-the-badge)
 ![Node.js 22.23.4](https://img.shields.io/badge/Node.js-22.23.4-339933?logo=nodedotjs&logoColor=white&style=for-the-badge)
 ![SQLite](https://img.shields.io/badge/SQLite-3-003B57?logo=sqlite&logoColor=white&style=for-the-badge)
 ![TypeScript 5.9](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white&style=for-the-badge)
@@ -86,7 +86,7 @@ All commands run from the `strapi/` directory.
 
 ### Content API
 
-All endpoints are under `/api` and follow the standard Strapi REST conventions.
+All content endpoints are under `/api` and follow the standard Strapi REST conventions.
 
 #### `GET /api/projects`
 
@@ -109,6 +109,10 @@ Deletes a project. Requires admin or full-access API token.
 - **Admin panel** (`/admin`) — JWT auth with refresh tokens, session-based.
 - **Content API** — API tokens (read-only or full-access) passed via `Authorization: Bearer <token>`.
 - The `www/` frontend uses a Content API token (`NEXT_PUBLIC_CMS_API_TOKEN`) to fetch published projects.
+
+### Health
+
+`GET /_health` returns `204 No Content` with the `strapi` response header. It is registered by the Strapi core (no auth, no project code) and is the endpoint probed by the `strapi` service healthcheck in the deployment compose file.
 
 ## Environment
 
@@ -162,7 +166,7 @@ Notes:
 ├── .secrets/                 → Runtime secrets (gitignored)
 ├── Dockerfile                → Multi-stage build (node:22.23.4-alpine)
 ├── tsconfig.json             → CommonJS, ES2019, strict
-└── package.json              → Strapi 5.52.2 dependencies
+└── package.json              → Strapi 5.59.0 dependencies
 ```
 
 ## Build & deployment

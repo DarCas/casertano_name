@@ -55,7 +55,8 @@ There are no tests and no linter. `./@bin/build` is the only verification step.
 
 ## API
 
-All endpoints are mounted under `/api/v1` and answer with the envelope below.
+All endpoints are mounted under `/api/v1` and answer with the envelope below. The only exception is `GET /health`, a
+liveness probe served outside the API namespace.
 
 ### Response envelope
 
@@ -92,6 +93,19 @@ Responses:
 | `498 Invalid Token` | Turnstile verification failed |
 | `429 Too Many Requests` | rate limit exceeded |
 | `500 Internal Server Error` | mailer error |
+
+### `GET /health`
+
+Liveness probe used by the container healthcheck. It touches no dependency and returns `200` while the process is
+running.
+
+```json
+{
+  "code": 200,
+  "text": "OK",
+  "pyld": { "status": "ok" }
+}
+```
 
 ## Environment
 

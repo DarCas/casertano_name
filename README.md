@@ -1,7 +1,7 @@
-# Dario Casertano's Personal Portfolio
+# Personal Portfolio
 
 [![Next.js 15.5](https://img.shields.io/badge/Next.js-15.5-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org)
-[![React 19.2](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+[![React 19.3](https://img.shields.io/badge/React-19.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
 ![TypeScript 5.9](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white&style=for-the-badge)
 [![Tailwind CSS 3.4](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 ![Express 4.22](https://img.shields.io/badge/Express-4.22-000000?logo=express&logoColor=white&style=for-the-badge)
@@ -72,4 +72,6 @@ The container starts Express with `node api/src/index.js api` on port 3001. Memo
 
 ## License
 
-Distributed under the [CC BY-NC-ND 4.0](LICENSE.md) license — © 2026 Casertano Dario. All rights reserved.
+Distributed under the [CC BY-NC-ND 4.0](LICENSE.md) license 
+
+© 2026 Casertano Dario. All rights reserved.
