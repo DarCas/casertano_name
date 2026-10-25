@@ -1,34 +1,16 @@
-.DS_Store
-.firebase
+.idea/
+@vps/
 
-# local env files
+api/dist
+
+www/.next/
+www/lib/projects-data.ts
+www/lib/version.ts
+www/out/
+www/public/*.txt
+
+node_modules/
 .env*
 !.env.example
-!.env.dist
-
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Editor directories and files
-.idea
-.next
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
 docker-build.sh
-
-@todo
-@vps
-
-api/@storage
-
-node_modules
-dist
 tsconfig.tsbuildinfo
-out
